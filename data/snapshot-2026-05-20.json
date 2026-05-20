@@ -1,0 +1,96 @@
+{
+  "asOf": "2026-05-20",
+  "note": "研究监控台默认数据快照。行情类数据会日内波动，交易前需重新校验。",
+  "items": [
+    {
+      "id": "brent",
+      "name": "布伦特原油",
+      "value": 110.42,
+      "unit": "美元/桶",
+      "status": "red",
+      "source": "TECHi / ICE Brent futures",
+      "url": "https://www.techi.com/oil-price-today/"
+    },
+    {
+      "id": "wti",
+      "name": "WTI原油",
+      "value": 103.15,
+      "unit": "美元/桶",
+      "status": "red",
+      "source": "TECHi / NYMEX WTI futures",
+      "url": "https://www.techi.com/oil-price-today/"
+    },
+    {
+      "id": "gold",
+      "name": "现货黄金",
+      "value": 4489,
+      "unit": "美元/盎司",
+      "status": "amber",
+      "source": "MyGoldCalc / GoldAPI",
+      "url": "https://mygoldcalc.com/gold-price/2026/05/20"
+    },
+    {
+      "id": "ust10y",
+      "name": "美国10年期国债收益率",
+      "value": 4.67,
+      "unit": "%",
+      "status": "red",
+      "source": "MarketScreener / YCharts / FRED口径",
+      "url": "https://www.marketscreener.com/news/yield-on-10-yr-u-s-treasury-notes-climbs-to-4-679-ce7f5adbd088fe24"
+    },
+    {
+      "id": "usCrudeInv",
+      "name": "美国商业原油库存",
+      "value": 452.9,
+      "unit": "百万桶",
+      "status": "yellow",
+      "source": "EIA Weekly Petroleum Status Report",
+      "url": "https://www.eia.gov/petroleum/supply/weekly/"
+    },
+    {
+      "id": "distillate",
+      "name": "美国馏分油库存",
+      "value": 102.5,
+      "unit": "百万桶",
+      "status": "amber",
+      "source": "EIA Weekly Petroleum Status Report",
+      "url": "https://www.eia.gov/petroleum/supply/weekly/"
+    },
+    {
+      "id": "spr",
+      "name": "美国战略石油储备",
+      "value": 384.1,
+      "unit": "百万桶",
+      "status": "amber",
+      "source": "EIA Weekly Petroleum Status Report",
+      "url": "https://www.eia.gov/petroleum/supply/weekly/"
+    },
+    {
+      "id": "cpiHeadline",
+      "name": "美国CPI同比",
+      "value": 3.8,
+      "unit": "%",
+      "status": "amber",
+      "source": "BLS Consumer Price Index",
+      "url": "https://www.bls.gov/news.release/cpi.htm"
+    },
+    {
+      "id": "coreCpi",
+      "name": "美国核心CPI同比",
+      "value": 2.8,
+      "unit": "%",
+      "status": "green",
+      "source": "BLS Consumer Price Index",
+      "url": "https://www.bls.gov/news.release/cpi.htm"
+    },
+    {
+      "id": "mag7Capex",
+      "name": "九大云服务商2026年资本开支预估",
+      "value": 830,
+      "unit": "十亿美元",
+      "status": "amber",
+      "source": "TrendForce",
+      "url": "https://www.trendforce.com/presscenter/news/20260506-13033.html"
+    }
+  ]
+}
