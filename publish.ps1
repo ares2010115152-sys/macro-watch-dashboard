@@ -9,8 +9,8 @@ if (-not (Test-Path $gh)) {
 Write-Host "Checking GitHub authentication..."
 & $gh auth status
 
-$remote = git remote get-url origin 2>$null
-if (-not $remote) {
+$remotes = @(git remote)
+if ($remotes -notcontains "origin") {
   Write-Host "Creating GitHub repository: $repoName"
   & $gh repo create $repoName --public --source . --remote origin --push
 } else {
