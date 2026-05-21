@@ -1,0 +1,102 @@
+{
+  "asOf": "2026-05-21",
+  "note": "硬数据优先；谈判进展和运输恢复度仍需按日复核。",
+  "items": [
+    {
+      "id": "brent",
+      "name": "布伦特原油",
+      "value": 105.02,
+      "unit": "美元/桶",
+      "status": "amber",
+      "source": "Reuters oil settlement",
+      "url": "https://au.investing.com/news/commodities-news/oil-prices-ease-after-trump-says-us-will-end-iran-war-very-quickly-4446082"
+    },
+    {
+      "id": "wti",
+      "name": "WTI原油",
+      "value": 98.26,
+      "unit": "美元/桶",
+      "status": "yellow",
+      "source": "Reuters oil settlement",
+      "url": "https://au.investing.com/news/commodities-news/oil-prices-ease-after-trump-says-us-will-end-iran-war-very-quickly-4446082"
+    },
+    {
+      "id": "usCrudeInv",
+      "name": "美国商业原油库存",
+      "value": 445,
+      "unit": "百万桶",
+      "status": "yellow",
+      "source": "EIA via Reuters weekly inventory update",
+      "url": "https://au.investing.com/news/commodities-news/oil-prices-ease-after-trump-says-us-will-end-iran-war-very-quickly-4446082"
+    },
+    {
+      "id": "hormuzCrossings",
+      "name": "霍尔木兹船舶通行量",
+      "value": 26,
+      "unit": "艘/日",
+      "status": "red",
+      "source": "MUFG / Bloomberg ship-crossing chart",
+      "url": "https://www.mufgamericas.com/sites/default/files/document/mufgamericas_com/2026-05/Chart_of_the_Day_5_4_The_Most_Important_Chart_in_Global_Markets.pdf"
+    },
+    {
+      "id": "brentFrontSpread",
+      "name": "布伦特近月-六月价差",
+      "value": 20,
+      "unit": "美元/桶",
+      "status": "amber",
+      "source": "Reuters Brent curve comment",
+      "url": "https://au.investing.com/news/commodities-news/oil-prices-ease-after-trump-says-us-will-end-iran-war-very-quickly-4446082"
+    },
+    {
+      "id": "ieaOilDeficit",
+      "name": "IEA 2026油市缺口预估",
+      "value": 1.78,
+      "unit": "百万桶/日",
+      "status": "red",
+      "source": "IEA Oil Market Report - May 2026",
+      "url": "https://www.iea.org/reports/oil-market-report-may-2026"
+    },
+    {
+      "id": "buffettIndicator",
+      "name": "巴菲特指标",
+      "value": 252,
+      "unit": "%",
+      "status": "red",
+      "source": "buffettindicator.org",
+      "url": "https://buffettindicator.org/"
+    },
+    {
+      "id": "spxCrashProb",
+      "name": "SPX年内30%尾部下跌概率",
+      "value": 9,
+      "unit": "%",
+      "status": "amber",
+      "source": "TS Lombard via Seeking Alpha",
+      "url": "https://seekingalpha.com/news/4533859-options-price-8-10-chance-of-stock-crash-in-26-but-watch-misery-index/"
+    },
+    {
+      "id": "privateCreditRedemptions",
+      "name": "私募信贷赎回压力",
+      "value": 11.3,
+      "unit": "%",
+      "status": "red",
+      "source": "Reuters / Barings fund filing",
+      "url": "https://www.marketscreener.com/news/barings-private-credit-fund-limits-withdrawals-after-redemption-requests-surge-ce7e51d2d18cf125"
+    },
+    {
+      "id": "loanDefaultRate",
+      "name": "低评级贷款12个月违约率",
+      "value": 5.5,
+      "unit": "%",
+      "status": "amber",
+      "source": "U.S. Bank / PitchBook LCD / Moody's",
+      "url": "https://www.usbank.com/investing/financial-perspectives/market-news/private-credit.html"
+    }
+  ],
+  "scenarioNotes": [
+    "油价下跌可由谈判消息压制，但通航、库存和缺口未恢复前不等于趋势反转。",
+    "若谈判成功且运输恢复，Wood Mackenzie给出年末布伦特约80美元的缓和情景。",
+    "若霍尔木兹长期受阻，Wood Mackenzie给出布伦特接近200美元的极端上行情景。",
+    "美股顶部更可能体现为估值、广度和信用缓冲垫逐步耗尽，而非单次新闻即可定时。"
+  ]
+}

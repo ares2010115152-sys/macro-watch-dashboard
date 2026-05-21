@@ -13,9 +13,9 @@ const defaultIndicators = [
     name: "布伦特原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 110.42,
-    asOf: "2026-05-19",
-    source: "TECHi / ICE Brent futures",
+    value: 105.02,
+    asOf: "2026-05-20",
+    source: "Reuters / ICE Brent futures",
     frequency: "每日",
     summary: true,
     thesis: "能源通胀压力已显性化；站稳120美元后，美股估值压力会明显放大。",
@@ -39,9 +39,9 @@ const defaultIndicators = [
     name: "美国10年期国债收益率",
     category: "利率与流动性",
     unit: "%",
-    value: 4.67,
-    asOf: "2026-05-20",
-    source: "MarketScreener / YCharts / FRED口径",
+    value: 4.604,
+    asOf: "2026-05-21",
+    source: "Reuters page market quote / FRED口径",
     frequency: "每日",
     summary: true,
     thesis: "长端利率是AI估值与美股风险偏好的折现率核心；逼近5%会触发更强估值重定价。",
@@ -78,9 +78,9 @@ const defaultIndicators = [
     name: "WTI原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 103.15,
-    asOf: "2026-05-19",
-    source: "TECHi / NYMEX WTI futures",
+    value: 98.26,
+    asOf: "2026-05-20",
+    source: "Reuters / NYMEX WTI futures",
     frequency: "每日",
     thesis: "美国本土供需与炼厂原料压力的高频指标。",
     rule: { mode: "higherRisk", green: 85, yellow: 100, amber: 115 },
@@ -90,9 +90,9 @@ const defaultIndicators = [
     name: "美国商业原油库存",
     category: "能源与航运",
     unit: "百万桶",
-    value: 452.9,
-    asOf: "2026-05-08",
-    source: "EIA Weekly Petroleum Status Report",
+    value: 445,
+    asOf: "2026-05-15",
+    source: "EIA via Reuters weekly inventory update",
     frequency: "每周",
     thesis: "库存是否仍在掩盖供需缺口；连续去库比单周绝对数更重要。",
     rule: { mode: "lowerRisk", green: 465, yellow: 435, amber: 410 },
@@ -120,6 +120,42 @@ const defaultIndicators = [
     frequency: "每日",
     thesis: "把地缘叙事量化为0-100分：封锁、保险、船期延误、护航强度共同打分。",
     rule: { mode: "higherRisk", green: 30, yellow: 55, amber: 75 },
+  },
+  {
+    id: "hormuzCrossings",
+    name: "霍尔木兹船舶通行量",
+    category: "能源与航运",
+    unit: "艘/日",
+    value: 26,
+    asOf: "2026-05-20",
+    source: "MUFG / Bloomberg ship-crossing chart",
+    frequency: "每日",
+    thesis: "短期消息能放大反弹，但与战前约130艘/日相比，26艘仍说明运输系统远未恢复。",
+    rule: { mode: "lowerRisk", green: 130, yellow: 80, amber: 30 },
+  },
+  {
+    id: "brentFrontSpread",
+    name: "布伦特近月-六月价差",
+    category: "能源与航运",
+    unit: "美元/桶",
+    value: 20,
+    asOf: "2026-05-20",
+    source: "Reuters Brent curve comment",
+    frequency: "每日",
+    thesis: "现货紧张的曲线信号；虽然较上月35美元高点回落，20美元仍不是宽松油市。",
+    rule: { mode: "higherRisk", green: 5, yellow: 10, amber: 20 },
+  },
+  {
+    id: "ieaOilDeficit",
+    name: "IEA 2026油市缺口预估",
+    category: "能源与航运",
+    unit: "百万桶/日",
+    value: 1.78,
+    asOf: "2026-05-13",
+    source: "IEA Oil Market Report - May 2026",
+    frequency: "每月",
+    thesis: "油价是否只是情绪市，要看全年供需缺口是否仍为正；IEA仍给出明显赤字。",
+    rule: { mode: "higherRisk", green: 0, yellow: 0.6, amber: 1.2 },
   },
   {
     id: "cpiHeadline",
@@ -242,6 +278,54 @@ const defaultIndicators = [
     rule: { mode: "higherRisk", green: 330, yellow: 430, amber: 550 },
   },
   {
+    id: "buffettIndicator",
+    name: "巴菲特指标",
+    category: "市场脆弱性",
+    unit: "%",
+    value: 252,
+    asOf: "2026-05-19",
+    source: "buffettindicator.org / FRED Wilshire-GDP口径",
+    frequency: "每日",
+    thesis: "美股总市值相对GDP的估值压力表；历史高位代表市场对好消息依赖更强。",
+    rule: { mode: "higherRisk", green: 135, yellow: 180, amber: 230 },
+  },
+  {
+    id: "spxCrashProb",
+    name: "SPX年内30%尾部下跌概率",
+    category: "市场脆弱性",
+    unit: "%",
+    value: 9,
+    asOf: "2026-01-28",
+    source: "TS Lombard via Seeking Alpha",
+    frequency: "每周",
+    thesis: "不是崩盘预测，而是期权市场给尾部风险的价格；若风险上升而指数仍亢奋，保护会变贵。",
+    rule: { mode: "higherRisk", green: 5, yellow: 8, amber: 12 },
+  },
+  {
+    id: "privateCreditRedemptions",
+    name: "私募信贷赎回压力",
+    category: "私人信贷",
+    unit: "%",
+    value: 11.3,
+    asOf: "2026-04-06",
+    source: "Reuters / Barings fund filing",
+    frequency: "事件",
+    thesis: "Barings一只私募信贷基金一季度赎回请求占比；赎回超过流动性闸门是信用链条预警。",
+    rule: { mode: "higherRisk", green: 5, yellow: 7.5, amber: 10 },
+  },
+  {
+    id: "loanDefaultRate",
+    name: "低评级贷款12个月违约率",
+    category: "私人信贷",
+    unit: "%",
+    value: 5.5,
+    asOf: "2026-01-31",
+    source: "U.S. Bank / PitchBook LCD / Moody's",
+    frequency: "每月",
+    thesis: "流动性危机前，先观察公开杠杆贷款与私募信贷借款人的现金流恶化。",
+    rule: { mode: "higherRisk", green: 3, yellow: 4.5, amber: 6 },
+  },
+  {
     id: "gold",
     name: "现货黄金",
     category: "黄金与避险",
@@ -307,7 +391,11 @@ const seedRecords = [
   ["brent", "2026-03-31", 88, "风险溢价尚未完全进入油价"],
   ["brent", "2026-04-15", 96, "航运担忧升温"],
   ["brent", "2026-05-01", 103, "库存压力显性化"],
-  ["brent", "2026-05-20", 110.42, "当前观察盘：油价处于红灯区间"],
+  ["brent", "2026-05-19", 110.42, "谈判乐观前的风险溢价高位"],
+  ["brent", "2026-05-20", 105.02, "谈判消息压制，供需风险未解除"],
+  ["wti", "2026-05-19", 103.15, "消息缓和前的高位"],
+  ["wti", "2026-05-20", 98.26, "Reuters记录：单日回落约6%"],
+  ["usCrudeInv", "2026-05-15", 445, "EIA周报：商业原油库存继续下降"],
   ["distillate", "2026-03-31", 116, "五年区间下沿附近"],
   ["distillate", "2026-04-15", 111, "库存继续下降"],
   ["distillate", "2026-05-01", 106, "柴油链条偏紧"],
@@ -315,7 +403,8 @@ const seedRecords = [
   ["ust10y", "2026-03-31", 4.15, "长债压力温和"],
   ["ust10y", "2026-04-15", 4.35, "降息预期削弱"],
   ["ust10y", "2026-05-01", 4.48, "估值折现率上行"],
-  ["ust10y", "2026-05-20", 4.67, "当前观察盘：长债进入估值压制区间"],
+  ["ust10y", "2026-05-20", 4.67, "长债进入估值压制区间"],
+  ["ust10y", "2026-05-21", 4.604, "油价消息回落后，利率压力仍未消失"],
   ["spxPe", "2026-03-31", 19.4, "估值偏高但尚可解释"],
   ["spxPe", "2026-04-15", 20.1, "AI权重继续托估值"],
   ["spxPe", "2026-05-01", 20.6, "安全垫收窄"],
@@ -328,6 +417,12 @@ const seedRecords = [
   ["gold", "2026-04-15", 3180, "避险需求升温"],
   ["gold", "2026-05-01", 3280, "实际利率与避险拉扯"],
   ["gold", "2026-05-20", 4489, "当前观察盘：黄金位于高位避险区间"],
+  ["hormuzCrossings", "2026-05-20", 26, "通行边际改善，但远低于战前正常水平"],
+  ["brentFrontSpread", "2026-05-20", 20, "近端紧张较高点回落但仍显著"],
+  ["ieaOilDeficit", "2026-05-13", 1.78, "IEA五月报告仍预估全年赤字"],
+  ["buffettIndicator", "2026-05-19", 252, "美国总市值/GDP处于强高估区"],
+  ["privateCreditRedemptions", "2026-04-06", 11.3, "赎回请求明显高于常见流动性闸门"],
+  ["loanDefaultRate", "2026-01-31", 5.5, "低评级贷款违约率偏高"],
 ];
 
 const categories = ["全部类别", ...new Set(defaultIndicators.map((item) => item.category))];
@@ -347,6 +442,11 @@ const events = [
     cadence: "每周",
     title: "流动性与财政抽水",
     body: "跟踪TGA、RRP、银行准备金、票据发行和长债拍卖结果。",
+  },
+  {
+    cadence: "每周",
+    title: "私人信贷与CLO压力",
+    body: "跟踪BDC净值、PIK占比、开放式基金赎回/闸门、杠杆贷款违约率和CLO价差。",
   },
   {
     cadence: "每月",
@@ -414,10 +514,23 @@ function loadState() {
   try {
     const parsed = JSON.parse(raw);
     if (!parsed.indicators || !parsed.records) return cloneDefaultState();
-    return parsed;
+    return mergeStoredState(parsed);
   } catch {
     return cloneDefaultState();
   }
+}
+
+function mergeStoredState(stored) {
+  const storedById = new Map(stored.indicators.map((indicator) => [indicator.id, indicator]));
+  const indicators = defaultIndicators.map((indicator) => {
+    const saved = storedById.get(indicator.id);
+    return saved ? { ...clone(indicator), ...saved, rule: clone(indicator.rule) } : clone(indicator);
+  });
+  const extraIndicators = stored.indicators.filter((indicator) => !defaultIndicators.some((item) => item.id === indicator.id));
+  return {
+    indicators: [...indicators, ...extraIndicators],
+    records: Array.isArray(stored.records) ? stored.records : [],
+  };
 }
 
 function cloneDefaultState() {
@@ -507,7 +620,18 @@ function setTrafficLight(el, level) {
 }
 
 function getCriticalIndicators() {
-  return ["brent", "distillate", "ust10y", "spxPe", "mag7Capex"].map(byId).filter(Boolean);
+  return [
+    "brent",
+    "hormuzCrossings",
+    "ieaOilDeficit",
+    "ust10y",
+    "spxPe",
+    "buffettIndicator",
+    "privateCreditRedemptions",
+    "mag7Capex",
+  ]
+    .map(byId)
+    .filter(Boolean);
 }
 
 function getOverallStatus() {
@@ -532,6 +656,7 @@ function renderAll() {
   renderOverall();
   renderSummary();
   renderTriggers();
+  renderWatchPanels();
   renderChartOptions();
   renderTrendChart();
   renderFilters();
@@ -597,6 +722,16 @@ function renderTriggers() {
       title: "AI FOMO",
       body: "资本开支继续上修但现金流覆盖不足时，市场会开始审视回报率。",
     },
+    {
+      indicator: byId("privateCreditRedemptions"),
+      title: "私人信贷赎回",
+      body: "赎回压力或闸门事件若扩散，风险会从估值回撤切到流动性抛售。",
+    },
+    {
+      indicator: byId("buffettIndicator"),
+      title: "估值缓冲垫",
+      body: "总市值/GDP处于极高区间时，市场还能反复，但每次利好都更依赖流动性支撑。",
+    },
   ];
 
   document.getElementById("triggerList").innerHTML = checks
@@ -610,6 +745,45 @@ function renderTriggers() {
             <p>${body}</p>
           </div>
         </div>
+      `;
+    })
+    .join("");
+}
+
+function renderWatchPanels() {
+  renderWatchGrid("fragilityGrid", [
+    "buffettIndicator",
+    "spxCrashProb",
+    "privateCreditRedemptions",
+    "loanDefaultRate",
+  ]);
+  renderWatchGrid("oilPulseGrid", [
+    "brent",
+    "wti",
+    "hormuzCrossings",
+    "brentFrontSpread",
+    "ieaOilDeficit",
+  ]);
+}
+
+function renderWatchGrid(id, indicatorIds) {
+  const grid = document.getElementById(id);
+  if (!grid) return;
+  grid.innerHTML = indicatorIds
+    .map(byId)
+    .filter(Boolean)
+    .map((indicator) => {
+      const status = getStatus(indicator);
+      return `
+        <article class="watch-item">
+          <div class="watch-head">
+            <strong>${indicator.name}</strong>
+            <span class="status-dot ${status.level}" title="${status.label}"></span>
+          </div>
+          <div class="watch-value">${formatValue(indicator)}</div>
+          <p>${indicator.thesis}</p>
+          <span>${indicator.asOf} · ${indicator.source}</span>
+        </article>
       `;
     })
     .join("");
