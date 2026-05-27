@@ -25,6 +25,10 @@
             <span class="nav-icon" aria-hidden="true">▦</span>
             指标库
           </button>
+          <button class="nav-item" data-view="ashare" type="button">
+            <span class="nav-icon" aria-hidden="true">◇</span>
+            A股情绪
+          </button>
           <button class="nav-item" data-view="entry" type="button">
             <span class="nav-icon" aria-hidden="true">＋</span>
             数据录入
@@ -253,6 +257,80 @@
               </thead>
               <tbody id="indicatorTable"></tbody>
             </table>
+          </div>
+        </section>
+
+        <section id="ashare" class="view" aria-labelledby="ashareTitle">
+          <div class="section-head page-head">
+            <div>
+              <p class="eyebrow">A-share Retail Sentiment</p>
+              <h2 id="ashareTitle">A股散户情绪与市场热度周度监测</h2>
+            </div>
+            <span class="pill">每周五更新</span>
+          </div>
+
+          <div class="ashare-hero">
+            <div>
+              <p class="eyebrow">核心判断</p>
+              <h3>当前是资金入市“进行时”，但还不是无差别狂热</h3>
+              <p>
+                4月开户数环比降温，但两融、成交额和新基金发行仍显示风险偏好明显升温；涨停潮和市场广度仍有分化，说明散户情绪更偏结构性追逐，而非全面牛市末端的普涨狂热。
+              </p>
+            </div>
+            <div class="heat-score">
+              <span>综合热度</span>
+              <strong id="ashareScore">--</strong>
+              <em id="ashareStatus">计算中</em>
+            </div>
+          </div>
+
+          <div class="ashare-grid" id="ashareHeatGrid"></div>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Weekly Monitor</p>
+                <h3>周度监测表</h3>
+              </div>
+              <span class="pill" id="ashareReason">指标共振看阶段</span>
+            </div>
+            <div class="table-panel compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>维度</th>
+                    <th>核心指标</th>
+                    <th>当前/示例值</th>
+                    <th>灯号</th>
+                    <th>历史阈值</th>
+                    <th>研判逻辑</th>
+                  </tr>
+                </thead>
+                <tbody id="ashareMonitorTable"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="split-layout">
+            <section class="panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Lead-Lag System</p>
+                  <h3>先行、同步与滞后信号</h3>
+                </div>
+              </div>
+              <div class="retail-signal-list" id="ashareChecklist"></div>
+            </section>
+
+            <section class="panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Historical Pattern</p>
+                  <h3>历史参考</h3>
+                </div>
+              </div>
+              <div class="history-list" id="ashareHistory"></div>
+            </section>
           </div>
         </section>
 

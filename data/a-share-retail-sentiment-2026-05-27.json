@@ -1,0 +1,115 @@
+{
+  "asOf": "2026-05-27",
+  "title": "A股散户情绪与市场热度周度监测",
+  "summary": "4月开户数环比降温，但两融、成交额、新基金发行仍显示资金入市进行中；涨停与广度指标仍需周度复核，当前更像结构性升温而非全面狂热。",
+  "items": [
+    {
+      "id": "ashareNewAccounts",
+      "name": "个人投资者A股新增开户数",
+      "value": 248.03,
+      "unit": "万户/月",
+      "asOf": "2026-04",
+      "status": "yellow",
+      "source": "上交所数据 / 证券时报",
+      "url": "https://www.stcn.com/article/detail/3899286.html"
+    },
+    {
+      "id": "ashareMarginBalance",
+      "name": "A股融资余额",
+      "value": 2.9035,
+      "unit": "万亿元",
+      "asOf": "2026-05-25",
+      "status": "red",
+      "source": "数据宝 / 新浪",
+      "url": "https://finance.sina.com.cn/wm/2026-05-26/doc-inhzffss1540928.shtml"
+    },
+    {
+      "id": "ashareMarginUsers",
+      "name": "两融参与人数",
+      "value": 64.05,
+      "unit": "万人",
+      "asOf": "2026-05-11",
+      "status": "amber",
+      "source": "数据宝 / 新浪",
+      "url": "https://finance.sina.com.cn/roll/2026-05-13/doc-inhxsxzu9475183.shtml"
+    },
+    {
+      "id": "ashareMarginBuyRatio",
+      "name": "两融交易额占比",
+      "value": 10.9,
+      "unit": "%",
+      "asOf": "2026-05-25",
+      "status": "amber",
+      "source": "证券之星 / 同花顺",
+      "url": "https://stock.stockstar.com/SS2026052600023414.shtml"
+    },
+    {
+      "id": "ashareTurnover",
+      "name": "两市日均成交额",
+      "value": 23437.9,
+      "unit": "亿元",
+      "asOf": "2026-04",
+      "status": "amber",
+      "source": "中国人民银行金融市场运行情况",
+      "url": "https://www.stcn.com/article/detail/3923325.html"
+    },
+    {
+      "id": "ashareEquityFundIssuance",
+      "name": "权益类新基金首募",
+      "value": 2660,
+      "unit": "亿元/年内",
+      "asOf": "2026-05-20",
+      "status": "amber",
+      "source": "上证报 / 新浪财经",
+      "url": "https://finance.sina.com.cn/roll/2026-05-21/doc-inhyquqc8462381.shtml"
+    },
+    {
+      "id": "ashareLimitUpCount",
+      "name": "涨停家数",
+      "value": 40,
+      "unit": "家",
+      "asOf": "2026-05-21",
+      "status": "green",
+      "source": "青岛财经日报 / 新浪收盘快报",
+      "url": "https://finance.sina.com.cn/roll/2026-05-21/doc-inhysaii6336477.shtml"
+    },
+    {
+      "id": "ashareSmallOrderInflow",
+      "name": "小单资金净流入",
+      "value": 12500,
+      "unit": "亿元",
+      "asOf": "2026-04-03",
+      "status": "red",
+      "source": "新浪新闻资金流向报道",
+      "url": "https://k.sina.com.cn/article_7095179294_1a6e7d81e06802iq9a.html"
+    }
+  ],
+  "weeklyTemplate": [
+    "搜索热度分位",
+    "券商APP活跃度",
+    "新增开户数",
+    "融资买入额占比",
+    "融资余额",
+    "银证转账净变动",
+    "两市成交额",
+    "涨停家数",
+    "小单资金净流入",
+    "权益类基金发行"
+  ],
+  "manualInputs": [
+    {
+      "id": "ashareSearchHeat",
+      "name": "搜索/社媒关注热度",
+      "status": "待录入",
+      "source": "百度指数 / 微信指数 / 抖音热榜",
+      "threshold": "过去一年90%分位以上进入过热区"
+    },
+    {
+      "id": "ashareAppHeat",
+      "name": "券商APP活跃度",
+      "status": "待录入",
+      "source": "七麦数据 / QuestMobile / 券商APP榜单",
+      "threshold": "9-10分为过热"
+    }
+  ]
+}

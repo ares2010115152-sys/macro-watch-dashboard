@@ -385,6 +385,126 @@ const defaultIndicators = [
     thesis: "低波动叠加高宏观风险时，代表保护成本仍未充分定价。",
     rule: { mode: "rangeRisk", lowRed: 10, lowAmber: 14, highAmber: 28, highRed: 36 },
   },
+  {
+    id: "ashareNewAccounts",
+    name: "个人投资者A股新增开户数",
+    category: "A股散户情绪",
+    unit: "万户/月",
+    value: 248.03,
+    asOf: "2026-04-30",
+    source: "上交所数据 / 证券时报",
+    frequency: "每月",
+    thesis: "散户入场门票；4月环比降温但仍高于去年同期，说明情绪从脉冲式狂热回到活跃区。",
+    rule: { mode: "higherRisk", green: 180, yellow: 350, amber: 500 },
+  },
+  {
+    id: "ashareMarginBalance",
+    name: "A股融资余额",
+    category: "A股散户情绪",
+    unit: "万亿元",
+    value: 2.9035,
+    asOf: "2026-05-25",
+    source: "数据宝 / 新浪",
+    frequency: "每日",
+    thesis: "杠杆资金的总水位；突破历史高位说明风险偏好和追涨资金都在升温。",
+    rule: { mode: "higherRisk", green: 2.2, yellow: 2.6, amber: 2.8 },
+  },
+  {
+    id: "ashareMarginUsers",
+    name: "两融参与人数",
+    category: "A股散户情绪",
+    unit: "万人",
+    value: 64.05,
+    asOf: "2026-05-11",
+    source: "数据宝 / 新浪",
+    frequency: "每日",
+    thesis: "更激进的中大户资金扩张；人数创新高时，杠杆交易的脆弱性上升。",
+    rule: { mode: "higherRisk", green: 45, yellow: 58, amber: 70 },
+  },
+  {
+    id: "ashareMarginBuyRatio",
+    name: "两融交易额占比",
+    category: "A股散户情绪",
+    unit: "%",
+    value: 10.9,
+    asOf: "2026-05-25",
+    source: "证券之星 / 同花顺",
+    frequency: "每周",
+    thesis: "两融交易额/A股成交额，可作为杠杆资金交易热度的高频替代指标；超过10%进入危险区，超过11%代表追涨明显过热。",
+    rule: { mode: "higherRisk", green: 7, yellow: 10, amber: 11 },
+  },
+  {
+    id: "ashareTurnover",
+    name: "两市日均成交额",
+    category: "A股散户情绪",
+    unit: "亿元",
+    value: 23437.9,
+    asOf: "2026-04-30",
+    source: "中国人民银行金融市场运行情况",
+    frequency: "每月",
+    thesis: "市场交投温度计；成交额越高，赚钱效应和分歧都越强。",
+    rule: { mode: "higherRisk", green: 15000, yellow: 20000, amber: 25000 },
+  },
+  {
+    id: "ashareEquityFundIssuance",
+    name: "权益类新基金首募",
+    category: "A股散户情绪",
+    unit: "亿元/年内",
+    value: 2660,
+    asOf: "2026-05-20",
+    source: "上证报 / 新浪财经",
+    frequency: "每周",
+    thesis: "基金渠道入市热度；爆款基金增多通常是行情中后期的同步/微滞后信号。",
+    rule: { mode: "higherRisk", green: 1000, yellow: 2000, amber: 4000 },
+  },
+  {
+    id: "ashareLimitUpCount",
+    name: "涨停家数",
+    category: "A股散户情绪",
+    unit: "家",
+    value: 40,
+    asOf: "2026-05-21",
+    source: "青岛财经日报 / 新浪收盘快报",
+    frequency: "每日",
+    thesis: "短线投机情绪；百股涨停代表赚钱效应扩散，回落到40家附近说明热度短线降温。",
+    rule: { mode: "higherRisk", green: 50, yellow: 100, amber: 150 },
+  },
+  {
+    id: "ashareSmallOrderInflow",
+    name: "小单资金净流入",
+    category: "A股散户情绪",
+    unit: "亿元",
+    value: 12500,
+    asOf: "2026-04-03",
+    source: "新浪新闻资金流向报道",
+    frequency: "每周",
+    thesis: "散户真金白银；越跌越买可支撑市场，但若机构同步流出，容易形成散户接盘结构。",
+    rule: { mode: "higherRisk", green: 1000, yellow: 5000, amber: 10000 },
+  },
+  {
+    id: "ashareSearchHeat",
+    name: "搜索/社媒关注热度",
+    category: "A股散户情绪",
+    unit: "分位",
+    value: null,
+    asOf: "",
+    source: "百度指数 / 微信指数 / 抖音热榜",
+    frequency: "每周",
+    thesis: "最先行的注意力指标；突破过去一年90%分位时，代表散户心动阶段明显升温。",
+    rule: { mode: "higherRisk", green: 60, yellow: 80, amber: 90 },
+  },
+  {
+    id: "ashareAppHeat",
+    name: "券商APP活跃度",
+    category: "A股散户情绪",
+    unit: "分",
+    value: null,
+    asOf: "",
+    source: "七麦数据 / QuestMobile / 券商APP榜单",
+    frequency: "每周",
+    thesis: "开户和交易前置动作；下载排名和DAU通常领先开户数1-2周。",
+    rule: { mode: "higherRisk", green: 6, yellow: 8, amber: 9 },
+  },
 ];
 
 const seedRecords = [
@@ -423,6 +543,20 @@ const seedRecords = [
   ["buffettIndicator", "2026-05-19", 252, "美国总市值/GDP处于强高估区"],
   ["privateCreditRedemptions", "2026-04-06", 11.3, "赎回请求明显高于常见流动性闸门"],
   ["loanDefaultRate", "2026-01-31", 5.5, "低评级贷款违约率偏高"],
+  ["ashareNewAccounts", "2026-01-31", 491.58, "开年开户热度高"],
+  ["ashareNewAccounts", "2026-02-28", 252.3, "春节因素后回落"],
+  ["ashareNewAccounts", "2026-03-31", 460.14, "环比增长82.38%，散户入场加速"],
+  ["ashareNewAccounts", "2026-04-30", 248.03, "4月个人投资者开户环比明显降温"],
+  ["ashareMarginBalance", "2026-05-08", 2.8, "融资余额首次突破2.8万亿元"],
+  ["ashareMarginBalance", "2026-05-11", 2.8339, "两融余额刷新历史高位"],
+  ["ashareMarginBalance", "2026-05-25", 2.9035, "融资余额首次突破2.9万亿元"],
+  ["ashareMarginUsers", "2026-05-11", 64.05, "参与两融交易人数创阶段新高"],
+  ["ashareMarginBuyRatio", "2026-03-20", 9.01, "接近危险区但未突破11%极端线"],
+  ["ashareMarginBuyRatio", "2026-05-25", 10.9, "两融交易额占A股成交额约10.9%"],
+  ["ashareTurnover", "2026-04-30", 23437.9, "央行披露4月两市日均成交额"],
+  ["ashareEquityFundIssuance", "2026-05-20", 2660, "权益类新基金年内首募升温"],
+  ["ashareLimitUpCount", "2026-05-21", 40, "调整日涨停家数回落，短线情绪降温"],
+  ["ashareSmallOrderInflow", "2026-04-03", 12500, "3月以来小单累计净流入"],
 ];
 
 const categories = ["全部类别", ...new Set(defaultIndicators.map((item) => item.category))];
@@ -462,6 +596,120 @@ const events = [
     cadence: "季报",
     title: "AI资本开支与现金流",
     body: "检查云厂商CapEx、数据中心电力约束、自由现金流覆盖率和回报率指引。",
+  },
+];
+
+const ashareMonitorRows = [
+  {
+    dimension: "散户规模",
+    id: "ashareNewAccounts",
+    threshold: "危险区 >350万户；狂热区 >500万户",
+    logic: "开户数是滞后确认指标，激增代表赚钱效应已经扩散。",
+  },
+  {
+    dimension: "散户规模",
+    id: "ashareMarginUsers",
+    threshold: "活跃区 >60万人",
+    logic: "两融参与人数扩张，代表高风险偏好群体正在扩大。",
+  },
+  {
+    dimension: "注意力",
+    id: "ashareSearchHeat",
+    threshold: "过去一年90%分位以上",
+    logic: "搜索和社媒热度通常领先开户与转账，是心动阶段的先行信号。",
+  },
+  {
+    dimension: "注意力",
+    id: "ashareAppHeat",
+    threshold: "9-10分为过热",
+    logic: "券商APP下载和DAU上升，常领先开户数1-2周。",
+  },
+  {
+    dimension: "杠杆资金",
+    id: "ashareMarginBuyRatio",
+    threshold: "危险区 >10%；极度危险 >11%",
+    logic: "融资买入额占比越高，行情越依赖杠杆追涨，回撤弹性越大。",
+  },
+  {
+    dimension: "杠杆资金",
+    id: "ashareMarginBalance",
+    threshold: "高位区 >2.6万亿；极端区 >2.8万亿",
+    logic: "融资余额是杠杆资金总水位，连续新高需警惕踩踏风险。",
+  },
+  {
+    dimension: "交易热度",
+    id: "ashareTurnover",
+    threshold: "活跃区 >2万亿；狂热区 >2.5万亿",
+    logic: "成交额是温度计，放量上涨是燃料，放量滞涨是分歧。",
+  },
+  {
+    dimension: "交易热度",
+    id: "ashareLimitUpCount",
+    threshold: "活跃区 >100家；投机区 >150家",
+    logic: "涨停潮代表赚钱效应扩散；若指数新高但涨停减少，是顶背离。",
+  },
+  {
+    dimension: "基金渠道",
+    id: "ashareEquityFundIssuance",
+    threshold: "升温 >2000亿；狂热 >4000亿",
+    logic: "爆款基金与比例配售往往出现在行情中后期。",
+  },
+  {
+    dimension: "散户资金",
+    id: "ashareSmallOrderInflow",
+    threshold: "周度极值 >200亿；累计极值需谨慎",
+    logic: "小单持续净流入可支撑市场，但机构流出时可能演变为散户接盘。",
+  },
+];
+
+const ashareSignalGroups = [
+  {
+    title: "心动：注意力先行",
+    body: "搜索指数、社媒讨论、券商APP下载和DAU先动，通常领先开户与转账。",
+    ids: ["ashareSearchHeat", "ashareAppHeat"],
+  },
+  {
+    title: "行动：资金开始入场",
+    body: "开户、基金申购、银证转账和ETF净申购共振，确认赚钱效应扩散。",
+    ids: ["ashareNewAccounts", "ashareEquityFundIssuance"],
+  },
+  {
+    title: "加速：杠杆与成交放大",
+    body: "两融余额、融资买入占比和成交额同步抬升，进入高波动阶段。",
+    ids: ["ashareMarginBalance", "ashareMarginBuyRatio", "ashareTurnover"],
+  },
+  {
+    title: "过热：顶背离风险",
+    body: "指数创新高但涨停、广度、融资买入或基金热度不再创新高，是动能衰竭信号。",
+    ids: ["ashareLimitUpCount", "ashareSmallOrderInflow"],
+  },
+];
+
+const ashareHistory = [
+  {
+    period: "2006-2007",
+    signal: "2007年8月开户数突破800万户",
+    after: "约2个月后上证指数见6124点历史大顶，随后进入熊市。",
+  },
+  {
+    period: "2009",
+    signal: "2月开户放量，7月继续升温",
+    after: "8月指数见3478点，开户与高点几乎同步，后续转为震荡。",
+  },
+  {
+    period: "2014-2015",
+    signal: "2015年4-6月月均开户超400万户",
+    after: "6月见顶后快速股灾，开户和杠杆同步过热是核心风险。",
+  },
+  {
+    period: "2021",
+    signal: "存款搬家但开户未极端化",
+    after: "核心资产见顶后结构性调整，说明资金面不能替代业绩兑现。",
+  },
+  {
+    period: "2024-2025",
+    signal: "2024年10月开户脉冲",
+    after: "短期冲高后震荡，政策和产业基本面决定后续能否再走强。",
   },
 ];
 
@@ -520,18 +768,33 @@ function loadState() {
   }
 }
 
-function mergeStoredState(stored) {
-  const storedById = new Map(stored.indicators.map((indicator) => [indicator.id, indicator]));
-  const indicators = defaultIndicators.map((indicator) => {
-    const saved = storedById.get(indicator.id);
-    return saved ? { ...clone(indicator), ...saved, rule: clone(indicator.rule) } : clone(indicator);
-  });
-  const extraIndicators = stored.indicators.filter((indicator) => !defaultIndicators.some((item) => item.id === indicator.id));
-  return {
-    indicators: [...indicators, ...extraIndicators],
-    records: Array.isArray(stored.records) ? stored.records : [],
-  };
-}
+  function mergeStoredState(stored) {
+    const storedById = new Map(stored.indicators.map((indicator) => [indicator.id, indicator]));
+    const indicators = defaultIndicators.map((indicator) => {
+      const saved = storedById.get(indicator.id);
+      return saved ? { ...clone(indicator), ...saved, rule: clone(indicator.rule) } : clone(indicator);
+    });
+    const extraIndicators = stored.indicators.filter((indicator) => !defaultIndicators.some((item) => item.id === indicator.id));
+    const records = Array.isArray(stored.records) ? clone(stored.records) : [];
+    const existingSeedKeys = new Set(records.map((record) => `${record.indicatorId}|${record.date}|${record.value}`));
+    seedRecords.forEach(([indicatorId, date, value, note]) => {
+      const key = `${indicatorId}|${date}|${value}`;
+      if (!existingSeedKeys.has(key)) {
+        records.push({
+          id: uid(),
+          indicatorId,
+          date,
+          value,
+          note,
+          createdAt: new Date().toISOString(),
+        });
+      }
+    });
+    return {
+      indicators: [...indicators, ...extraIndicators],
+      records,
+    };
+  }
 
 function cloneDefaultState() {
   return {
@@ -575,6 +838,9 @@ function formatValue(indicator) {
 }
 
 function getStatus(indicator) {
+  if (indicator.value === null || indicator.value === undefined || indicator.value === "") {
+    return { level: "yellow", label: "待录入", score: 1 };
+  }
   const value = Number(indicator.value);
   const rule = indicator.rule;
   if (!rule || Number.isNaN(value)) return { level: "yellow", label: "待确认", score: 1 };
@@ -661,6 +927,7 @@ function renderAll() {
   renderTrendChart();
   renderFilters();
   renderIndicatorTable();
+  renderAshare();
   renderEntryOptions();
   renderRecentRecords();
   renderRoadmap();
@@ -894,6 +1161,103 @@ function renderIndicatorTable() {
         <td>${indicator.source}<br><span class="muted">${indicator.frequency}</span></td>
         <td>${indicator.asOf || "未录入"}</td>
       </tr>
+    `,
+    )
+    .join("");
+}
+
+function renderAshare() {
+  const rows = ashareMonitorRows
+    .map((row) => ({ ...row, indicator: byId(row.id) }))
+    .filter((row) => row.indicator);
+  const scored = rows.filter((row) => row.indicator.value !== null && row.indicator.value !== undefined && row.indicator.value !== "");
+  const heatScore = scored.length
+    ? Math.round((scored.reduce((sum, row) => sum + getStatus(row.indicator).score, 0) / (scored.length * 3)) * 100)
+    : 0;
+  const status =
+    heatScore >= 82 ? "狂热预警" : heatScore >= 62 ? "升温偏热" : heatScore >= 42 ? "活跃观察" : "冷静区间";
+  const reason =
+    heatScore >= 82
+      ? "多维指标进入过热区，重点观察顶背离和杠杆松动。"
+      : heatScore >= 62
+        ? "资金入市进行中，波动会比趋势早一步放大。"
+        : heatScore >= 42
+          ? "情绪活跃但尚未形成全面共振。"
+          : "散户情绪尚未进入高温区。";
+
+  document.getElementById("ashareScore").textContent = `${heatScore}`;
+  document.getElementById("ashareStatus").textContent = status;
+  document.getElementById("ashareReason").textContent = reason;
+
+  document.getElementById("ashareHeatGrid").innerHTML = ashareSignalGroups
+    .map((group) => {
+      const groupIndicators = group.ids.map(byId).filter(Boolean);
+      const hotCount = groupIndicators.filter((indicator) => ["amber", "red"].includes(getStatus(indicator).level)).length;
+      return `
+        <article class="ashare-card">
+          <div class="ashare-card-head">
+            <strong>${group.title}</strong>
+            <span>${hotCount}/${groupIndicators.length}</span>
+          </div>
+          <p>${group.body}</p>
+          <div class="ashare-mini-list">
+            ${groupIndicators
+              .map((indicator) => {
+                const status = getStatus(indicator);
+                return `
+                  <div>
+                    <span class="status-dot ${status.level}"></span>
+                    <em>${indicator.name}</em>
+                    <strong>${formatValue(indicator)}</strong>
+                  </div>
+                `;
+              })
+              .join("")}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  document.getElementById("ashareMonitorTable").innerHTML = rows
+    .map(({ dimension, indicator, threshold, logic }) => {
+      return `
+        <tr>
+          <td>${dimension}</td>
+          <td>
+            <div class="indicator-name">
+              <strong>${indicator.name}</strong>
+              <span>${indicator.source}</span>
+            </div>
+          </td>
+          <td>${formatValue(indicator)}<br><span class="muted">${indicator.asOf || "待录入"}</span></td>
+          <td>${createStatusBadge(indicator)}</td>
+          <td>${threshold}</td>
+          <td>${logic}</td>
+        </tr>
+      `;
+    })
+    .join("");
+
+  document.getElementById("ashareChecklist").innerHTML = ashareSignalGroups
+    .map(
+      (group) => `
+      <div class="retail-signal-item">
+        <strong>${group.title}</strong>
+        <p>${group.body}</p>
+      </div>
+    `,
+    )
+    .join("");
+
+  document.getElementById("ashareHistory").innerHTML = ashareHistory
+    .map(
+      (item) => `
+      <div class="history-item">
+        <span>${item.period}</span>
+        <strong>${item.signal}</strong>
+        <p>${item.after}</p>
+      </div>
     `,
     )
     .join("");
