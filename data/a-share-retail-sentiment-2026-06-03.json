@@ -1,0 +1,103 @@
+{
+  "asOf": "2026-06-03",
+  "title": "A股散户情绪与市场热度周度监测",
+  "summary": "截至6月3附近，A股散户情绪仍处高热但分化明显：融资余额截至5月29为2.890973万亿元，较前期高点略有回落但仍接近历史高位；两融成交占比10.12%，仍在危险区；6月2两市成交额28132亿元，仍明显高于活跃阈值，但上涨股票约1500只、下跌约3800只，说明赚钱效应集中在少数AI硬件、通信、有色等强势题材。",
+  "items": [
+    {
+      "id": "ashareNewAccounts",
+      "name": "个人投资者A股新增开户数",
+      "value": 248.03,
+      "unit": "万户/月",
+      "asOf": "2026-04",
+      "status": "yellow",
+      "source": "上交所数据 / 证券时报",
+      "url": "https://www.stcn.com/article/detail/3899286.html"
+    },
+    {
+      "id": "ashareMarginBalance",
+      "name": "A股融资余额",
+      "value": 2.890973,
+      "unit": "万亿元",
+      "asOf": "2026-05-29",
+      "status": "red",
+      "source": "新浪财经 / 东北证券两融周报",
+      "url": "https://finance.sina.com.cn/roll/2026-06-02/doc-inhzynrt4697841.shtml"
+    },
+    {
+      "id": "ashareMarginUsers",
+      "name": "两融参与人数",
+      "value": 64.05,
+      "unit": "万人",
+      "asOf": "2026-05-11",
+      "status": "amber",
+      "source": "数据宝 / 新浪",
+      "url": "https://finance.sina.com.cn/roll/2026-05-13/doc-inhxsxzu9475183.shtml"
+    },
+    {
+      "id": "ashareMarginBuyRatio",
+      "name": "两融交易额占比",
+      "value": 10.12,
+      "unit": "%",
+      "asOf": "2026-05-29",
+      "status": "amber",
+      "source": "新浪财经 / 东北证券两融周报",
+      "url": "https://finance.sina.com.cn/roll/2026-06-02/doc-inhzynrt4697841.shtml"
+    },
+    {
+      "id": "ashareTurnover",
+      "name": "两市成交额",
+      "value": 28132,
+      "unit": "亿元",
+      "asOf": "2026-06-02",
+      "status": "red",
+      "source": "东方财富Choice / 天天基金网",
+      "url": "https://fund.eastmoney.com/a/202606023757500723.html"
+    },
+    {
+      "id": "ashareEquityFundIssuance",
+      "name": "权益类新基金首募",
+      "value": 2660,
+      "unit": "亿元/年内",
+      "asOf": "2026-05-20",
+      "status": "amber",
+      "source": "上证报 / 新浪财经",
+      "url": "https://finance.sina.com.cn/roll/2026-05-21/doc-inhyquqc8462381.shtml"
+    },
+    {
+      "id": "ashareLimitUpCount",
+      "name": "涨停家数",
+      "value": 95,
+      "unit": "家",
+      "asOf": "2026-06-02",
+      "status": "yellow",
+      "source": "东方财富Choice / 天天基金网",
+      "url": "https://fund.eastmoney.com/a/202606023757500723.html"
+    },
+    {
+      "id": "ashareSmallOrderInflow",
+      "name": "小单资金净流入",
+      "value": 12500,
+      "unit": "亿元",
+      "asOf": "2026-04-03",
+      "status": "red",
+      "source": "新浪新闻资金流向报道",
+      "url": "https://k.sina.com.cn/article_7095179294_1a6e7d81e06802iq9a.html"
+    }
+  ],
+  "manualInputs": [
+    {
+      "id": "ashareSearchHeat",
+      "name": "搜索/社媒关注热度",
+      "status": "待录入",
+      "source": "百度指数 / 微信指数 / 抖音热榜",
+      "threshold": "过去一年90%分位以上进入过热区"
+    },
+    {
+      "id": "ashareAppHeat",
+      "name": "券商APP活跃度",
+      "status": "待录入",
+      "source": "七麦数据 / QuestMobile / 券商APP榜单",
+      "threshold": "9-10分为过热"
+    }
+  ]
+}

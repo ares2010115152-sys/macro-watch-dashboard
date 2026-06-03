@@ -1,0 +1,48 @@
+{
+  "asOf": "2026-06-03",
+  "title": "Macro Watch 全量快照",
+  "summary": "6月3附近的核心状态是：油价较5月中旬高点回落，但布伦特和WTI仍处高位；美债10年期收益率仍在4.47%，实际利率仍高于2%；黄金继续强势，说明避险和美元信用交易未退潮；VIX、SOFR、SRF、央行互换和信用利差仍偏绿，尚未确认系统性流动性危机。A股方面，两融余额略有回落但仍接近高位，两融成交占比仍高于10%，成交额仍超2.8万亿，市场保持结构性拥挤。",
+  "macro": [
+    { "id": "brent", "name": "布伦特原油", "value": 96.0, "unit": "美元/桶", "asOf": "2026-06-02", "status": "yellow", "source": "Xinhua / ICE Brent settlement" },
+    { "id": "wti", "name": "WTI原油", "value": 93.76, "unit": "美元/桶", "asOf": "2026-06-02", "status": "yellow", "source": "Xinhua / NYMEX WTI settlement" },
+    { "id": "hormuzCrossings", "name": "霍尔木兹船舶通行量", "value": 26, "unit": "艘/日", "asOf": "2026-05-27", "status": "amber", "source": "用户材料 / MUFG-Bloomberg ship-crossing chart" },
+    { "id": "usCrudeInv", "name": "美国商业原油库存", "value": 441.7, "unit": "百万桶", "asOf": "2026-05-22", "status": "yellow", "source": "EIA / StoneX recap" },
+    { "id": "distillate", "name": "美国馏分油库存", "value": 100.8, "unit": "百万桶", "asOf": "2026-05-22", "status": "amber", "source": "EIA / StoneX recap" },
+    { "id": "spr", "name": "美国战略石油储备", "value": 365.1, "unit": "百万桶", "asOf": "2026-05-22", "status": "red", "source": "EIA SPR" },
+    { "id": "ust10y", "name": "美国10年期国债收益率", "value": 4.47, "unit": "%", "asOf": "2026-06-01", "status": "yellow", "source": "Federal Reserve H.15" },
+    { "id": "realYield", "name": "10年期实际利率", "value": 2.07, "unit": "%", "asOf": "2026-06-01", "status": "amber", "source": "Federal Reserve H.15 TIPS" },
+    { "id": "gold", "name": "COMEX黄金期货", "value": 5158.7, "unit": "美元/盎司", "asOf": "2026-06-03", "status": "red", "source": "LiveCharts COMEX Gold futures" },
+    { "id": "goldOilRatio", "name": "金油比", "value": 53.74, "unit": "倍", "asOf": "2026-06-03", "status": "red", "source": "Gold futures / Brent settlement计算" },
+    { "id": "dxy", "name": "美元指数DXY", "value": 99.23, "unit": "点", "asOf": "2026-06-03", "status": "green", "source": "TradersUnion / ICE DXY live口径" },
+    { "id": "vix", "name": "VIX波动率", "value": 16.17, "unit": "点", "asOf": "2026-06-02", "status": "green", "source": "Cboe volume snapshot / VIX" },
+    { "id": "hySpread", "name": "高收益债OAS", "value": 272, "unit": "bp", "asOf": "2026-06-02", "status": "green", "source": "Bigclawd / ICE BofA口径" }
+  ],
+  "bubble": [
+    { "id": "sofrRate", "name": "SOFR隔夜融资利率", "value": 3.62, "unit": "%", "asOf": "2026-06-01", "status": "green", "source": "Federal Reserve H.15 / SOFR近似口径" },
+    { "id": "fundingSpreadProxy", "name": "金融CP-SOFR利差代理", "value": 8, "unit": "bp", "asOf": "2026-06-01", "status": "green", "source": "Federal Reserve H.15 / SOFR计算" },
+    { "id": "srfUsage", "name": "美联储SRF使用量", "value": 0, "unit": "十亿美元", "asOf": "2026-05-27", "status": "green", "source": "New York Fed repo operations / 手工复核" },
+    { "id": "swapLineUsage", "name": "央行美元互换使用量", "value": 0.016, "unit": "十亿美元", "asOf": "2026-05-21", "status": "green", "source": "Federal Reserve H.4.1" },
+    { "id": "moveIndex", "name": "MOVE美债波动率", "value": 73.33, "unit": "点", "asOf": "2026-06-01", "status": "green", "source": "StreetStats / ICE BofA MOVE" },
+    { "id": "cloAaaSpread", "name": "CLO AAA利差", "value": 126, "unit": "bp", "asOf": "2026-05-27", "status": "green", "source": "Octus CLO pipeline / CLO市场口径" },
+    { "id": "spacexIpoRaise", "name": "SpaceX IPO融资目标", "value": 75, "unit": "十亿美元", "asOf": "2026-05-27", "status": "amber", "source": "Le Monde / Kiplinger / Axios" },
+    { "id": "spacexValuation", "name": "SpaceX IPO估值目标", "value": 1800, "unit": "十亿美元", "asOf": "2026-05-27", "status": "red", "source": "Le Monde / Axios / 市场报道" },
+    { "id": "deepseekPriceCut", "name": "DeepSeek V4-Pro降价幅度", "value": 75, "unit": "%", "asOf": "2026-05-27", "status": "amber", "source": "Computerworld / DeepSeek公告口径" },
+    { "id": "copperProducerZ", "name": "COMEX铜生产商净空头Z值", "value": -2.2, "unit": "Z", "asOf": "2026-05-27", "status": "red", "source": "CFTC COT / 用户材料" },
+    { "id": "copperManagedMoneyPct", "name": "COMEX铜投机净多百分位", "value": 94, "unit": "%", "asOf": "2026-05-27", "status": "amber", "source": "CFTC COT / 用户材料" }
+  ],
+  "ashare": [
+    { "id": "ashareNewAccounts", "name": "个人投资者A股新增开户数", "value": 248.03, "unit": "万户/月", "asOf": "2026-04", "status": "yellow" },
+    { "id": "ashareMarginBalance", "name": "A股融资余额", "value": 2.890973, "unit": "万亿元", "asOf": "2026-05-29", "status": "red" },
+    { "id": "ashareMarginBuyRatio", "name": "两融交易额占比", "value": 10.12, "unit": "%", "asOf": "2026-05-29", "status": "amber" },
+    { "id": "ashareTurnover", "name": "两市成交额", "value": 28132, "unit": "亿元", "asOf": "2026-06-02", "status": "red" },
+    { "id": "ashareLimitUpCount", "name": "涨停家数", "value": 95, "unit": "家", "asOf": "2026-06-02", "status": "yellow" }
+  ],
+  "manualWatch": [
+    "6月3美股收盘后的VIX、DXY、黄金和油价终值",
+    "6月3 EIA周报是否发布新一周库存",
+    "霍尔木兹AIS通行量",
+    "FRA-OIS直接值",
+    "券商APP DAU与下载排名",
+    "SpaceX IPO定价、认购倍数与上市首日表现"
+  ]
+}
