@@ -733,6 +733,156 @@ h3 {
   text-align: right;
 }
 
+.bubble-hero {
+  background:
+    linear-gradient(90deg, rgba(24, 25, 22, 0.97), rgba(24, 25, 22, 0.72)),
+    linear-gradient(135deg, rgba(217, 76, 69, 0.2), rgba(215, 173, 83, 0.14), rgba(108, 168, 182, 0.1));
+}
+
+.bubble-chain {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bubble-step {
+  position: relative;
+  min-height: 300px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.bubble-step::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--green);
+}
+
+.bubble-step.yellow::before {
+  background: var(--yellow);
+}
+
+.bubble-step.amber::before {
+  background: var(--amber);
+}
+
+.bubble-step.red::before {
+  background: var(--red);
+}
+
+.bubble-step-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 40px;
+}
+
+.bubble-step-head strong {
+  line-height: 1.35;
+}
+
+.bubble-step p {
+  color: var(--muted);
+  line-height: 1.62;
+  margin-bottom: 0;
+}
+
+.bubble-mini-list {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.bubble-mini-list div {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+.bubble-mini-list em,
+.bubble-card em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.bubble-mini-list strong {
+  color: var(--text);
+  font-size: 12px;
+  text-align: right;
+}
+
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bubble-card {
+  min-height: 238px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 14px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.bubble-card.red {
+  border-color: rgba(217, 76, 69, 0.6);
+  background: linear-gradient(180deg, rgba(217, 76, 69, 0.14), rgba(24, 25, 22, 0.96));
+}
+
+.bubble-card.amber {
+  border-color: rgba(214, 109, 46, 0.55);
+}
+
+.bubble-card.yellow {
+  border-color: rgba(215, 168, 47, 0.45);
+}
+
+.bubble-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 28px;
+}
+
+.bubble-card-head > span {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.bubble-card > strong {
+  line-height: 1.35;
+}
+
+.bubble-value {
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.bubble-card p {
+  color: var(--muted);
+  line-height: 1.58;
+  margin-bottom: 0;
+}
+
 .compact-table table {
   min-width: 1080px;
 }
@@ -1034,13 +1184,15 @@ td {
   }
 
   .nav-list {
-    grid-template-columns: repeat(6, minmax(105px, 1fr));
+    grid-template-columns: repeat(7, minmax(96px, 1fr));
   }
 
   .summary-grid,
   .roadmap,
   .event-grid,
-  .ashare-grid {
+  .ashare-grid,
+  .bubble-chain,
+  .bubble-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1085,6 +1237,8 @@ td {
   .roadmap,
   .event-grid,
   .ashare-grid,
+  .bubble-chain,
+  .bubble-grid,
   .causal-map,
   .watch-grid {
     grid-template-columns: 1fr;

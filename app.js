@@ -13,9 +13,9 @@ const defaultIndicators = [
     name: "布伦特原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 105.02,
-    asOf: "2026-05-20",
-    source: "Reuters / ICE Brent futures",
+    value: 95.46,
+    asOf: "2026-05-27",
+    source: "Reuters / MarketScreener / TradingEconomics",
     frequency: "每日",
     summary: true,
     thesis: "能源通胀压力已显性化；站稳120美元后，美股估值压力会明显放大。",
@@ -26,8 +26,8 @@ const defaultIndicators = [
     name: "美国馏分油库存",
     category: "能源与航运",
     unit: "百万桶",
-    value: 102.5,
-    asOf: "2026-05-08",
+    value: 100.8,
+    asOf: "2026-05-22",
     source: "EIA Weekly Petroleum Status Report",
     frequency: "每周",
     summary: true,
@@ -39,9 +39,9 @@ const defaultIndicators = [
     name: "美国10年期国债收益率",
     category: "利率与流动性",
     unit: "%",
-    value: 4.604,
-    asOf: "2026-05-21",
-    source: "Reuters page market quote / FRED口径",
+    value: 4.48,
+    asOf: "2026-05-27",
+    source: "Federal Reserve H.15",
     frequency: "每日",
     summary: true,
     thesis: "长端利率是AI估值与美股风险偏好的折现率核心；逼近5%会触发更强估值重定价。",
@@ -52,9 +52,9 @@ const defaultIndicators = [
     name: "标普500远期PE",
     category: "AI与美股",
     unit: "倍",
-    value: 20.8,
-    asOf: "2026-04-22",
-    source: "Reuters review / TrustFinance / FactSet口径",
+    value: 22.52,
+    asOf: "2026-05-27",
+    source: "D.A. Davidson sector valuation matrix / FactSet口径",
     frequency: "每周",
     summary: true,
     thesis: "估值不必极端才会脆弱；在高油价和高长债环境下，20倍以上安全垫偏薄。",
@@ -78,9 +78,9 @@ const defaultIndicators = [
     name: "WTI原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 98.26,
-    asOf: "2026-05-20",
-    source: "Reuters / NYMEX WTI futures",
+    value: 88.68,
+    asOf: "2026-05-27",
+    source: "Investing.com historical NYMEX WTI",
     frequency: "每日",
     thesis: "美国本土供需与炼厂原料压力的高频指标。",
     rule: { mode: "higherRisk", green: 85, yellow: 100, amber: 115 },
@@ -90,9 +90,9 @@ const defaultIndicators = [
     name: "美国商业原油库存",
     category: "能源与航运",
     unit: "百万桶",
-    value: 445,
-    asOf: "2026-05-15",
-    source: "EIA via Reuters weekly inventory update",
+    value: 441.7,
+    asOf: "2026-05-22",
+    source: "EIA Weekly Petroleum Status Report",
     frequency: "每周",
     thesis: "库存是否仍在掩盖供需缺口；连续去库比单周绝对数更重要。",
     rule: { mode: "lowerRisk", green: 465, yellow: 435, amber: 410 },
@@ -102,8 +102,8 @@ const defaultIndicators = [
     name: "美国战略石油储备",
     category: "能源与航运",
     unit: "百万桶",
-    value: 384.1,
-    asOf: "2026-05-08",
+    value: 365.1,
+    asOf: "2026-05-22",
     source: "EIA SPR",
     frequency: "每周",
     thesis: "政策缓冲垫；库存越低，越难依赖SPR长期压油价。",
@@ -114,9 +114,9 @@ const defaultIndicators = [
     name: "霍尔木兹航运风险",
     category: "能源与航运",
     unit: "分",
-    value: 75,
-    asOf: "2026-05-20",
-    source: "航运新闻 / 保险费率 / AIS",
+    value: 65,
+    asOf: "2026-05-27",
+    source: "航运新闻 / 谈判进展 / AIS手工评分",
     frequency: "每日",
     thesis: "把地缘叙事量化为0-100分：封锁、保险、船期延误、护航强度共同打分。",
     rule: { mode: "higherRisk", green: 30, yellow: 55, amber: 75 },
@@ -127,8 +127,8 @@ const defaultIndicators = [
     category: "能源与航运",
     unit: "艘/日",
     value: 26,
-    asOf: "2026-05-20",
-    source: "MUFG / Bloomberg ship-crossing chart",
+    asOf: "2026-05-27",
+    source: "用户材料 / MUFG-Bloomberg ship-crossing chart",
     frequency: "每日",
     thesis: "短期消息能放大反弹，但与战前约130艘/日相比，26艘仍说明运输系统远未恢复。",
     rule: { mode: "lowerRisk", green: 130, yellow: 80, amber: 30 },
@@ -138,9 +138,9 @@ const defaultIndicators = [
     name: "布伦特近月-六月价差",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 20,
-    asOf: "2026-05-20",
-    source: "Reuters Brent curve comment",
+    value: 12,
+    asOf: "2026-05-27",
+    source: "Brent futures curve screens / 用户材料",
     frequency: "每日",
     thesis: "现货紧张的曲线信号；虽然较上月35美元高点回落，20美元仍不是宽松油市。",
     rule: { mode: "higherRisk", green: 5, yellow: 10, amber: 20 },
@@ -199,7 +199,7 @@ const defaultIndicators = [
     category: "通胀",
     unit: "%",
     value: 2.8,
-    asOf: "2026-05-20",
+    asOf: "2026-05-27",
     source: "BLS PPI",
     frequency: "每月",
     thesis: "上游成本向企业利润和终端价格传导的先行指标。",
@@ -210,9 +210,9 @@ const defaultIndicators = [
     name: "10年期实际利率",
     category: "利率与流动性",
     unit: "%",
-    value: 2.15,
-    asOf: "2026-05-20",
-    source: "TIPS / FRED",
+    value: 2.09,
+    asOf: "2026-05-27",
+    source: "Federal Reserve H.15 TIPS",
     frequency: "每日",
     thesis: "黄金和成长股共同关注的折现率；实际利率高位会压制黄金，但危机阶段会被避险需求抵消。",
     rule: { mode: "higherRisk", green: 1.5, yellow: 2.0, amber: 2.4 },
@@ -222,9 +222,9 @@ const defaultIndicators = [
     name: "美元指数DXY",
     category: "利率与流动性",
     unit: "点",
-    value: 104,
-    asOf: "2026-05-20",
-    source: "ICE DXY",
+    value: 99.17,
+    asOf: "2026-05-27",
+    source: "GoldPriceTracker / ICE DXY口径",
     frequency: "每日",
     thesis: "美元走强会收紧全球流动性；美元走弱叠加高油价会强化黄金与资源重估。",
     rule: { mode: "higherRisk", green: 100, yellow: 104, amber: 108 },
@@ -234,9 +234,9 @@ const defaultIndicators = [
     name: "美国财政部TGA账户",
     category: "利率与流动性",
     unit: "十亿美元",
-    value: 780,
-    asOf: "2026-05-20",
-    source: "U.S. Treasury Daily Statement",
+    value: 830,
+    asOf: "2026-05-27",
+    source: "StreetStats / Federal Reserve H.4.1",
     frequency: "每日",
     thesis: "TGA上升通常抽走银行体系流动性；需要和RRP、准备金合看。",
     rule: { mode: "higherRisk", green: 500, yellow: 750, amber: 1000 },
@@ -246,9 +246,9 @@ const defaultIndicators = [
     name: "隔夜逆回购RRP",
     category: "利率与流动性",
     unit: "十亿美元",
-    value: 350,
-    asOf: "2026-05-20",
-    source: "New York Fed",
+    value: 2,
+    asOf: "2026-05-27",
+    source: "StreetStats / Federal Reserve H.4.1",
     frequency: "每日",
     thesis: "RRP是可释放的流动性缓冲；越低，财政抽水对市场的冲击越直接。",
     rule: { mode: "lowerRisk", green: 900, yellow: 500, amber: 200 },
@@ -258,9 +258,9 @@ const defaultIndicators = [
     name: "银行准备金",
     category: "利率与流动性",
     unit: "万亿美元",
-    value: 3.25,
-    asOf: "2026-05-20",
-    source: "Federal Reserve H.4.1",
+    value: 3.067,
+    asOf: "2026-05-27",
+    source: "StreetStats / Federal Reserve H.4.1",
     frequency: "每周",
     thesis: "准备金下行会提高流动性事故概率，尤其在再融资高峰期。",
     rule: { mode: "lowerRisk", green: 3.4, yellow: 3.0, amber: 2.75 },
@@ -270,9 +270,9 @@ const defaultIndicators = [
     name: "美国高收益债利差",
     category: "利率与流动性",
     unit: "bp",
-    value: 340,
-    asOf: "2026-05-20",
-    source: "ICE BofA / FRED",
+    value: 272,
+    asOf: "2026-05-28",
+    source: "StreetStats / ICE BofA口径",
     frequency: "每日",
     thesis: "信用市场是否开始承认衰退与盈利风险。",
     rule: { mode: "higherRisk", green: 330, yellow: 430, amber: 550 },
@@ -282,9 +282,9 @@ const defaultIndicators = [
     name: "巴菲特指标",
     category: "市场脆弱性",
     unit: "%",
-    value: 252,
-    asOf: "2026-05-19",
-    source: "buffettindicator.org / FRED Wilshire-GDP口径",
+    value: 227,
+    asOf: "2026-05-28",
+    source: "buffettindicator.org / 公开市值GDP口径",
     frequency: "每日",
     thesis: "美股总市值相对GDP的估值压力表；历史高位代表市场对好消息依赖更强。",
     rule: { mode: "higherRisk", green: 135, yellow: 180, amber: 230 },
@@ -330,9 +330,9 @@ const defaultIndicators = [
     name: "现货黄金",
     category: "黄金与避险",
     unit: "美元/盎司",
-    value: 4489,
-    asOf: "2026-05-20",
-    source: "GoldAPI.io / MyGoldCalc",
+    value: 4520.06,
+    asOf: "2026-05-27",
+    source: "GoldPrice.org / GoldAPI口径",
     frequency: "每日",
     thesis: "油价极端化后的承接资产；关注实际利率、美元信用和央行购金。",
     rule: { mode: "higherRisk", green: 2800, yellow: 3300, amber: 3800 },
@@ -342,8 +342,8 @@ const defaultIndicators = [
     name: "金油比",
     category: "黄金与避险",
     unit: "倍",
-    value: 40.7,
-    asOf: "2026-05-20",
+    value: 47.35,
+    asOf: "2026-05-27",
     source: "XAUUSD / Brent计算",
     frequency: "每日",
     thesis: "衡量黄金相对原油的防守性估值；油价上冲时比值下行，转黄金时观察修复。",
@@ -354,9 +354,9 @@ const defaultIndicators = [
     name: "纳指100成分股广度",
     category: "AI与美股",
     unit: "%高于200日线",
-    value: 47,
-    asOf: "2026-05-20",
-    source: "交易所 / 技术统计",
+    value: 57.85,
+    asOf: "2026-05-29",
+    source: "Dean Financials / 美股200日线广度",
     frequency: "每日",
     thesis: "指数若由少数巨头托住，广度会先恶化。",
     rule: { mode: "lowerRisk", green: 65, yellow: 50, amber: 38 },
@@ -367,7 +367,7 @@ const defaultIndicators = [
     category: "AI与美股",
     unit: "%",
     value: 62,
-    asOf: "2026-05-20",
+    asOf: "2026-05-27",
     source: "公司财报汇总",
     frequency: "季报",
     thesis: "用自由现金流覆盖资本开支，低于60%说明AI投资对外部融资和估值更敏感。",
@@ -378,12 +378,144 @@ const defaultIndicators = [
     name: "VIX波动率",
     category: "AI与美股",
     unit: "点",
-    value: 18,
-    asOf: "2026-05-20",
-    source: "CBOE",
+    value: 16.29,
+    asOf: "2026-05-27",
+    source: "StreetStats / CBOE",
     frequency: "每日",
     thesis: "低波动叠加高宏观风险时，代表保护成本仍未充分定价。",
     rule: { mode: "rangeRisk", lowRed: 10, lowAmber: 14, highAmber: 28, highRed: 36 },
+  },
+  {
+    id: "sofrRate",
+    name: "SOFR隔夜融资利率",
+    category: "泡沫破裂前瞻",
+    unit: "%",
+    value: 3.62,
+    asOf: "2026-05-28",
+    source: "SOFRRate / New York Fed口径",
+    frequency: "每日",
+    thesis: "SOFR是最后确认型资金压力指标；若突然脱离政策利率走高，说明回购市场开始缺现金。",
+    rule: { mode: "higherRisk", green: 3.8, yellow: 4.3, amber: 4.8 },
+  },
+  {
+    id: "fundingSpreadProxy",
+    name: "金融CP-SOFR利差代理",
+    category: "泡沫破裂前瞻",
+    unit: "bp",
+    value: 9,
+    asOf: "2026-05-27",
+    source: "Federal Reserve H.15 / SOFR计算",
+    frequency: "每日",
+    thesis: "用金融商业票据利率与SOFR的差值近似观察FRA-OIS/TED压力；超过30bp代表银行间信用溢价开始抬升。",
+    rule: { mode: "higherRisk", green: 15, yellow: 30, amber: 50 },
+  },
+  {
+    id: "srfUsage",
+    name: "美联储SRF使用量",
+    category: "泡沫破裂前瞻",
+    unit: "十亿美元",
+    value: 0,
+    asOf: "2026-05-27",
+    source: "New York Fed repo operations / 手工复核",
+    frequency: "每日",
+    thesis: "SRF是私人回购市场失灵后的央行后门；频繁或大额使用代表交易商资产负债表被抵押品塞满。",
+    rule: { mode: "higherRisk", green: 5, yellow: 25, amber: 75 },
+  },
+  {
+    id: "swapLineUsage",
+    name: "央行美元互换使用量",
+    category: "泡沫破裂前瞻",
+    unit: "十亿美元",
+    value: 0.016,
+    asOf: "2026-05-21",
+    source: "Federal Reserve H.4.1",
+    frequency: "每周",
+    thesis: "美元互换额度是离岸美元荒的全球化确认信号；从零附近跳升通常意味着危机开始跨境传染。",
+    rule: { mode: "higherRisk", green: 1, yellow: 10, amber: 50 },
+  },
+  {
+    id: "moveIndex",
+    name: "MOVE美债波动率",
+    category: "泡沫破裂前瞻",
+    unit: "点",
+    value: 73.33,
+    asOf: "2026-06-01",
+    source: "StreetStats / ICE BofA MOVE",
+    frequency: "每日",
+    thesis: "MOVE衡量利率市场是否进入无序波动；若与VIX一起上行，股债流动性会同步承压。",
+    rule: { mode: "higherRisk", green: 85, yellow: 110, amber: 140 },
+  },
+  {
+    id: "cloAaaSpread",
+    name: "CLO AAA利差",
+    category: "泡沫破裂前瞻",
+    unit: "bp",
+    value: 126,
+    asOf: "2026-05-27",
+    source: "Octus CLO pipeline / CLO市场口径",
+    frequency: "每周",
+    thesis: "CLO AAA是杠杆贷款证券化管道的水温；若突然走阔，低评级贷款和私人信贷会先失血。",
+    rule: { mode: "higherRisk", green: 140, yellow: 180, amber: 250 },
+  },
+  {
+    id: "spacexIpoRaise",
+    name: "SpaceX IPO融资目标",
+    category: "泡沫破裂前瞻",
+    unit: "十亿美元",
+    value: 75,
+    asOf: "2026-05-27",
+    source: "Le Monde / Kiplinger / Axios",
+    frequency: "事件",
+    thesis: "巨型IPO会检验市场承接力；若定价、簿记或上市表现不佳，可能触发AI相关估值重估。",
+    rule: { mode: "higherRisk", green: 20, yellow: 50, amber: 75 },
+  },
+  {
+    id: "spacexValuation",
+    name: "SpaceX IPO估值目标",
+    category: "泡沫破裂前瞻",
+    unit: "十亿美元",
+    value: 1800,
+    asOf: "2026-05-27",
+    source: "Le Monde / Axios / 市场报道",
+    frequency: "事件",
+    thesis: "估值越高，越依赖AI与太空叙事的持续融资能力；破发会从叙事风险切到流动性风险。",
+    rule: { mode: "higherRisk", green: 500, yellow: 1000, amber: 1750 },
+  },
+  {
+    id: "deepseekPriceCut",
+    name: "DeepSeek V4-Pro降价幅度",
+    category: "泡沫破裂前瞻",
+    unit: "%",
+    value: 75,
+    asOf: "2026-05-27",
+    source: "Computerworld / DeepSeek公告口径",
+    frequency: "事件",
+    thesis: "AI推理价格快速下行会压缩高毛利叙事；若价格战持续，AI资本开支回报率会被重新估值。",
+    rule: { mode: "higherRisk", green: 25, yellow: 50, amber: 75 },
+  },
+  {
+    id: "copperProducerZ",
+    name: "COMEX铜生产商净空头Z值",
+    category: "泡沫破裂前瞻",
+    unit: "Z",
+    value: -2.2,
+    asOf: "2026-05-27",
+    source: "CFTC COT / 用户材料",
+    frequency: "每周",
+    thesis: "生产商极端净空通常代表现货商在高位积极套保；当投机资金同时拥挤做多时，是商品泡沫后段信号。",
+    rule: { mode: "lowerRisk", green: -0.5, yellow: -1.5, amber: -2.0 },
+  },
+  {
+    id: "copperManagedMoneyPct",
+    name: "COMEX铜投机净多百分位",
+    category: "泡沫破裂前瞻",
+    unit: "%",
+    value: 94,
+    asOf: "2026-05-27",
+    source: "CFTC COT / 用户材料",
+    frequency: "每周",
+    thesis: "投机资金接近历史高位净多，若价格冲高乏力，后续容易从逼空转为多头踩踏。",
+    rule: { mode: "higherRisk", green: 70, yellow: 85, amber: 95 },
   },
   {
     id: "ashareNewAccounts",
@@ -402,9 +534,9 @@ const defaultIndicators = [
     name: "A股融资余额",
     category: "A股散户情绪",
     unit: "万亿元",
-    value: 2.9035,
-    asOf: "2026-05-25",
-    source: "数据宝 / 新浪",
+    value: 2.9109,
+    asOf: "2026-05-26",
+    source: "证券时报数据宝",
     frequency: "每日",
     thesis: "杠杆资金的总水位；突破历史高位说明风险偏好和追涨资金都在升温。",
     rule: { mode: "higherRisk", green: 2.2, yellow: 2.6, amber: 2.8 },
@@ -426,9 +558,9 @@ const defaultIndicators = [
     name: "两融交易额占比",
     category: "A股散户情绪",
     unit: "%",
-    value: 10.9,
+    value: 10.89,
     asOf: "2026-05-25",
-    source: "证券之星 / 同花顺",
+    source: "新浪财经 / 数据宝",
     frequency: "每周",
     thesis: "两融交易额/A股成交额，可作为杠杆资金交易热度的高频替代指标；超过10%进入危险区，超过11%代表追涨明显过热。",
     rule: { mode: "higherRisk", green: 7, yellow: 10, amber: 11 },
@@ -438,11 +570,11 @@ const defaultIndicators = [
     name: "两市日均成交额",
     category: "A股散户情绪",
     unit: "亿元",
-    value: 23437.9,
-    asOf: "2026-04-30",
-    source: "中国人民银行金融市场运行情况",
-    frequency: "每月",
-    thesis: "市场交投温度计；成交额越高，赚钱效应和分歧都越强。",
+    value: 32385.6,
+    asOf: "2026-05-27",
+    source: "澎湃新闻 / 新浪财经收盘数据",
+    frequency: "每日",
+    thesis: "市场交投温度计；5月27日成交维持3.2万亿高位，但个股普跌说明分歧和结构拥挤在放大。",
     rule: { mode: "higherRisk", green: 15000, yellow: 20000, amber: 25000 },
   },
   {
@@ -462,11 +594,11 @@ const defaultIndicators = [
     name: "涨停家数",
     category: "A股散户情绪",
     unit: "家",
-    value: 40,
-    asOf: "2026-05-21",
-    source: "青岛财经日报 / 新浪收盘快报",
+    value: 60,
+    asOf: "2026-05-27",
+    source: "雪球/收盘复盘口径",
     frequency: "每日",
-    thesis: "短线投机情绪；百股涨停代表赚钱效应扩散，回落到40家附近说明热度短线降温。",
+    thesis: "短线投机情绪；约60只涨停但近4500只个股下跌，说明热点仍在但市场广度明显恶化。",
     rule: { mode: "higherRisk", green: 50, yellow: 100, amber: 150 },
   },
   {
@@ -513,22 +645,28 @@ const seedRecords = [
   ["brent", "2026-05-01", 103, "库存压力显性化"],
   ["brent", "2026-05-19", 110.42, "谈判乐观前的风险溢价高位"],
   ["brent", "2026-05-20", 105.02, "谈判消息压制，供需风险未解除"],
+  ["brent", "2026-05-27", 95.46, "美伊协议预期压低油价，但通行风险仍未清零"],
   ["wti", "2026-05-19", 103.15, "消息缓和前的高位"],
   ["wti", "2026-05-20", 98.26, "Reuters记录：单日回落约6%"],
+  ["wti", "2026-05-27", 88.68, "WTI跌破90美元，市场交易和平预期"],
   ["usCrudeInv", "2026-05-15", 445, "EIA周报：商业原油库存继续下降"],
+  ["usCrudeInv", "2026-05-22", 441.7, "EIA周报：商业原油库存下降3.327百万桶"],
   ["distillate", "2026-03-31", 116, "五年区间下沿附近"],
   ["distillate", "2026-04-15", 111, "库存继续下降"],
   ["distillate", "2026-05-01", 106, "柴油链条偏紧"],
   ["distillate", "2026-05-20", 102.5, "当前观察盘：接近100百万桶压力线"],
+  ["distillate", "2026-05-22", 100.8, "馏分油库存继续逼近100百万桶压力线"],
   ["ust10y", "2026-03-31", 4.15, "长债压力温和"],
   ["ust10y", "2026-04-15", 4.35, "降息预期削弱"],
   ["ust10y", "2026-05-01", 4.48, "估值折现率上行"],
   ["ust10y", "2026-05-20", 4.67, "长债进入估值压制区间"],
   ["ust10y", "2026-05-21", 4.604, "油价消息回落后，利率压力仍未消失"],
+  ["ust10y", "2026-05-27", 4.48, "H.15口径：10年美债收益率仍处高估值压力区"],
   ["spxPe", "2026-03-31", 19.4, "估值偏高但尚可解释"],
   ["spxPe", "2026-04-15", 20.1, "AI权重继续托估值"],
   ["spxPe", "2026-05-01", 20.6, "安全垫收窄"],
   ["spxPe", "2026-05-20", 20.8, "示例当前值"],
+  ["spxPe", "2026-05-27", 22.52, "S&P 500 FY1估值进入高压力区"],
   ["mag7Capex", "2026-03-31", 650, "AI投资维持高位"],
   ["mag7Capex", "2026-04-15", 720, "CapEx指引上修"],
   ["mag7Capex", "2026-05-01", 790, "融资与电力约束升温"],
@@ -537,12 +675,28 @@ const seedRecords = [
   ["gold", "2026-04-15", 3180, "避险需求升温"],
   ["gold", "2026-05-01", 3280, "实际利率与避险拉扯"],
   ["gold", "2026-05-20", 4489, "当前观察盘：黄金位于高位避险区间"],
+  ["gold", "2026-05-27", 4520.06, "金价高位震荡，避险需求仍在"],
   ["hormuzCrossings", "2026-05-20", 26, "通行边际改善，但远低于战前正常水平"],
+  ["hormuzCrossings", "2026-05-27", 26, "通行仍未恢复到战前约130艘/日"],
   ["brentFrontSpread", "2026-05-20", 20, "近端紧张较高点回落但仍显著"],
+  ["brentFrontSpread", "2026-05-27", 12, "曲线较此前高点变浅，但仍保持倒挂"],
   ["ieaOilDeficit", "2026-05-13", 1.78, "IEA五月报告仍预估全年赤字"],
   ["buffettIndicator", "2026-05-19", 252, "美国总市值/GDP处于强高估区"],
+  ["buffettIndicator", "2026-05-28", 227, "总市值/GDP仍显著高于历史常态"],
   ["privateCreditRedemptions", "2026-04-06", 11.3, "赎回请求明显高于常见流动性闸门"],
   ["loanDefaultRate", "2026-01-31", 5.5, "低评级贷款违约率偏高"],
+  ["sofrRate", "2026-05-28", 3.62, "SOFR仍贴近政策利率，尚未失控"],
+  ["fundingSpreadProxy", "2026-05-27", 9, "金融CP-SOFR利差仍在正常区间"],
+  ["srfUsage", "2026-05-27", 0, "SRF未出现大额使用"],
+  ["swapLineUsage", "2026-05-21", 0.016, "央行美元互换使用量接近零"],
+  ["moveIndex", "2026-06-01", 73.33, "美债波动率回落到相对平静区间"],
+  ["hySpread", "2026-05-28", 272, "高收益债OAS仍处低位，信用市场尚未承认压力"],
+  ["cloAaaSpread", "2026-05-27", 126, "CLO AAA利差仍紧，证券化管道未明显失血"],
+  ["spacexIpoRaise", "2026-05-27", 75, "SpaceX拟融资规模创纪录，检验市场承接力"],
+  ["spacexValuation", "2026-05-27", 1800, "SpaceX目标估值接近历史最大IPO级别"],
+  ["deepseekPriceCut", "2026-05-27", 75, "DeepSeek V4-Pro降价确认AI推理价格战"],
+  ["copperProducerZ", "2026-05-27", -2.2, "铜生产商净空头进入极端区域"],
+  ["copperManagedMoneyPct", "2026-05-27", 94, "铜投机资金净多接近历史高位"],
   ["ashareNewAccounts", "2026-01-31", 491.58, "开年开户热度高"],
   ["ashareNewAccounts", "2026-02-28", 252.3, "春节因素后回落"],
   ["ashareNewAccounts", "2026-03-31", 460.14, "环比增长82.38%，散户入场加速"],
@@ -550,12 +704,15 @@ const seedRecords = [
   ["ashareMarginBalance", "2026-05-08", 2.8, "融资余额首次突破2.8万亿元"],
   ["ashareMarginBalance", "2026-05-11", 2.8339, "两融余额刷新历史高位"],
   ["ashareMarginBalance", "2026-05-25", 2.9035, "融资余额首次突破2.9万亿元"],
+  ["ashareMarginBalance", "2026-05-26", 2.9109, "融资余额继续抬升"],
   ["ashareMarginUsers", "2026-05-11", 64.05, "参与两融交易人数创阶段新高"],
   ["ashareMarginBuyRatio", "2026-03-20", 9.01, "接近危险区但未突破11%极端线"],
-  ["ashareMarginBuyRatio", "2026-05-25", 10.9, "两融交易额占A股成交额约10.9%"],
+  ["ashareMarginBuyRatio", "2026-05-25", 10.89, "两融交易额占A股成交额约10.89%"],
   ["ashareTurnover", "2026-04-30", 23437.9, "央行披露4月两市日均成交额"],
+  ["ashareTurnover", "2026-05-27", 32385.6, "两市成交额维持3.2万亿高位但市场广度恶化"],
   ["ashareEquityFundIssuance", "2026-05-20", 2660, "权益类新基金年内首募升温"],
   ["ashareLimitUpCount", "2026-05-21", 40, "调整日涨停家数回落，短线情绪降温"],
+  ["ashareLimitUpCount", "2026-05-27", 60, "约60只涨停但近4500只股票下跌"],
   ["ashareSmallOrderInflow", "2026-04-03", 12500, "3月以来小单累计净流入"],
 ];
 
@@ -710,6 +867,116 @@ const ashareHistory = [
     period: "2024-2025",
     signal: "2024年10月开户脉冲",
     after: "短期冲高后震荡，政策和产业基本面决定后续能否再走强。",
+  },
+];
+
+const bubbleStages = [
+  {
+    title: "01 导火索：估值神话开始承压",
+    body: "SpaceX 超大规模融资、AI 模型价格战、科技股高估值共同构成叙事层压力。当前红灯主要集中在这里，说明市场还在狂欢，但对资金承接力的要求已经很高。",
+    ids: ["spacexValuation", "spacexIpoRaise", "deepseekPriceCut", "spxPe", "mag7Capex"],
+  },
+  {
+    title: "02 微观资金：非银融资压力",
+    body: "SOFR、金融 CP-SOFR 利差、SRF 和央行互换额度用于确认美元融资是否真正紧张。现在这些指标仍偏绿，意味着流动性危机尚未全面爆发。",
+    ids: ["sofrRate", "fundingSpreadProxy", "srfUsage", "swapLineUsage"],
+  },
+  {
+    title: "03 资产失血：信用与波动确认",
+    body: "VIX、MOVE、高收益债 OAS、CLO AAA 利差会在风险偏好塌陷后快速变色。若这些指标从绿灯同步转黄或转红，估值回调就会切换成去杠杆。",
+    ids: ["vix", "moveIndex", "hySpread", "cloAaaSpread", "privateCreditRedemptions"],
+  },
+  {
+    title: "04 跨市场传染：拥挤仓位反转",
+    body: "COMEX 铜的生产商极端套保和投机净多显示商品端拥挤度很高。若美元、黄金、商品和股票同时出现异常波动，说明资金开始跨市场撤退。",
+    ids: ["copperProducerZ", "copperManagedMoneyPct", "dxy", "gold", "rrp", "bankReserves"],
+  },
+];
+
+const bubbleMonitorRows = [
+  {
+    layer: "导火索",
+    id: "spacexValuation",
+    threshold: ">10000亿美元进入叙事极端；>17500亿美元为红灯",
+    logic: "巨型 IPO 是流动性试金石。高估值需要极强承接力，一旦定价、认购或上市表现不佳，AI 科技股会被迫重估。",
+  },
+  {
+    layer: "导火索",
+    id: "spacexIpoRaise",
+    threshold: ">500亿美元为黄灯；>750亿美元为红灯",
+    logic: "融资规模越大，对市场现金的抽水越强；若与财政发债、AI 融资潮同频，会放大美元流动性压力。",
+  },
+  {
+    layer: "导火索",
+    id: "deepseekPriceCut",
+    threshold: "降价>50%为黄灯；>75%为红灯",
+    logic: "模型降价说明 AI 推理正进入价格战。它会压低毛利率预期，使市场重新审视高 CapEx 的投资回报。",
+  },
+  {
+    layer: "估值",
+    id: "spxPe",
+    threshold: "远期 PE >20.5 倍偏贵；>22.5 倍进入高压区",
+    logic: "估值越高，越依赖低利率和高增长叙事。若长债收益率不下行，估值安全垫会很薄。",
+  },
+  {
+    layer: "资金压力",
+    id: "fundingSpreadProxy",
+    threshold: ">30bp 为融资压力；>50bp 为危机确认",
+    logic: "用金融 CP-SOFR 近似观察 FRA-OIS/TED 压力。利差突然走阔意味着银行间信用溢价开始抬升。",
+  },
+  {
+    layer: "资金压力",
+    id: "sofrRate",
+    threshold: ">4.3% 转黄；>4.8% 转红",
+    logic: "SOFR 通常是后验确认指标；若与政策利率明显脱钩上行，说明回购市场现金开始不足。",
+  },
+  {
+    layer: "央行后门",
+    id: "srfUsage",
+    threshold: ">250亿美元需警惕；>750亿美元为红灯",
+    logic: "SRF 使用量上升说明私人回购市场承接能力不足，交易商资产负债表被抵押品挤压。",
+  },
+  {
+    layer: "全球美元荒",
+    id: "swapLineUsage",
+    threshold: ">100亿美元转黄；>500亿美元为红灯",
+    logic: "央行美元互换额度激增通常意味着离岸美元紧张，危机从局部传导到全球。",
+  },
+  {
+    layer: "信用失血",
+    id: "hySpread",
+    threshold: ">400bp 转黄；>600bp 为红灯",
+    logic: "高收益债 OAS 是烧钱企业融资成本的温度计。若快速走阔，AI 和私募信贷链条会先承压。",
+  },
+  {
+    layer: "信用失血",
+    id: "cloAaaSpread",
+    threshold: ">180bp 转黄；>250bp 为红灯",
+    logic: "CLO 是杠杆贷款的核心通道。AAA 利差走阔说明证券化买盘开始要求更高风险补偿。",
+  },
+  {
+    layer: "波动确认",
+    id: "vix",
+    threshold: "低于14说明风险被低估；高于28说明恐慌升温",
+    logic: "当前 VIX 不高，说明保护成本仍便宜；若突然上穿 25-30，市场可能从乐观切到强制保护。",
+  },
+  {
+    layer: "波动确认",
+    id: "moveIndex",
+    threshold: ">110 转黄；>140 为红灯",
+    logic: "MOVE 衡量美债波动。若股债波动同时升温，流动性压力会从权益扩散到抵押品市场。",
+  },
+  {
+    layer: "拥挤仓位",
+    id: "copperProducerZ",
+    threshold: "Z<-1.5 偏热；Z<-2.0 极端",
+    logic: "生产商极端净空意味着实体端在高位积极套保，通常不是左侧买入信号，而是后段风险提示。",
+  },
+  {
+    layer: "拥挤仓位",
+    id: "copperManagedMoneyPct",
+    threshold: ">85% 偏热；>95% 极端",
+    logic: "投机资金接近历史高位净多。若价格无法继续上行，多头踩踏会放大商品端波动。",
   },
 ];
 
@@ -893,6 +1160,8 @@ function getCriticalIndicators() {
     "ust10y",
     "spxPe",
     "buffettIndicator",
+    "spacexValuation",
+    "fundingSpreadProxy",
     "privateCreditRedemptions",
     "mag7Capex",
   ]
@@ -928,6 +1197,7 @@ function renderAll() {
   renderFilters();
   renderIndicatorTable();
   renderAshare();
+  renderBubble();
   renderEntryOptions();
   renderRecentRecords();
   renderRoadmap();
@@ -1260,6 +1530,108 @@ function renderAshare() {
       </div>
     `,
     )
+    .join("");
+}
+
+function renderBubble() {
+  const rows = bubbleMonitorRows
+    .map((row) => ({ ...row, indicator: byId(row.id) }))
+    .filter((row) => row.indicator);
+
+  const score = Math.round((rows.reduce((sum, row) => sum + getStatus(row.indicator).score, 0) / rows.length) * 33.3);
+  const redCount = rows.filter((row) => getStatus(row.indicator).level === "red").length;
+  const amberCount = rows.filter((row) => getStatus(row.indicator).level === "amber").length;
+  const fundingStress = ["fundingSpreadProxy", "sofrRate", "srfUsage", "swapLineUsage", "hySpread", "cloAaaSpread"].some((id) => {
+    const indicator = byId(id);
+    return indicator && ["amber", "red"].includes(getStatus(indicator).level);
+  });
+
+  let status = "叙事过热，危机未确认";
+  let reason = "红灯主要集中在估值、融资规模和AI价格战，SOFR、SRF、互换额度和信用利差仍偏绿。";
+  if (fundingStress && redCount >= 3) {
+    status = "流动性危机确认";
+    reason = "估值端红灯已经传导到融资、信用或央行后门指标，需要把它视为去杠杆阶段。";
+  } else if (fundingStress || amberCount >= 4) {
+    status = "压力扩散";
+    reason = "导火索之外，资金或信用指标开始变色，市场可能从估值回调切换到流动性抛售。";
+  } else if (redCount >= 3) {
+    status = "泡沫后段";
+    reason = "叙事和仓位指标已明显过热，但资金市场尚未给出系统性失血确认。";
+  }
+
+  document.getElementById("bubbleScore").textContent = score;
+  document.getElementById("bubbleStatus").textContent = status;
+  document.getElementById("bubbleReason").textContent = reason;
+
+  document.getElementById("bubbleChain").innerHTML = bubbleStages
+    .map((stage) => {
+      const indicators = stage.ids.map(byId).filter(Boolean);
+      const avg = indicators.length
+        ? indicators.reduce((sum, indicator) => sum + getStatus(indicator).score, 0) / indicators.length
+        : 0;
+      const level = avg >= 2.2 ? "red" : avg >= 1.4 ? "amber" : avg >= 0.7 ? "yellow" : "green";
+      return `
+        <article class="bubble-step ${level}">
+          <div class="bubble-step-head">
+            <strong>${stage.title}</strong>
+            <span class="status-dot ${level}"></span>
+          </div>
+          <p>${stage.body}</p>
+          <div class="bubble-mini-list">
+            ${indicators
+              .map(
+                (indicator) => `
+                  <div>
+                    <span class="status-dot ${getStatus(indicator).level}"></span>
+                    <em>${indicator.name}</em>
+                    <strong>${formatValue(indicator)}</strong>
+                  </div>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  document.getElementById("bubbleSignalGrid").innerHTML = rows
+    .slice(0, 8)
+    .map(({ layer, indicator, threshold, logic }) => {
+      const status = getStatus(indicator);
+      return `
+        <article class="bubble-card ${status.level}">
+          <div class="bubble-card-head">
+            <span>${layer}</span>
+            ${createStatusBadge(indicator)}
+          </div>
+          <strong>${indicator.name}</strong>
+          <div class="bubble-value">${formatValue(indicator)}</div>
+          <p>${logic}</p>
+          <em>${threshold}</em>
+        </article>
+      `;
+    })
+    .join("");
+
+  document.getElementById("bubbleTable").innerHTML = rows
+    .map(({ layer, indicator, threshold, logic }) => {
+      return `
+        <tr>
+          <td>${layer}</td>
+          <td>
+            <div class="indicator-name">
+              <strong>${indicator.name}</strong>
+              <span>${indicator.source}</span>
+            </div>
+          </td>
+          <td>${formatValue(indicator)}<br><span class="muted">${indicator.asOf || "待录入"}</span></td>
+          <td>${createStatusBadge(indicator)}</td>
+          <td>${threshold}</td>
+          <td>${logic}</td>
+        </tr>
+      `;
+    })
     .join("");
 }
 

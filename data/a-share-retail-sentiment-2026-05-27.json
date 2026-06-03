@@ -1,7 +1,7 @@
 {
   "asOf": "2026-05-27",
   "title": "A股散户情绪与市场热度周度监测",
-  "summary": "4月开户数环比降温，但两融、成交额、新基金发行仍显示资金入市进行中；涨停与广度指标仍需周度复核，当前更像结构性升温而非全面狂热。",
+  "summary": "截至5月27附近，A股散户情绪呈现“开户降温、杠杆升温、成交高热、广度恶化”的组合。4月个人开户数较3月明显回落，但融资余额继续突破历史高位，两融交易占比接近11%的过热线；5月27两市成交维持3.2万亿元以上，同时个股普跌，说明市场更像结构性拥挤和杠杆驱动，而不是全面健康牛市。",
   "items": [
     {
       "id": "ashareNewAccounts",
@@ -16,11 +16,11 @@
     {
       "id": "ashareMarginBalance",
       "name": "A股融资余额",
-      "value": 2.9035,
+      "value": 2.9109,
       "unit": "万亿元",
-      "asOf": "2026-05-25",
+      "asOf": "2026-05-26",
       "status": "red",
-      "source": "数据宝 / 新浪",
+      "source": "证券时报数据宝",
       "url": "https://finance.sina.com.cn/wm/2026-05-26/doc-inhzffss1540928.shtml"
     },
     {
@@ -36,22 +36,22 @@
     {
       "id": "ashareMarginBuyRatio",
       "name": "两融交易额占比",
-      "value": 10.9,
+      "value": 10.89,
       "unit": "%",
       "asOf": "2026-05-25",
       "status": "amber",
-      "source": "证券之星 / 同花顺",
+      "source": "证券之星 / 新浪财经",
       "url": "https://stock.stockstar.com/SS2026052600023414.shtml"
     },
     {
       "id": "ashareTurnover",
-      "name": "两市日均成交额",
-      "value": 23437.9,
+      "name": "两市成交额",
+      "value": 32385.6,
       "unit": "亿元",
-      "asOf": "2026-04",
-      "status": "amber",
-      "source": "中国人民银行金融市场运行情况",
-      "url": "https://www.stcn.com/article/detail/3923325.html"
+      "asOf": "2026-05-27",
+      "status": "red",
+      "source": "澎湃新闻 / 新浪财经收盘数据",
+      "url": "https://finance.sina.com.cn/"
     },
     {
       "id": "ashareEquityFundIssuance",
@@ -66,12 +66,12 @@
     {
       "id": "ashareLimitUpCount",
       "name": "涨停家数",
-      "value": 40,
+      "value": 60,
       "unit": "家",
-      "asOf": "2026-05-21",
+      "asOf": "2026-05-27",
       "status": "green",
-      "source": "青岛财经日报 / 新浪收盘快报",
-      "url": "https://finance.sina.com.cn/roll/2026-05-21/doc-inhysaii6336477.shtml"
+      "source": "雪球/收盘复盘口径",
+      "url": "https://xueqiu.com/"
     },
     {
       "id": "ashareSmallOrderInflow",

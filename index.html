@@ -29,6 +29,10 @@
             <span class="nav-icon" aria-hidden="true">◇</span>
             A股情绪
           </button>
+          <button class="nav-item" data-view="bubble" type="button">
+            <span class="nav-icon" aria-hidden="true">◈</span>
+            泡沫预警
+          </button>
           <button class="nav-item" data-view="entry" type="button">
             <span class="nav-icon" aria-hidden="true">＋</span>
             数据录入
@@ -332,6 +336,68 @@
               <div class="history-list" id="ashareHistory"></div>
             </section>
           </div>
+        </section>
+
+        <section id="bubble" class="view" aria-labelledby="bubbleTitle">
+          <div class="section-head page-head">
+            <div>
+              <p class="eyebrow">Bubble Break Monitor</p>
+              <h2 id="bubbleTitle">泡沫破裂前瞻指标红绿灯</h2>
+            </div>
+            <span class="pill">更新至5月27附近</span>
+          </div>
+
+          <div class="ashare-hero bubble-hero">
+            <div>
+              <p class="eyebrow">核心判断</p>
+              <h3>市场还没有进入流动性危机，但泡沫资产正在寻找导火索</h3>
+              <p>
+                SOFR、资金利差、SRF、互换额度和信用利差仍偏平静；真正偏红的是估值与叙事端：SpaceX巨型IPO、DeepSeek价格战、AI资本开支回报压力，以及COMEX铜的极端套保与投机仓位。
+              </p>
+            </div>
+            <div class="heat-score">
+              <span>危机热度</span>
+              <strong id="bubbleScore">--</strong>
+              <em id="bubbleStatus">计算中</em>
+            </div>
+          </div>
+
+          <div class="bubble-chain" id="bubbleChain"></div>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Signal Board</p>
+                <h3>前瞻指标红绿灯</h3>
+              </div>
+              <span class="pill" id="bubbleReason">等待计算</span>
+            </div>
+            <div class="bubble-grid" id="bubbleSignalGrid"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Crisis Script</p>
+                <h3>从估值泡沫到流动性危机</h3>
+              </div>
+            </div>
+            <div class="table-panel compact-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>层级</th>
+                    <th>指标</th>
+                    <th>当前值</th>
+                    <th>灯号</th>
+                    <th>触发阈值</th>
+                    <th>为什么看它</th>
+                  </tr>
+                </thead>
+                <tbody id="bubbleTable"></tbody>
+              </table>
+            </div>
+          </section>
         </section>
 
         <section id="entry" class="view" aria-labelledby="entryTitle">

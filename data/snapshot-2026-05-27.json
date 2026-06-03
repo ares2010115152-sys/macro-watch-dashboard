@@ -1,0 +1,46 @@
+{
+  "asOf": "2026-05-27",
+  "title": "Macro Watch 全量快照",
+  "summary": "5月27附近的核心状态是：油价受谈判和通航改善消息压制，但霍尔木兹通行仍远低于战前；美国库存缓冲继续消耗；美股估值和AI融资叙事处在高热区；美元融资、SRF、互换额度和信用利差尚未确认系统性危机。因此当前更接近“泡沫后段/寻找导火索”，而非已经进入全面流动性危机。",
+  "macro": [
+    { "id": "brent", "name": "布伦特原油", "value": 95.46, "unit": "美元/桶", "asOf": "2026-05-27", "status": "yellow", "source": "Reuters / MarketScreener / TradingEconomics" },
+    { "id": "wti", "name": "WTI原油", "value": 88.68, "unit": "美元/桶", "asOf": "2026-05-27", "status": "yellow", "source": "Investing.com historical NYMEX WTI" },
+    { "id": "hormuzCrossings", "name": "霍尔木兹船舶通行量", "value": 26, "unit": "艘/日", "asOf": "2026-05-27", "status": "amber", "source": "用户材料 / MUFG-Bloomberg ship-crossing chart" },
+    { "id": "usCrudeInv", "name": "美国商业原油库存", "value": 441.7, "unit": "百万桶", "asOf": "2026-05-22", "status": "yellow", "source": "EIA / StoneX recap" },
+    { "id": "distillate", "name": "美国馏分油库存", "value": 100.8, "unit": "百万桶", "asOf": "2026-05-22", "status": "amber", "source": "EIA / StoneX recap" },
+    { "id": "spr", "name": "美国战略石油储备", "value": 365.1, "unit": "百万桶", "asOf": "2026-05-22", "status": "red", "source": "EIA SPR" },
+    { "id": "ust10y", "name": "美国10年期国债收益率", "value": 4.48, "unit": "%", "asOf": "2026-05-27", "status": "yellow", "source": "Federal Reserve H.15" },
+    { "id": "realYield", "name": "10年期实际利率", "value": 2.09, "unit": "%", "asOf": "2026-05-27", "status": "amber", "source": "Federal Reserve H.15 TIPS" },
+    { "id": "gold", "name": "现货黄金", "value": 4520.06, "unit": "美元/盎司", "asOf": "2026-05-27", "status": "red", "source": "GoldPrice / GoldAPI口径" },
+    { "id": "vix", "name": "VIX波动率", "value": 16.29, "unit": "点", "asOf": "2026-05-27", "status": "green", "source": "StreetStats / CBOE" },
+    { "id": "hySpread", "name": "高收益债OAS", "value": 272, "unit": "bp", "asOf": "2026-05-28", "status": "green", "source": "StreetStats / ICE BofA口径" }
+  ],
+  "bubble": [
+    { "id": "sofrRate", "name": "SOFR隔夜融资利率", "value": 3.62, "unit": "%", "asOf": "2026-05-28", "status": "green", "source": "SOFRRate / New York Fed口径" },
+    { "id": "fundingSpreadProxy", "name": "金融CP-SOFR利差代理", "value": 9, "unit": "bp", "asOf": "2026-05-27", "status": "green", "source": "Federal Reserve H.15 / SOFR计算" },
+    { "id": "srfUsage", "name": "美联储SRF使用量", "value": 0, "unit": "十亿美元", "asOf": "2026-05-27", "status": "green", "source": "New York Fed repo operations / 手工复核" },
+    { "id": "swapLineUsage", "name": "央行美元互换使用量", "value": 0.016, "unit": "十亿美元", "asOf": "2026-05-21", "status": "green", "source": "Federal Reserve H.4.1" },
+    { "id": "moveIndex", "name": "MOVE美债波动率", "value": 73.33, "unit": "点", "asOf": "2026-06-01", "status": "green", "source": "StreetStats / ICE BofA MOVE" },
+    { "id": "cloAaaSpread", "name": "CLO AAA利差", "value": 126, "unit": "bp", "asOf": "2026-05-27", "status": "green", "source": "Octus CLO pipeline / CLO市场口径" },
+    { "id": "spacexIpoRaise", "name": "SpaceX IPO融资目标", "value": 75, "unit": "十亿美元", "asOf": "2026-05-27", "status": "amber", "source": "Le Monde / Kiplinger / Axios" },
+    { "id": "spacexValuation", "name": "SpaceX IPO估值目标", "value": 1800, "unit": "十亿美元", "asOf": "2026-05-27", "status": "red", "source": "Le Monde / Axios / 市场报道" },
+    { "id": "deepseekPriceCut", "name": "DeepSeek V4-Pro降价幅度", "value": 75, "unit": "%", "asOf": "2026-05-27", "status": "amber", "source": "Computerworld / DeepSeek公告口径" },
+    { "id": "copperProducerZ", "name": "COMEX铜生产商净空头Z值", "value": -2.2, "unit": "Z", "asOf": "2026-05-27", "status": "red", "source": "CFTC COT / 用户材料" },
+    { "id": "copperManagedMoneyPct", "name": "COMEX铜投机净多百分位", "value": 94, "unit": "%", "asOf": "2026-05-27", "status": "amber", "source": "CFTC COT / 用户材料" }
+  ],
+  "ashare": [
+    { "id": "ashareNewAccounts", "name": "个人投资者A股新增开户数", "value": 248.03, "unit": "万户/月", "asOf": "2026-04", "status": "yellow" },
+    { "id": "ashareMarginBalance", "name": "A股融资余额", "value": 2.9109, "unit": "万亿元", "asOf": "2026-05-26", "status": "red" },
+    { "id": "ashareMarginBuyRatio", "name": "两融交易额占比", "value": 10.89, "unit": "%", "asOf": "2026-05-25", "status": "amber" },
+    { "id": "ashareTurnover", "name": "两市成交额", "value": 32385.6, "unit": "亿元", "asOf": "2026-05-27", "status": "red" },
+    { "id": "ashareLimitUpCount", "name": "涨停家数", "value": 60, "unit": "家", "asOf": "2026-05-27", "status": "green" }
+  ],
+  "manualWatch": [
+    "FRA-OIS直接值",
+    "券商APP DAU与下载排名",
+    "百度/微信/抖音搜索热度",
+    "霍尔木兹AIS通行量",
+    "CLO细分评级利差",
+    "SpaceX IPO定价、认购倍数与上市首日表现"
+  ]
+}
