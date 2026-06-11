@@ -1,0 +1,41 @@
+{
+  "asOf": "2026-06-11",
+  "title": "Macro Watch 全量快照",
+  "summary": "6月11附近的核心状态是：油价和地缘风险继续扰动通胀预期，美国10年期收益率升至4.53%，10年TIPS升至2.20%；Fed H.4.1显示TGA升至8757亿美元、ON RRP缓冲约60亿美元、准备金降至约3.014万亿美元。新增日元套息链条后，10Y JGB约2.8%、BOJ/FOMC窗口仅剩数日、外国官方托管美债约2.667万亿美元，说明风险已经从单纯AI估值过热，扩展到“日元融资成本上移 + 美元流动性缓冲变薄”的组合。",
+  "macro": [
+    { "id": "brent", "name": "布伦特原油", "value": 96.0, "unit": "美元/桶", "asOf": "2026-06-02", "status": "yellow", "source": "Xinhua / ICE Brent settlement" },
+    { "id": "wti", "name": "WTI原油", "value": 93.76, "unit": "美元/桶", "asOf": "2026-06-02", "status": "yellow", "source": "Xinhua / NYMEX WTI settlement" },
+    { "id": "ust10y", "name": "美国10年期国债收益率", "value": 4.53, "unit": "%", "asOf": "2026-06-09", "status": "yellow", "source": "Federal Reserve H.15" },
+    { "id": "realYield", "name": "10年期实际利率", "value": 2.20, "unit": "%", "asOf": "2026-06-09", "status": "amber", "source": "Federal Reserve H.15 TIPS" },
+    { "id": "tga", "name": "美国财政部TGA账户", "value": 875.7, "unit": "十亿美元", "asOf": "2026-06-03", "status": "amber", "source": "Federal Reserve H.4.1" },
+    { "id": "rrp", "name": "隔夜逆回购RRP", "value": 6.0, "unit": "十亿美元", "asOf": "2026-06-03", "status": "red", "source": "Federal Reserve H.4.1 / RRP others口径" },
+    { "id": "bankReserves", "name": "银行准备金", "value": 3.014, "unit": "万亿美元", "asOf": "2026-06-03", "status": "yellow", "source": "Federal Reserve H.4.1" },
+    { "id": "swapLineUsage", "name": "央行美元互换使用量", "value": 0.116, "unit": "十亿美元", "asOf": "2026-06-03", "status": "green", "source": "Federal Reserve H.4.1" },
+    { "id": "foreignUstCustody", "name": "外国官方托管美债", "value": 2.667, "unit": "万亿美元", "asOf": "2026-06-03", "status": "amber", "source": "Federal Reserve H.4.1 custody data" }
+  ],
+  "yenCarry": [
+    { "id": "jgb10y", "name": "日本10年期国债收益率", "value": 2.8, "unit": "%", "asOf": "2026-06-11", "status": "red", "source": "WSJ / Tradeweb / MarketWatch" },
+    { "id": "bojFomcWindow", "name": "BOJ/FOMC窗口剩余天数", "value": 4, "unit": "天", "asOf": "2026-06-11", "status": "red", "source": "BOJ 6/15-16会议 / FOMC 6/17窗口" },
+    { "id": "yenCarryStress", "name": "日元套息平仓压力", "value": 76, "unit": "分", "asOf": "2026-06-11", "status": "red", "source": "JGB收益率 / BOJ窗口 / 美元流动性综合评分" }
+  ],
+  "bubble": [
+    { "id": "spacexValuation", "name": "SpaceX IPO估值目标", "value": 1800, "unit": "十亿美元", "asOf": "2026-05-27", "status": "red" },
+    { "id": "deepseekPriceCut", "name": "DeepSeek V4-Pro降价幅度", "value": 75, "unit": "%", "asOf": "2026-05-27", "status": "amber" },
+    { "id": "copperProducerZ", "name": "COMEX铜生产商净空头Z值", "value": -2.2, "unit": "Z", "asOf": "2026-05-27", "status": "red" },
+    { "id": "copperManagedMoneyPct", "name": "COMEX铜投机净多百分位", "value": 94, "unit": "%", "asOf": "2026-05-27", "status": "amber" }
+  ],
+  "ashare": [
+    { "id": "ashareMarginBalance", "name": "A股融资余额", "value": 2.890973, "unit": "万亿元", "asOf": "2026-05-29", "status": "red" },
+    { "id": "ashareMarginBuyRatio", "name": "两融交易额占比", "value": 10.12, "unit": "%", "asOf": "2026-05-29", "status": "amber" },
+    { "id": "ashareTurnover", "name": "两市成交额", "value": 28132, "unit": "亿元", "asOf": "2026-06-02", "status": "red" }
+  ],
+  "manualWatch": [
+    "USD/JPY实时汇率与一周升值速度",
+    "5Y JGB收益率",
+    "BOJ 6/15-16声明与购债缩减路径",
+    "FOMC 6/17对QT和准备金充足性的表述",
+    "SOFR是否单日跳升",
+    "MOVE是否与VIX同步上行",
+    "A股6月11收盘与两融最新日度数据"
+  ]
+}
