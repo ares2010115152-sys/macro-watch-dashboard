@@ -1,0 +1,50 @@
+{
+  "asOf": "2026-06-30",
+  "title": "Macro Watch 全量快照",
+  "summary": "6月30日前后的核心状态是：油价因美伊谈判预期快速回落，市场重新交易通航恢复和通胀压力缓解；但美元流动性缓冲继续变薄，TGA接近9190亿美元、ON RRP几乎耗尽、准备金跌破3万亿美元。腾讯元宝材料新增的重点是：当前的流动性盛宴并非美联储QE，而是日本低息资金通过日元套息交易给全球风险资产供氧。真正的相变观察点是BOJ政策利率逼近1.5%、USD/JPY由高位反转跌破140、VIX持续站上28，以及SOFR/CP利差/SRF/央行互换额度同步变色。",
+  "macro": [
+    { "id": "brent", "name": "布伦特原油", "value": 73.20, "unit": "美元/桶", "asOf": "2026-06-30", "status": "green", "source": "WSJ / ICE Brent early Europe" },
+    { "id": "wti", "name": "WTI原油", "value": 69.91, "unit": "美元/桶", "asOf": "2026-06-30", "status": "green", "source": "WSJ / NYMEX WTI early Europe" },
+    { "id": "ust10y", "name": "美国10年期国债收益率", "value": 4.37, "unit": "%", "asOf": "2026-06-30", "status": "yellow", "source": "WSJ / Tradeweb；Fed H.15 Jun26为4.38%" },
+    { "id": "realYield", "name": "10年期实际利率", "value": 2.18, "unit": "%", "asOf": "2026-06-26", "status": "amber", "source": "Federal Reserve H.15 TIPS" },
+    { "id": "dxy", "name": "美元指数DXY", "value": 101.318, "unit": "点", "asOf": "2026-06-30", "status": "yellow", "source": "WSJ / ICE DXY" },
+    { "id": "gold", "name": "黄金价格参考", "value": 4044.30, "unit": "美元/盎司", "asOf": "2026-06-30", "status": "red", "source": "WSJ / New York gold futures" },
+    { "id": "goldOilRatio", "name": "金油比", "value": 55.25, "unit": "倍", "asOf": "2026-06-30", "status": "red", "source": "NY gold futures / Brent futures计算" }
+  ],
+  "liquidity": [
+    { "id": "tga", "name": "美国财政部TGA账户", "value": 918.7, "unit": "十亿美元", "asOf": "2026-06-24", "status": "amber", "source": "Federal Reserve H.4.1" },
+    { "id": "rrp", "name": "隔夜逆回购RRP", "value": 2.278, "unit": "十亿美元", "asOf": "2026-06-24", "status": "red", "source": "Federal Reserve H.4.1 / RRP others口径" },
+    { "id": "bankReserves", "name": "银行准备金", "value": 2.951, "unit": "万亿美元", "asOf": "2026-06-24", "status": "amber", "source": "Federal Reserve H.4.1" },
+    { "id": "sofrRate", "name": "SOFR隔夜融资利率", "value": 3.63, "unit": "%", "asOf": "2026-06-26", "status": "green", "source": "Federal Reserve H.15 / EFFR近似口径" },
+    { "id": "fundingSpreadProxy", "name": "金融CP-SOFR利差代理", "value": 18, "unit": "bp", "asOf": "2026-06-26", "status": "yellow", "source": "Federal Reserve H.15 / 3M金融CP-EFFR计算" },
+    { "id": "srfUsage", "name": "美联储SRF使用量", "value": 0.004, "unit": "十亿美元", "asOf": "2026-06-24", "status": "green", "source": "Federal Reserve H.4.1 repo agreements others" },
+    { "id": "swapLineUsage", "name": "央行美元互换使用量", "value": 0.035, "unit": "十亿美元", "asOf": "2026-06-24", "status": "green", "source": "Federal Reserve H.4.1" }
+  ],
+  "yenCarry": [
+    { "id": "bojPolicyRate", "name": "日本央行政策利率", "value": 1.00, "unit": "%", "asOf": "2026-06-16", "status": "yellow", "source": "BOJ decision / AP / Guardian" },
+    { "id": "usdJpy", "name": "USD/JPY", "value": 162.40, "unit": "日元/美元", "asOf": "2026-06-30", "status": "amber", "source": "WSJ / FactSet" },
+    { "id": "jgb10y", "name": "日本10年期国债收益率", "value": 2.57, "unit": "%", "asOf": "2026-06-15", "status": "amber", "source": "WSJ / MUFG JGB market note" },
+    { "id": "foreignUstCustody", "name": "外国官方托管美债", "value": 2.640, "unit": "万亿美元", "asOf": "2026-06-24", "status": "red", "source": "Federal Reserve H.4.1 custody data" },
+    { "id": "yenCarryStress", "name": "日元套息平仓压力", "value": 68, "unit": "分", "asOf": "2026-06-30", "status": "amber", "source": "USD/JPY / BOJ利率 / JGB / VIX / 美元缓冲综合评分" },
+    { "id": "vixAbove28Days", "name": "VIX高压持续天数", "value": 0, "unit": "天", "asOf": "2026-06-30", "status": "green", "source": "Cboe / MarketWatch volatility notes" },
+    { "id": "ctaConvexityNeed", "name": "CTA/长波动防守需求", "value": 64, "unit": "分", "asOf": "2026-06-30", "status": "yellow", "source": "VIX / SOFR / USDJPY / 相关性升高综合评分" }
+  ],
+  "bubble": [
+    { "id": "spacexValuation", "name": "SpaceX IPO估值目标", "value": 1800, "unit": "十亿美元", "asOf": "2026-05-27", "status": "red" },
+    { "id": "deepseekPriceCut", "name": "DeepSeek V4-Pro降价幅度", "value": 75, "unit": "%", "asOf": "2026-05-27", "status": "amber" },
+    { "id": "hySpread", "name": "美国高收益债利差", "value": 272, "unit": "bp", "asOf": "2026-05-28", "status": "green" },
+    { "id": "cloAaaSpread", "name": "CLO AAA利差", "value": 126, "unit": "bp", "asOf": "2026-05-27", "status": "green" },
+    { "id": "copperProducerZ", "name": "COMEX铜生产商净空头Z值", "value": -2.2, "unit": "Z", "asOf": "2026-05-27", "status": "red" },
+    { "id": "copperManagedMoneyPct", "name": "COMEX铜投机净多百分位", "value": 94, "unit": "%", "asOf": "2026-05-27", "status": "amber" }
+  ],
+  "manualWatch": [
+    "BOJ政策利率是否继续向1.25%-1.5%推进",
+    "USD/JPY是否从160上方高位反转并跌破140",
+    "VIX是否连续多日站上28，VXN是否继续显著高于VIX",
+    "金融CP-EFFR/FRA-OIS/TED利差是否突破30-50bp",
+    "SRF使用量和央行美元互换额度是否从零附近突然跳升",
+    "ON RRP耗尽后，准备金是否继续跌向2.75万亿美元",
+    "高收益债OAS、CLO AAA利差和私募信贷赎回是否同步恶化",
+    "现金、短周期CTA、长波动和尾部保护是否成为更优防守组合"
+  ]
+}
