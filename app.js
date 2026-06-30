@@ -1173,40 +1173,99 @@ const bubbleMonitorRows = [
 const roadmap = [
   {
     id: "stage1",
-    title: "第一阶段：6月逐步建仓原油",
-    trigger: "布伦特站稳110-120美元，库存继续下降，美伊谈判没有实质缓和。",
-    risk: "若布伦特跌回90美元下方，降低风险敞口。",
+    title: "第一阶段：三季度末前保留科技进攻",
+    trigger: "AI业绩叙事仍强、VIX未持续站上28、SOFR/CP利差未越过30bp，科技股高斜率行情仍可能惯性延续。",
+    risk: "不追无现金流小票；若科技股放量冲高但广度恶化，开始把盈利转入现金和资源观察仓。",
     allocation: [
-      ["原油/能源敞口", 20, 35, "oil"],
-      ["黄金", 10, 15, "gold"],
-      ["现金/短债", 30, 40, "cash"],
-      ["防守权益", 10, 20, "equity"],
+      ["科技/AI龙头", 35, 50, "tech"],
+      ["恒生科技观察仓", 5, 12, "hkTech"],
+      ["现金/短债", 20, 30, "cash"],
+      ["大宗商品/能源", 5, 12, "commodity"],
+      ["黄金/贵金属", 8, 15, "gold"],
     ],
   },
   {
     id: "stage2",
-    title: "第二阶段：趋势确认后加仓能源",
-    trigger: "布伦特突破120-130美元，10年美债逼近4.8%-5.0%。",
-    risk: "关注政策干预、SPR释放和需求破坏迹象。",
+    title: "第二阶段：临近9月逐步减科技转资源贵金属",
+    trigger: "进入9月前后，财政发债、季末资金面、BOJ继续加息、日元高位反转风险开始叠加。",
+    risk: "转仓要分批，不在单日恐慌里一次性切换；若VIX仍低且信用利差不动，保留部分科技右侧仓位。",
     allocation: [
-      ["原油/能源敞口", 35, 50, "oil"],
-      ["黄金", 10, 20, "gold"],
-      ["现金/短债", 20, 30, "cash"],
-      ["美股低配", 5, 15, "equity"],
+      ["科技/AI龙头", 18, 30, "tech"],
+      ["大宗商品/能源", 18, 30, "commodity"],
+      ["黄金/贵金属", 18, 28, "gold"],
+      ["现金/短债", 25, 35, "cash"],
+      ["恒生科技观察仓", 5, 10, "hkTech"],
     ],
   },
   {
     id: "stage3",
-    title: "第三阶段：油价破150后切换黄金",
-    trigger: "布伦特上破150美元，市场开始交易衰退、信用和政策转向。",
-    risk: "避免在极端油价阶段继续线性追高原油。",
+    title: "第三阶段：流动性危机触发后防共振下跌",
+    trigger: "VIX持续站上28、金融CP利差突破30-50bp、SRF或互换额度跳升，风险资产相关性趋近1。",
+    risk: "危机初段黄金和大宗也可能被卖出换现金；优先保现金、短久期、高流动性和长波动保护。",
     allocation: [
-      ["黄金", 35, 50, "gold"],
-      ["原油/能源敞口", 15, 25, "oil"],
-      ["现金/短债", 20, 30, "cash"],
-      ["防守权益", 5, 15, "equity"],
+      ["现金/短债", 45, 60, "cash"],
+      ["黄金/贵金属", 12, 22, "gold"],
+      ["CTA/长波动", 10, 18, "vol"],
+      ["大宗商品/能源", 5, 12, "commodity"],
+      ["权益低配", 0, 8, "equity"],
     ],
   },
+  {
+    id: "stage4",
+    title: "第四阶段：定向放水后做反弹与黄金主升",
+    trigger: "美元指数转弱、政策通过SRF/互换/定向工具托底，市场从现金荒切回再通胀和弱美元交易。",
+    risk: "只在美元走弱、信用利差停止扩大、流动性工具生效后加风险；不要在第一根暴跌里急着抄底。",
+    allocation: [
+      ["恒生科技", 18, 30, "hkTech"],
+      ["大宗商品/能源", 22, 35, "commodity"],
+      ["黄金/贵金属", 25, 40, "gold"],
+      ["现金/短债", 15, 25, "cash"],
+      ["美股科技精选", 5, 12, "tech"],
+    ],
+  },
+];
+
+const allocationTimeline = [
+  { label: "7-8月", title: "科技进攻", tech: 48, hkTech: 8, commodity: 8, gold: 12, cash: 24 },
+  { label: "9月前后", title: "降科技转资源", tech: 24, hkTech: 8, commodity: 26, gold: 24, cash: 18 },
+  { label: "危机触发", title: "现金与凸性", tech: 5, hkTech: 4, commodity: 8, gold: 18, cash: 50, vol: 15 },
+  { label: "定向放水后", title: "弱美元反弹", tech: 8, hkTech: 26, commodity: 30, gold: 28, cash: 8 },
+];
+
+const crisisFlow = [
+  {
+    title: "AI与科技FOMO",
+    body: "高斜率上涨、估值扩张、被动资金强化趋势。",
+    ids: ["spxPe", "mag7Capex"],
+  },
+  {
+    title: "日元暗流动性",
+    body: "借日元换美元买风险资产，USD/JPY高位意味着供氧仍在但尾部风险上升。",
+    ids: ["usdJpy", "bojPolicyRate", "yenCarryStress"],
+  },
+  {
+    title: "美元缓冲变薄",
+    body: "TGA抬升、RRP耗尽、准备金跌破观察线，季末更容易放大冲击。",
+    ids: ["tga", "rrp", "bankReserves"],
+  },
+  {
+    title: "共振下跌",
+    body: "VIX持续上穿、融资利差走阔、SRF/互换额度跳升，相关性趋近1。",
+    ids: ["vixAbove28Days", "fundingSpreadProxy", "srfUsage"],
+  },
+  {
+    title: "定向放水后再定价",
+    body: "美元转弱、政策托底，恒生科技、大宗商品和黄金重新获得弹性。",
+    ids: ["dxy", "gold", "ctaConvexityNeed"],
+  },
+];
+
+const assetPathSeries = [
+  { name: "科技/AI", color: "#7da0d6", values: [70, 88, 42, 52] },
+  { name: "恒生科技", color: "#5bb7a4", values: [42, 48, 32, 78] },
+  { name: "大宗商品", color: "#b87945", values: [45, 58, 36, 74] },
+  { name: "黄金", color: "#d7ad53", values: [58, 66, 52, 88] },
+  { name: "美元指数", color: "#a8a296", values: [62, 68, 76, 38] },
 ];
 
 let state = loadState();
@@ -1383,9 +1442,15 @@ function getOverallStatus() {
 }
 
 function currentStageId() {
-  const brent = Number(byId("brent")?.value || 0);
-  if (brent >= 150) return "stage3";
-  if (brent >= 120) return "stage2";
+  const dxy = Number(byId("dxy")?.value || 0);
+  const gold = Number(byId("gold")?.value || 0);
+  const fundingSpread = Number(byId("fundingSpreadProxy")?.value || 0);
+  const vixDays = Number(byId("vixAbove28Days")?.value || 0);
+  const ctaNeed = Number(byId("ctaConvexityNeed")?.value || 0);
+  const month = new Date().getMonth() + 1;
+  if (dxy > 0 && dxy < 100 && gold >= 3800 && fundingSpread < 30) return "stage4";
+  if (vixDays >= 2 || fundingSpread >= 30 || ctaNeed >= 75) return "stage3";
+  if (month >= 9) return "stage2";
   return "stage1";
 }
 
@@ -1404,6 +1469,7 @@ function renderAll() {
   renderEntryOptions();
   renderRecentRecords();
   renderRoadmap();
+  renderPlaybookVisuals();
   renderEvents();
 }
 
@@ -1440,27 +1506,29 @@ function renderSummary() {
 function renderTriggers() {
   const stage = roadmap.find((item) => item.id === currentStageId());
   document.getElementById("stagePill").textContent = stage.title.split("：")[0];
+  const playbookStage = document.getElementById("playbookStagePill");
+  if (playbookStage) playbookStage.textContent = stage.title.split("：")[0];
 
   const checks = [
     {
-      indicator: byId("brent"),
-      title: "原油趋势",
-      body: "布伦特站稳110-120美元进入建仓窗口；120-130美元确认趋势；150美元后考虑转黄金。",
+      indicator: byId("spxPe"),
+      title: "科技估值",
+      body: "三季度前半段科技仍可顺势配置，但估值越高，越要用现金流和仓位纪律过滤。",
     },
     {
-      indicator: byId("ust10y"),
-      title: "长债压力",
-      body: "10年美债逼近4.8%-5.0%时，高估值AI链的折现率压力会显著加大。",
+      indicator: byId("usdJpy"),
+      title: "日元套息",
+      body: "USD/JPY在160上方说明暗流动性仍供氧，但也逼近干预和BOJ继续加息的压力区。",
     },
     {
-      indicator: byId("distillate"),
-      title: "柴油链条",
-      body: "馏分油库存若跌破100百万桶，供应短缺从叙事变成实体约束。",
+      indicator: byId("vixAbove28Days"),
+      title: "危机确认",
+      body: "VIX持续站上28、融资利差走阔、SRF或互换额度跳升，才说明共振下跌开始确认。",
     },
     {
-      indicator: byId("mag7Capex"),
-      title: "AI FOMO",
-      body: "资本开支继续上修但现金流覆盖不足时，市场会开始审视回报率。",
+      indicator: byId("dxy"),
+      title: "放水后半场",
+      body: "流动性危机后若美元指数转弱并出现定向放水，恒生科技、大宗商品和黄金更容易接力反弹。",
     },
     {
       indicator: byId("privateCreditRedemptions"),
@@ -1879,7 +1947,17 @@ function renderRoadmap() {
         <div class="allocation-bars">
           ${stage.allocation
             .map(([name, low, high, type]) => {
-              const color = type === "oil" ? "#4b4a44" : type === "gold" ? "#d7ad53" : type === "cash" ? "#6ca8b6" : "#8b8f7c";
+              const colorMap = {
+                tech: "#7da0d6",
+                hkTech: "#5bb7a4",
+                commodity: "#b87945",
+                oil: "#b87945",
+                gold: "#d7ad53",
+                cash: "#6ca8b6",
+                vol: "#b86c76",
+                equity: "#8b8f7c",
+              };
+              const color = colorMap[type] || "#8b8f7c";
               return `
                 <div class="bar-row">
                   <div class="bar-label"><span>${name}</span><strong>${low}%-${high}%</strong></div>
@@ -1895,6 +1973,140 @@ function renderRoadmap() {
     `,
     )
     .join("");
+}
+
+function renderPlaybookVisuals() {
+  renderAllocationTimeline();
+  renderCrisisFlow();
+  renderAssetPathChart();
+}
+
+function renderAllocationTimeline() {
+  const svg = document.getElementById("allocationTimeline");
+  if (!svg) return;
+  const colors = {
+    tech: "#7da0d6",
+    hkTech: "#5bb7a4",
+    commodity: "#b87945",
+    gold: "#d7ad53",
+    cash: "#6ca8b6",
+    vol: "#b86c76",
+  };
+  const keys = [
+    ["tech", "科技"],
+    ["hkTech", "恒生科技"],
+    ["commodity", "大宗"],
+    ["gold", "黄金"],
+    ["cash", "现金"],
+    ["vol", "凸性"],
+  ];
+  const width = 900;
+  const cardW = 198;
+  const gap = 24;
+  const startX = 38;
+  const barY = 132;
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${width}" height="310" fill="#10110f"></rect>
+    <line x1="58" x2="842" y1="72" y2="72" stroke="#3b3d35" stroke-width="2"></line>
+    ${allocationTimeline
+      .map((item, index) => {
+        const x = startX + index * (cardW + gap);
+        let cursor = x;
+        const bars = keys
+          .map(([key, label]) => {
+            const value = item[key] || 0;
+            if (!value) return "";
+            const segmentW = (value / 100) * cardW;
+            const part = `<rect x="${cursor}" y="${barY}" width="${segmentW}" height="24" fill="${colors[key]}"><title>${label} ${value}%</title></rect>`;
+            cursor += segmentW;
+            return part;
+          })
+          .join("");
+        return `
+          <circle cx="${x + cardW / 2}" cy="72" r="9" fill="${index === allocationTimeline.length - 1 ? "#d7ad53" : "#6ca8b6"}"></circle>
+          <text x="${x + cardW / 2}" y="44" text-anchor="middle" fill="#e8e2d3" font-size="16" font-weight="700">${item.label}</text>
+          <text x="${x + cardW / 2}" y="103" text-anchor="middle" fill="#a8a296" font-size="13">${item.title}</text>
+          <rect x="${x}" y="124" width="${cardW}" height="40" fill="#151712" stroke="#303328"></rect>
+          ${bars}
+          <text x="${x}" y="196" fill="#7da0d6" font-size="12">科技 ${item.tech || 0}%</text>
+          <text x="${x}" y="218" fill="#5bb7a4" font-size="12">恒科 ${item.hkTech || 0}%</text>
+          <text x="${x}" y="240" fill="#b87945" font-size="12">大宗 ${item.commodity || 0}%</text>
+          <text x="${x + 96}" y="196" fill="#d7ad53" font-size="12">黄金 ${item.gold || 0}%</text>
+          <text x="${x + 96}" y="218" fill="#6ca8b6" font-size="12">现金 ${item.cash || 0}%</text>
+          <text x="${x + 96}" y="240" fill="#b86c76" font-size="12">凸性 ${item.vol || 0}%</text>
+        `;
+      })
+      .join("")}
+  `;
+}
+
+function renderCrisisFlow() {
+  const root = document.getElementById("crisisFlow");
+  if (!root) return;
+  root.innerHTML = crisisFlow
+    .map((step, index) => {
+      const statuses = step.ids.map(byId).filter(Boolean).map(getStatus);
+      const score = statuses.length ? statuses.reduce((sum, item) => sum + item.score, 0) / statuses.length : 1;
+      const level = score >= 2.35 ? "red" : score >= 1.45 ? "amber" : score >= 0.7 ? "yellow" : "green";
+      return `
+        <article class="flow-step">
+          <div class="flow-index ${level}">${String(index + 1).padStart(2, "0")}</div>
+          <div>
+            <strong>${step.title}</strong>
+            <p>${step.body}</p>
+            <div class="flow-tags">
+              ${step.ids
+                .map((id) => {
+                  const indicator = byId(id);
+                  if (!indicator) return "";
+                  return `<span><i class="status-dot ${getStatus(indicator).level}"></i>${indicator.name}</span>`;
+                })
+                .join("")}
+            </div>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderAssetPathChart() {
+  const svg = document.getElementById("assetPathChart");
+  if (!svg) return;
+  const width = 980;
+  const height = 330;
+  const padX = 62;
+  const padY = 42;
+  const labels = ["7-8月", "9月附近", "流动性冲击", "定向放水后"];
+  const xFor = (index) => padX + (index * (width - padX * 2)) / (labels.length - 1);
+  const yFor = (value) => height - padY - ((value - 20) / 75) * (height - padY * 2);
+  const grid = [20, 40, 60, 80].map((value) => {
+    const y = yFor(value);
+    return `<line x1="${padX}" x2="${width - padX}" y1="${y}" y2="${y}" stroke="#2f312b"></line><text x="18" y="${y + 4}" fill="#8f8b82" font-size="12">${value}</text>`;
+  });
+  const paths = assetPathSeries
+    .map((series) => {
+      const points = series.values.map((value, index) => `${xFor(index)},${yFor(value)}`).join(" ");
+      const dots = series.values
+        .map((value, index) => `<circle cx="${xFor(index)}" cy="${yFor(value)}" r="4" fill="${series.color}"></circle>`)
+        .join("");
+      return `<polyline points="${points}" fill="none" stroke="${series.color}" stroke-width="3"></polyline>${dots}`;
+    })
+    .join("");
+  const legend = assetPathSeries
+    .map((series, index) => {
+      const x = 70 + index * 172;
+      return `<circle cx="${x}" cy="294" r="5" fill="${series.color}"></circle><text x="${x + 10}" y="298" fill="#d8d2c4" font-size="13">${series.name}</text>`;
+    })
+    .join("");
+  svg.innerHTML = `
+    <rect x="0" y="0" width="${width}" height="${height}" fill="#10110f"></rect>
+    ${grid.join("")}
+    ${labels.map((label, index) => `<text x="${xFor(index)}" y="28" text-anchor="middle" fill="#a8a296" font-size="13">${label}</text>`).join("")}
+    ${labels.map((_, index) => `<line x1="${xFor(index)}" x2="${xFor(index)}" y1="${padY}" y2="${height - padY}" stroke="#25271f"></line>`).join("")}
+    ${paths}
+    ${legend}
+  `;
 }
 
 function renderEvents() {

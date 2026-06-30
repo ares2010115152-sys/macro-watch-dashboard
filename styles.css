@@ -1075,9 +1075,55 @@ td {
   font-size: 13px;
 }
 
+.playbook-hero {
+  border: 1px solid rgba(215, 173, 83, 0.32);
+  background:
+    linear-gradient(120deg, rgba(215, 173, 83, 0.1), transparent 38%),
+    linear-gradient(90deg, rgba(91, 183, 164, 0.12), rgba(125, 160, 214, 0.08));
+  padding: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 20px;
+  align-items: center;
+}
+
+.playbook-hero h3 {
+  font-size: 26px;
+  max-width: 780px;
+}
+
+.playbook-hero p {
+  max-width: 980px;
+  color: var(--soft);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.playbook-score {
+  min-height: 138px;
+  border-left: 1px solid rgba(232, 226, 211, 0.16);
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.playbook-score span,
+.playbook-score em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.playbook-score strong {
+  color: var(--gold);
+  font-size: 30px;
+  line-height: 1.1;
+}
+
 .roadmap {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -1087,7 +1133,7 @@ td {
   padding: 18px;
   display: grid;
   gap: 14px;
-  min-height: 360px;
+  min-height: 420px;
 }
 
 .road-card.active {
@@ -1096,7 +1142,8 @@ td {
 }
 
 .road-card h3 {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
 .allocation-bars {
@@ -1131,6 +1178,102 @@ td {
   margin-bottom: 0;
   color: var(--muted);
   line-height: 1.58;
+}
+
+.playbook-visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+  gap: 18px;
+}
+
+.visual-panel {
+  overflow: hidden;
+}
+
+#allocationTimeline,
+#assetPathChart {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid var(--line);
+  background: #10110f;
+}
+
+#assetPathChart {
+  min-height: 330px;
+}
+
+.crisis-flow {
+  display: grid;
+  gap: 10px;
+}
+
+.flow-step {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: #11120f;
+}
+
+.flow-index {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.flow-index.green {
+  background: rgba(86, 165, 124, 0.16);
+  border-color: rgba(86, 165, 124, 0.45);
+}
+
+.flow-index.yellow {
+  background: rgba(215, 173, 83, 0.14);
+  border-color: rgba(215, 173, 83, 0.45);
+}
+
+.flow-index.amber {
+  background: rgba(184, 121, 69, 0.18);
+  border-color: rgba(184, 121, 69, 0.48);
+}
+
+.flow-index.red {
+  background: rgba(184, 108, 118, 0.18);
+  border-color: rgba(184, 108, 118, 0.52);
+}
+
+.flow-step strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.flow-step p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.flow-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.flow-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(232, 226, 211, 0.12);
+  color: var(--soft);
+  padding: 4px 7px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .plain-list {
@@ -1192,15 +1335,25 @@ td {
   .event-grid,
   .ashare-grid,
   .bubble-chain,
-  .bubble-grid {
+  .bubble-grid,
+  .playbook-visual-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-band,
   .ashare-hero,
+  .playbook-hero,
   .split-layout,
   .entry-grid {
     grid-template-columns: 1fr;
+  }
+
+  .playbook-score {
+    border-left: 0;
+    border-top: 1px solid rgba(232, 226, 211, 0.16);
+    min-height: auto;
+    padding-left: 0;
+    padding-top: 16px;
   }
 
   .causal-map {
@@ -1240,12 +1393,21 @@ td {
   .bubble-chain,
   .bubble-grid,
   .causal-map,
-  .watch-grid {
+  .watch-grid,
+  .playbook-visual-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-band {
     padding: 20px;
+  }
+
+  .playbook-hero {
+    padding: 18px;
+  }
+
+  .playbook-hero h3 {
+    font-size: 21px;
   }
 
   h1 {
