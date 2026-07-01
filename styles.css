@@ -1,11 +1,13 @@
 :root {
-  --bg: #10110f;
-  --surface: #181916;
-  --surface-2: #20221e;
-  --line: #34362f;
-  --text: #f1eee5;
+  --bg: #0d0f0d;
+  --surface: #171a16;
+  --surface-2: #20241f;
+  --surface-3: #11130f;
+  --line: #343a32;
+  --line-soft: rgba(232, 226, 211, 0.09);
+  --text: #f4f0e7;
   --muted: #a8a296;
-  --soft: #d7d0c2;
+  --soft: #d9d2c3;
   --green: #36b36a;
   --yellow: #d7a82f;
   --amber: #d66d2e;
@@ -13,7 +15,8 @@
   --oil: #0d0d0c;
   --gold: #d7ad53;
   --blue: #6ca8b6;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.22);
   font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", Arial, sans-serif;
 }
 
@@ -26,8 +29,9 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    linear-gradient(90deg, rgba(215, 173, 83, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(215, 173, 83, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(215, 173, 83, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 168, 182, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(215, 173, 83, 0.045), transparent 320px),
     var(--bg);
   background-size: 56px 56px;
 }
@@ -45,7 +49,7 @@ button {
 
 .app-shell {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
+  grid-template-columns: 276px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -53,12 +57,14 @@ button {
   position: sticky;
   top: 0;
   height: 100vh;
-  padding: 22px 18px;
-  background: rgba(16, 17, 15, 0.96);
+  padding: 24px 18px;
+  background:
+    linear-gradient(180deg, rgba(215, 173, 83, 0.06), transparent 220px),
+    rgba(13, 15, 13, 0.98);
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
 
 .brand {
@@ -68,14 +74,17 @@ button {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(215, 173, 83, 0.45);
-  background: #191611;
+  background:
+    linear-gradient(135deg, rgba(215, 173, 83, 0.18), transparent),
+    #191611;
   color: var(--gold);
   font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .brand strong {
@@ -91,26 +100,40 @@ button {
 
 .nav-list {
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 .nav-item {
+  position: relative;
   border: 1px solid transparent;
   color: var(--soft);
-  background: transparent;
-  min-height: 42px;
+  background: rgba(255, 255, 255, 0.015);
+  min-height: 44px;
   padding: 0 12px;
   display: flex;
   align-items: center;
   gap: 10px;
   text-align: left;
+  overflow: hidden;
 }
 
 .nav-item:hover,
 .nav-item.active {
-  background: var(--surface-2);
+  background:
+    linear-gradient(90deg, rgba(215, 173, 83, 0.12), transparent 72%),
+    var(--surface-2);
   border-color: var(--line);
   color: var(--text);
+}
+
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  background: var(--gold);
 }
 
 .nav-icon {
@@ -122,7 +145,9 @@ button {
 .sidebar-note {
   margin-top: auto;
   padding: 14px;
-  background: var(--surface);
+  background:
+    linear-gradient(135deg, rgba(108, 168, 182, 0.08), transparent),
+    var(--surface);
   border: 1px solid var(--line);
   display: grid;
   gap: 4px;
@@ -136,7 +161,7 @@ button {
 
 .workspace {
   min-width: 0;
-  padding: 26px;
+  padding: 28px;
 }
 
 .topbar {
@@ -144,7 +169,9 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 18px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+  padding: 14px 0 20px;
+  border-bottom: 1px solid rgba(232, 226, 211, 0.08);
 }
 
 .eyebrow {
@@ -165,7 +192,7 @@ p {
 
 h1 {
   margin-bottom: 0;
-  font-size: 28px;
+  font-size: 30px;
   line-height: 1.2;
 }
 
@@ -194,7 +221,9 @@ h3 {
   min-height: 38px;
   border: 1px solid var(--line);
   color: var(--text);
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+    var(--surface);
   padding: 0 14px;
   display: inline-flex;
   align-items: center;
@@ -204,6 +233,7 @@ h3 {
 .icon-button:hover,
 .ghost-button:hover {
   border-color: rgba(215, 173, 83, 0.55);
+  background: var(--surface-2);
 }
 
 .primary-button {
@@ -224,7 +254,7 @@ h3 {
 
 .view.active {
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
 .hero-band {
@@ -232,25 +262,28 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 20px;
-  min-height: 240px;
-  padding: 30px;
+  min-height: 250px;
+  padding: 32px;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(16, 17, 15, 0.92), rgba(16, 17, 15, 0.72)),
-    radial-gradient(circle at 82% 15%, rgba(215, 173, 83, 0.26), transparent 34%),
-    linear-gradient(135deg, #1f201b, #11120f 60%);
+    linear-gradient(90deg, rgba(13, 15, 13, 0.94), rgba(13, 15, 13, 0.74)),
+    linear-gradient(135deg, rgba(215, 173, 83, 0.22), transparent 34%),
+    linear-gradient(160deg, #22261f, #10120f 66%);
   border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-band::after {
   content: "";
   position: absolute;
-  right: 24px;
-  bottom: -28px;
-  width: 210px;
-  height: 210px;
-  border: 1px solid rgba(215, 173, 83, 0.22);
-  transform: rotate(18deg);
+  right: 0;
+  bottom: 0;
+  width: 42%;
+  height: 100%;
+  border-left: 1px solid rgba(215, 173, 83, 0.12);
+  background:
+    repeating-linear-gradient(135deg, rgba(215, 173, 83, 0.08) 0 1px, transparent 1px 12px);
+  transform: none;
 }
 
 .hero-copy,
@@ -272,7 +305,9 @@ h3 {
   gap: 18px;
   align-self: center;
   padding: 18px;
-  background: rgba(24, 25, 22, 0.88);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    rgba(24, 25, 22, 0.9);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -346,22 +381,62 @@ h3 {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(170px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
 }
 
 .metric-card,
 .panel,
 .table-panel {
+  position: relative;
   border: 1px solid var(--line);
-  background: rgba(24, 25, 22, 0.94);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026), transparent 86px),
+    rgba(23, 26, 22, 0.96);
+  box-shadow: var(--shadow-soft);
 }
 
 .metric-card {
+  position: relative;
   min-height: 164px;
   padding: 16px;
   display: grid;
   gap: 10px;
+  overflow: hidden;
+}
+
+.metric-card::before,
+.panel::before,
+.table-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(215, 173, 83, 0.75), rgba(108, 168, 182, 0.2));
+}
+
+.metric-card.green::before {
+  background: var(--green);
+}
+
+.metric-card.yellow::before {
+  background: var(--yellow);
+}
+
+.metric-card.amber::before {
+  background: linear-gradient(90deg, var(--yellow), var(--amber));
+}
+
+.metric-card.red::before {
+  background: var(--red);
+}
+
+.metric-card:hover {
+  border-color: rgba(215, 173, 83, 0.42);
+  transform: translateY(-1px);
+  transition: border-color 160ms ease, transform 160ms ease;
 }
 
 .metric-top {
@@ -379,6 +454,7 @@ h3 {
   font-size: 27px;
   font-weight: 800;
   line-height: 1;
+  color: var(--text);
 }
 
 .metric-card p {
@@ -386,6 +462,29 @@ h3 {
   font-size: 13px;
   line-height: 1.55;
   margin-bottom: 0;
+}
+
+.mini-sparkline {
+  width: 100%;
+  height: 36px;
+  color: var(--gold);
+  opacity: 0.95;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 3px 0;
+}
+
+.mini-sparkline.up {
+  color: var(--amber);
+}
+
+.mini-sparkline.down {
+  color: var(--blue);
+}
+
+.mini-sparkline.empty {
+  height: 16px;
+  border: 0;
 }
 
 .status-dot {
@@ -402,6 +501,7 @@ h3 {
 
 .panel {
   padding: 18px;
+  overflow: hidden;
 }
 
 .section-head {
@@ -413,6 +513,16 @@ h3 {
 }
 
 .page-head {
+  margin-bottom: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(215, 173, 83, 0.08), transparent 60%),
+    rgba(17, 19, 15, 0.82);
+  box-shadow: var(--shadow-soft);
+}
+
+.page-head h2 {
   margin-bottom: 0;
 }
 
@@ -586,13 +696,31 @@ h3 {
 }
 
 .watch-item {
+  position: relative;
   min-height: 166px;
   padding: 13px;
   border: 1px solid var(--line);
-  background: var(--surface-2);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    var(--surface-2);
   display: grid;
   align-content: start;
   gap: 9px;
+}
+
+.watch-item::before,
+.ashare-card::before,
+.bubble-card::before,
+.trigger-item::before,
+.record-item::before,
+.event-item::before,
+.retail-signal-item::before,
+.history-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: rgba(215, 173, 83, 0.52);
 }
 
 .watch-head {
@@ -630,7 +758,9 @@ h3 {
   border: 1px solid var(--line);
   background:
     linear-gradient(90deg, rgba(24, 25, 22, 0.96), rgba(24, 25, 22, 0.78)),
-    linear-gradient(135deg, rgba(215, 173, 83, 0.18), rgba(108, 168, 182, 0.1));
+    repeating-linear-gradient(135deg, rgba(108, 168, 182, 0.08) 0 1px, transparent 1px 12px),
+    linear-gradient(135deg, rgba(215, 173, 83, 0.16), rgba(108, 168, 182, 0.1));
+  box-shadow: var(--shadow-soft);
 }
 
 .ashare-hero h3 {
@@ -647,7 +777,9 @@ h3 {
 
 .heat-score {
   border: 1px solid rgba(215, 173, 83, 0.42);
-  background: #121310;
+  background:
+    linear-gradient(180deg, rgba(215, 173, 83, 0.08), transparent),
+    #121310;
   display: grid;
   place-items: center;
   gap: 4px;
@@ -674,10 +806,13 @@ h3 {
 }
 
 .ashare-card {
+  position: relative;
   min-height: 250px;
   padding: 15px;
   border: 1px solid var(--line);
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 70px),
+    var(--surface);
   display: grid;
   align-content: start;
   gap: 12px;
@@ -741,7 +876,7 @@ h3 {
 
 .bubble-chain {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -750,7 +885,9 @@ h3 {
   min-height: 300px;
   padding: 15px;
   border: 1px solid var(--line);
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 78px),
+    var(--surface);
   display: grid;
   align-content: start;
   gap: 12px;
@@ -827,14 +964,17 @@ h3 {
 
 .bubble-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
 }
 
 .bubble-card {
+  position: relative;
   min-height: 238px;
   border: 1px solid var(--line);
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 78px),
+    var(--surface);
   padding: 14px;
   display: grid;
   align-content: start;
@@ -895,8 +1035,11 @@ h3 {
 
 .retail-signal-item,
 .history-item {
+  position: relative;
   border: 1px solid var(--line);
-  background: var(--surface-2);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    var(--surface-2);
   padding: 12px;
 }
 
@@ -923,9 +1066,12 @@ h3 {
 .trigger-item,
 .record-item,
 .event-item {
+  position: relative;
   padding: 12px;
   border: 1px solid var(--line);
-  background: var(--surface-2);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    var(--surface-2);
 }
 
 .trigger-item {
@@ -954,7 +1100,8 @@ h3 {
   align-items: center;
   min-height: 30px;
   border: 1px solid rgba(215, 173, 83, 0.4);
-  background: rgba(215, 173, 83, 0.12);
+  background:
+    linear-gradient(180deg, rgba(215, 173, 83, 0.16), rgba(215, 173, 83, 0.07));
   color: #f2dca8;
   padding: 0 10px;
   font-size: 13px;
@@ -964,8 +1111,11 @@ h3 {
 .chart-wrap {
   min-height: 280px;
   border: 1px solid var(--line);
-  background: #11120f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    #11120f;
   overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 #trendChart {
@@ -978,7 +1128,9 @@ h3 {
 .select {
   min-height: 38px;
   border: 1px solid var(--line);
-  background: #11120f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    #11120f;
   color: var(--text);
   padding: 0 12px;
   outline: none;
@@ -997,6 +1149,7 @@ h3 {
 
 .table-panel {
   overflow: auto;
+  box-shadow: var(--shadow-soft);
 }
 
 table {
@@ -1007,8 +1160,8 @@ table {
 
 th,
 td {
-  padding: 13px 14px;
-  border-bottom: 1px solid var(--line);
+  padding: 14px 15px;
+  border-bottom: 1px solid var(--line-soft);
   vertical-align: top;
   text-align: left;
 }
@@ -1016,14 +1169,34 @@ td {
 th {
   color: var(--muted);
   font-size: 12px;
-  background: #131410;
+  background:
+    linear-gradient(180deg, rgba(215, 173, 83, 0.05), transparent),
+    #131611;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 td {
   color: var(--soft);
   line-height: 1.55;
+}
+
+tbody tr {
+  background: rgba(255, 255, 255, 0.006);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+tbody tr:hover {
+  background: rgba(215, 173, 83, 0.055);
+}
+
+td:nth-child(2) {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .muted {
@@ -1053,7 +1226,9 @@ td {
   border: 1px solid var(--line);
   padding: 0 9px;
   color: var(--text);
-  background: #11120f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    #11120f;
   white-space: nowrap;
 }
 
@@ -1066,6 +1241,9 @@ td {
 .form-panel {
   display: grid;
   gap: 14px;
+  background:
+    linear-gradient(135deg, rgba(108, 168, 182, 0.08), transparent 42%),
+    var(--surface);
 }
 
 .form-panel label {
@@ -1129,7 +1307,9 @@ td {
 
 .road-card {
   border: 1px solid var(--line);
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 82px),
+    var(--surface);
   padding: 18px;
   display: grid;
   gap: 14px;
@@ -1138,7 +1318,9 @@ td {
 
 .road-card.active {
   border-color: rgba(215, 173, 83, 0.82);
-  box-shadow: inset 0 0 0 1px rgba(215, 173, 83, 0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(215, 173, 83, 0.18),
+    0 14px 34px rgba(0, 0, 0, 0.25);
 }
 
 .road-card h3 {
@@ -1196,7 +1378,10 @@ td {
   width: 100%;
   min-height: 300px;
   border: 1px solid var(--line);
-  background: #10110f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    #10110f;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.018);
 }
 
 #assetPathChart {
@@ -1209,12 +1394,15 @@ td {
 }
 
 .flow-step {
+  position: relative;
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
   gap: 12px;
   padding: 12px;
   border: 1px solid var(--line);
-  background: #11120f;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+    #11120f;
 }
 
 .flow-index {

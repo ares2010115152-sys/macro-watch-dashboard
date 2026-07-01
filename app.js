@@ -434,6 +434,78 @@ const defaultIndicators = [
     rule: { mode: "higherRisk", green: 1, yellow: 10, amber: 50 },
   },
   {
+    id: "rrpDrawdownPct",
+    name: "RRP蓄水池耗尽幅度",
+    category: "泡沫破裂前瞻",
+    unit: "%",
+    value: 99.98,
+    asOf: "2026-06-24",
+    source: "Federal Reserve H.4.1 / 2022年底2.55万亿美元峰值计算",
+    frequency: "每周",
+    thesis: "RRP从2.55万亿美元级别缩到零附近，说明缩表已从消化闲钱进入抽取银行体系血液的阶段。",
+    rule: { mode: "higherRisk", green: 80, yellow: 95, amber: 99 },
+  },
+  {
+    id: "rrpVs2019Buffer",
+    name: "RRP相对2019缓冲垫",
+    category: "泡沫破裂前瞻",
+    unit: "%",
+    value: 0.035,
+    asOf: "2026-06-24",
+    source: "Federal Reserve H.4.1 / 2019约1.3万亿美元缓冲对比",
+    frequency: "每周",
+    thesis: "2019年回购危机时RRP仍有约1.3万亿美元级缓冲；当前others口径只剩零头，意味着同等冲击下政策反应窗口更窄。",
+    rule: { mode: "lowerRisk", green: 40, yellow: 10, amber: 1 },
+  },
+  {
+    id: "reserveDrainPhase",
+    name: "准备金抽水阶段",
+    category: "泡沫破裂前瞻",
+    unit: "分",
+    value: 72,
+    asOf: "2026-06-24",
+    source: "RRP / TGA / 银行准备金综合评分",
+    frequency: "每周",
+    thesis: "把RRP接近零、TGA高位和准备金跌破3万亿美元合成一张水位表；高于70说明系统从消化闲钱进入消耗核心流动性。",
+    rule: { mode: "higherRisk", green: 45, yellow: 60, amber: 75 },
+  },
+  {
+    id: "sofrIorbStress",
+    name: "SOFR-IORB异常压力",
+    category: "泡沫破裂前瞻",
+    unit: "bp",
+    value: 0,
+    asOf: "2026-06-30",
+    source: "SOFR / IORB手工监控项",
+    frequency: "每日",
+    thesis: "真正的回购市场警报不是政策利率本身，而是SOFR突然高于准备金利率；2019年式跳升会迫使杠杆资金平仓。",
+    rule: { mode: "higherRisk", green: 5, yellow: 20, amber: 50 },
+  },
+  {
+    id: "basisTradeStress",
+    name: "美债基差交易压力",
+    category: "泡沫破裂前瞻",
+    unit: "分",
+    value: 70,
+    asOf: "2026-06-30",
+    source: "用户材料 / 国债期现基差与杠杆交易手工评分",
+    frequency: "每周",
+    thesis: "做空国债期货、买入现货国债的基差交易高度依赖低成本短融；回购利率跳升会把套利变成踩踏。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
+  {
+    id: "aiCapexLiquidityDrain",
+    name: "AI基建年度抽水",
+    category: "泡沫破裂前瞻",
+    unit: "十亿美元/年",
+    value: 700,
+    asOf: "2026-06-30",
+    source: "用户材料 / 超大规模数据中心资本开支估算",
+    frequency: "季报",
+    thesis: "AI数据中心把货币基金、回购和企业现金转化为GPU、服务器、电力和钢筋水泥；短期支撑叙事，长期消耗市场可交易流动性。",
+    rule: { mode: "higherRisk", green: 300, yellow: 550, amber: 800 },
+  },
+  {
     id: "moveIndex",
     name: "MOVE美债波动率",
     category: "泡沫破裂前瞻",
@@ -721,6 +793,42 @@ const defaultIndicators = [
     thesis: "开户和交易前置动作；下载排名和DAU通常领先开户数1-2周。",
     rule: { mode: "higherRisk", green: 6, yellow: 8, amber: 9 },
   },
+  {
+    id: "ashareIndependenceScore",
+    name: "A股独立行情强度",
+    category: "A股散户情绪",
+    unit: "分",
+    value: 76,
+    asOf: "2026-06-30",
+    source: "用户材料 / 成交额、科创50、半导体、国产替代综合评分",
+    frequency: "每日",
+    thesis: "衡量A股上涨是否来自国内流动性和产业政策，而不是单纯跟随美联储和外资风险偏好。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
+  {
+    id: "star50SemisBreadth",
+    name: "科创半导体广度",
+    category: "A股散户情绪",
+    unit: "分",
+    value: 82,
+    asOf: "2026-06-18",
+    source: "用户材料 / 科创50、半导体设备、AI芯片手工评分",
+    frequency: "每日",
+    thesis: "如果上涨集中在AI芯片、半导体设备、国产替代，说明中国资产逻辑更偏产业自主，而非美联储降息交易。",
+    rule: { mode: "higherRisk", green: 50, yellow: 70, amber: 88 },
+  },
+  {
+    id: "usdcnhSensitivity",
+    name: "人民币外流敏感度",
+    category: "A股散户情绪",
+    unit: "分",
+    value: 58,
+    asOf: "2026-06-30",
+    source: "用户材料 / DXY、USD/CNH、北向资金手工评分",
+    frequency: "每日",
+    thesis: "人民币在6.75附近、美元指数上100时，北向资金仍敏感；若美联储重新鹰派，中美利差扩大将考验A股独立行情。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
 ];
 
 const seedRecords = [
@@ -845,6 +953,23 @@ const seedRecords = [
   ["fundingSpreadProxy", "2026-06-26", 18, "金融CP-EFFR利差抬至18bp，仍未突破30bp压力线"],
   ["srfUsage", "2026-06-24", 0.004, "美联储回购后门仍未被大额动用"],
   ["swapLineUsage", "2026-06-24", 0.035, "央行美元互换使用量仍接近零"],
+  ["rrpDrawdownPct", "2022-12-31", 0, "RRP蓄水池处于2.55万亿美元峰值附近"],
+  ["rrpDrawdownPct", "2024-12-31", 88, "RRP蓄水池大幅下降，缩表主要仍在消化闲置流动性"],
+  ["rrpDrawdownPct", "2026-06-24", 99.98, "RRP others口径接近零，蓄水池基本耗尽"],
+  ["rrpVs2019Buffer", "2019-09-17", 100, "2019回购危机时仍有约1.3万亿美元级缓冲"],
+  ["rrpVs2019Buffer", "2026-06-24", 0.035, "当前RRP others相对2019缓冲只剩零头"],
+  ["reserveDrainPhase", "2026-06-03", 58, "准备金约3.014万亿美元，刚接近观察线"],
+  ["reserveDrainPhase", "2026-06-24", 72, "准备金跌破3万亿美元，系统进入抽水深水区"],
+  ["sofrIorbStress", "2019-09-17", 500, "2019年SOFR相对政策利率异常跳升，回购危机确认"],
+  ["sofrIorbStress", "2026-06-30", 0, "当前尚未出现SOFR-IORB异常跳升"],
+  ["basisTradeStress", "2026-05-31", 62, "基差交易杠杆偏高但尚未失控"],
+  ["basisTradeStress", "2026-06-30", 70, "RRP耗尽后，基差交易对回购利率更敏感"],
+  ["aiCapexLiquidityDrain", "2024-12-31", 420, "AI资本开支已开始显著抽走可交易流动性"],
+  ["aiCapexLiquidityDrain", "2026-06-30", 700, "超大规模数据中心建设形成年度级抽水"],
+  ["ashareIndependenceScore", "2026-06-02", 60, "A股结构行情开始与美元逻辑分化"],
+  ["ashareIndependenceScore", "2026-06-30", 76, "国内流动性与产业自主逻辑强化A股独立性"],
+  ["star50SemisBreadth", "2026-06-18", 82, "科创、半导体设备和国产替代成为A股主要弹性来源"],
+  ["usdcnhSensitivity", "2026-06-30", 58, "美元指数突破100、人民币6.75附近，北向资金仍需观察"],
 ];
 
 const categories = ["全部类别", ...new Set(defaultIndicators.map((item) => item.category))];
@@ -859,6 +984,21 @@ const events = [
     cadence: "每日",
     title: "日元套息与JGB压力",
     body: "跟踪10Y JGB、USD/JPY、BOJ政策利率、VIX高压持续天数和风险资产是否同步去杠杆。",
+  },
+  {
+    cadence: "每日",
+    title: "RRP、准备金与SOFR异常",
+    body: "跟踪RRP others、TGA、银行准备金、SOFR-IORB和SRF使用量，确认缩表是否从消化闲钱进入抽取核心流动性。",
+  },
+  {
+    cadence: "每周",
+    title: "AI基建抽水与基差交易",
+    body: "观察科技巨头CapEx、公司债融资、货币基金流向和美债基差交易压力，判断AI叙事是否开始吞噬市场流动性。",
+  },
+  {
+    cadence: "每日",
+    title: "中国资产独立行情",
+    body: "跟踪A股成交额、科创半导体广度、人民币汇率和北向资金敏感度，区分国内产业逻辑与全球risk-on。",
   },
   {
     cadence: "每周",
@@ -953,6 +1093,24 @@ const ashareMonitorRows = [
     threshold: "周度极值 >200亿；累计极值需谨慎",
     logic: "小单持续净流入可支撑市场，但机构流出时可能演变为散户接盘。",
   },
+  {
+    dimension: "中国资产分化",
+    id: "ashareIndependenceScore",
+    threshold: ">65说明独立性增强；>80说明结构拥挤",
+    logic: "区分A股上涨是国内流动性和产业政策驱动，还是单纯跟随全球risk-on。",
+  },
+  {
+    dimension: "中国资产分化",
+    id: "star50SemisBreadth",
+    threshold: ">70为产业主线强；>88为拥挤",
+    logic: "科创、半导体和国产替代广度越强，越说明行情与中国自主产业周期相关。",
+  },
+  {
+    dimension: "汇率约束",
+    id: "usdcnhSensitivity",
+    threshold: ">65转黄；>80转红",
+    logic: "若美元走强和中美利差扩大，人民币与北向资金会重新约束A股弹性。",
+  },
 ];
 
 const ashareSignalGroups = [
@@ -975,6 +1133,11 @@ const ashareSignalGroups = [
     title: "过热：顶背离风险",
     body: "指数创新高但涨停、广度、融资买入或基金热度不再创新高，是动能衰竭信号。",
     ids: ["ashareLimitUpCount", "ashareSmallOrderInflow"],
+  },
+  {
+    title: "分化：中国资产独立性",
+    body: "科创半导体、国产替代和人民币敏感度决定A股能否脱离美元流动性的单一叙事。",
+    ids: ["ashareIndependenceScore", "star50SemisBreadth", "usdcnhSensitivity"],
   },
 ];
 
@@ -1009,8 +1172,8 @@ const ashareHistory = [
 const bubbleStages = [
   {
     title: "01 导火索：估值神话开始承压",
-    body: "SpaceX 超大规模融资、AI 模型价格战、科技股高估值共同构成叙事层压力。当前红灯主要集中在这里，说明市场还在狂欢，但对资金承接力的要求已经很高。",
-    ids: ["spacexValuation", "spacexIpoRaise", "deepseekPriceCut", "spxPe", "mag7Capex"],
+    body: "SpaceX 超大规模融资、AI 模型价格战、科技股高估值与AI基建抽水共同构成叙事层压力。市场还在狂欢，但资金承接力和债券市场购买力已经被持续消耗。",
+    ids: ["spacexValuation", "spacexIpoRaise", "deepseekPriceCut", "spxPe", "mag7Capex", "aiCapexLiquidityDrain"],
   },
   {
     title: "02 日元扳机：套息交易平仓",
@@ -1019,13 +1182,18 @@ const bubbleStages = [
   },
   {
     title: "03 美元流动性：缓冲被抽干",
-    body: "QT、TGA上升、ON RRP接近零、准备金下行会削薄缓冲。SOFR、CP利差、VIX高压天数、SRF和互换额度变色，意味着美元侧开始从估值回调切换到现金荒。",
-    ids: ["tga", "rrp", "bankReserves", "sofrRate", "fundingSpreadProxy", "vixAbove28Days", "srfUsage", "swapLineUsage"],
+    body: "QT、TGA上升、RRP蓄水池耗尽、准备金下行会削薄缓冲。此时市场不是已经崩盘，而是从“消化闲钱”进入“抽取核心流动性”的脆弱阶段。",
+    ids: ["tga", "rrp", "rrpDrawdownPct", "rrpVs2019Buffer", "bankReserves", "reserveDrainPhase"],
   },
   {
-    title: "04 跨市场传染：信用与拥挤仓位反转",
-    body: "VIX、MOVE、信用利差、COMEX铜仓位和CTA/长波动需求用于确认风险资产是否从估值回调切换为链式平仓。相关性趋近1时，防守资产要优先看现金与凸性。",
-    ids: ["vix", "moveIndex", "hySpread", "cloAaaSpread", "privateCreditRedemptions", "ctaConvexityNeed", "copperProducerZ", "copperManagedMoneyPct"],
+    title: "04 回购踩踏：从缺水到抽血",
+    body: "SOFR-IORB、CP利差、SRF、互换额度和美债基差交易是确认指标。只有这些一起跳，才说明风险从估值回调切到现金荒和平仓链。",
+    ids: ["sofrIorbStress", "sofrRate", "fundingSpreadProxy", "basisTradeStress", "srfUsage", "swapLineUsage"],
+  },
+  {
+    title: "05 跨市场传染：信用、波动与中国分化",
+    body: "VIX、MOVE、信用利差和中国资产独立性共同决定冲击范围。A股若由国内流动性和产业自主驱动，可能先分化；但汇率和美元流动性仍是尾部约束。",
+    ids: ["vix", "moveIndex", "hySpread", "cloAaaSpread", "ashareIndependenceScore", "star50SemisBreadth", "usdcnhSensitivity"],
   },
 ];
 
@@ -1053,6 +1221,12 @@ const bubbleMonitorRows = [
     id: "spxPe",
     threshold: "远期 PE >20.5 倍偏贵；>22.5 倍进入高压区",
     logic: "估值越高，越依赖低利率和高增长叙事。若长债收益率不下行，估值安全垫会很薄。",
+  },
+  {
+    layer: "AI抽水",
+    id: "aiCapexLiquidityDrain",
+    threshold: ">5500亿美元转黄；>8000亿美元红灯",
+    logic: "AI基建把可交易现金转成长期固定资产。它短期强化科技叙事，长期会与财政发债、公司债和回购市场争夺资金。",
   },
   {
     layer: "资金压力",
@@ -1098,9 +1272,39 @@ const bubbleMonitorRows = [
   },
   {
     layer: "美元缓冲",
+    id: "rrpDrawdownPct",
+    threshold: ">95%为黄灯；>99%为红灯",
+    logic: "RRP耗尽幅度越高，说明缩表已经基本消化掉过去的闲置蓄水池，下一步压力会更直接落到银行准备金。",
+  },
+  {
+    layer: "美元缓冲",
+    id: "rrpVs2019Buffer",
+    threshold: "<10%转黄；<1%转红",
+    logic: "2019年回购危机仍有约1.3万亿美元级RRP缓冲；当前相对缓冲极低，同等冲击下政策反应窗口更窄。",
+  },
+  {
+    layer: "美元缓冲",
     id: "bankReserves",
     threshold: "<3万亿美元转黄；<2.75万亿美元转红",
     logic: "准备金越接近稀缺区，SOFR和repo越容易在季末或冲击日跳升。",
+  },
+  {
+    layer: "美元缓冲",
+    id: "reserveDrainPhase",
+    threshold: ">60转黄；>75转红",
+    logic: "把TGA、RRP和准备金合成水位分数。它回答的是缩表还在消化闲钱，还是已经开始抽取金融系统血液。",
+  },
+  {
+    layer: "回购确认",
+    id: "sofrIorbStress",
+    threshold: ">20bp转黄；>50bp红灯",
+    logic: "SOFR明显高于IORB代表银行间现金短缺开始显性化，是2019式回购事故的前置信号。",
+  },
+  {
+    layer: "回购确认",
+    id: "basisTradeStress",
+    threshold: ">65转黄；>80红灯",
+    logic: "美债基差交易依赖短融滚动。回购成本跳升会让套利链条从赚薄利变成被迫平仓。",
   },
   {
     layer: "美债买盘",
@@ -1167,6 +1371,18 @@ const bubbleMonitorRows = [
     id: "copperManagedMoneyPct",
     threshold: ">85% 偏热；>95% 极端",
     logic: "投机资金接近历史高位净多。若价格无法继续上行，多头踩踏会放大商品端波动。",
+  },
+  {
+    layer: "中国分化",
+    id: "ashareIndependenceScore",
+    threshold: ">65说明独立性增强；>80说明结构拥挤",
+    logic: "A股若靠国内流动性、产业政策和国产替代上涨，可以短期脱离美股；但分数过高也说明拥挤度升温。",
+  },
+  {
+    layer: "中国分化",
+    id: "usdcnhSensitivity",
+    threshold: ">65转黄；>80红灯",
+    logic: "人民币和北向资金是中国资产独立行情的约束。美元走强或中美利差扩大，会把分化行情重新拉回外部流动性框架。",
   },
 ];
 
@@ -1235,8 +1451,8 @@ const allocationTimeline = [
 const crisisFlow = [
   {
     title: "AI与科技FOMO",
-    body: "高斜率上涨、估值扩张、被动资金强化趋势。",
-    ids: ["spxPe", "mag7Capex"],
+    body: "高斜率上涨、估值扩张和AI基建抽水同时发生，科技从资金供给方变成资金需求方。",
+    ids: ["spxPe", "mag7Capex", "aiCapexLiquidityDrain"],
   },
   {
     title: "日元暗流动性",
@@ -1245,18 +1461,18 @@ const crisisFlow = [
   },
   {
     title: "美元缓冲变薄",
-    body: "TGA抬升、RRP耗尽、准备金跌破观察线，季末更容易放大冲击。",
-    ids: ["tga", "rrp", "bankReserves"],
+    body: "TGA抬升、RRP耗尽、准备金跌破观察线，缩表从消化闲钱进入抽取核心流动性。",
+    ids: ["tga", "rrpDrawdownPct", "rrpVs2019Buffer", "reserveDrainPhase"],
   },
   {
-    title: "共振下跌",
-    body: "VIX持续上穿、融资利差走阔、SRF/互换额度跳升，相关性趋近1。",
-    ids: ["vixAbove28Days", "fundingSpreadProxy", "srfUsage"],
+    title: "回购踩踏确认",
+    body: "SOFR-IORB、融资利差、基差交易、SRF或互换额度跳升，说明风险从缺水进入抽血。",
+    ids: ["sofrIorbStress", "fundingSpreadProxy", "basisTradeStress", "srfUsage"],
   },
   {
     title: "定向放水后再定价",
-    body: "美元转弱、政策托底，恒生科技、大宗商品和黄金重新获得弹性。",
-    ids: ["dxy", "gold", "ctaConvexityNeed"],
+    body: "美元转弱、政策托底后，恒生科技、大宗商品和黄金重新获得弹性；A股独立性决定反弹质量。",
+    ids: ["dxy", "gold", "ctaConvexityNeed", "ashareIndependenceScore"],
   },
 ];
 
@@ -1422,10 +1638,16 @@ function getCriticalIndicators() {
     "jgb10y",
     "yenCarryStress",
     "rrp",
+    "rrpDrawdownPct",
     "bankReserves",
+    "reserveDrainPhase",
+    "sofrIorbStress",
     "fundingSpreadProxy",
+    "basisTradeStress",
     "privateCreditRedemptions",
     "mag7Capex",
+    "aiCapexLiquidityDrain",
+    "ashareIndependenceScore",
   ]
     .map(byId)
     .filter(Boolean);
@@ -1436,7 +1658,7 @@ function getOverallStatus() {
   const avg = critical.reduce((sum, item) => sum + getStatus(item).score, 0) / critical.length;
   const redCount = critical.filter((item) => getStatus(item).level === "red").length;
   if (redCount >= 2 || avg >= 2.35) return { level: "red", label: "红灯", reason: "多个核心指标进入压力区，需优先控制回撤。" };
-  if (avg >= 1.45) return { level: "amber", label: "黄灯偏红", reason: "油价、长债与AI估值压力同时存在。" };
+  if (avg >= 1.45) return { level: "amber", label: "黄灯偏红", reason: "RRP耗尽、AI抽水和杠杆交易压力正在叠加。" };
   if (avg >= 0.7) return { level: "yellow", label: "黄灯", reason: "风险升温但尚未形成共振。" };
   return { level: "green", label: "绿灯", reason: "核心压力指标处于可控区间。" };
 }
@@ -1490,17 +1712,42 @@ function renderSummary() {
     .map((indicator) => {
       const status = getStatus(indicator);
       return `
-        <article class="metric-card">
+        <article class="metric-card ${status.level}">
           <div class="metric-top">
             <h3>${indicator.name}</h3>
             <span class="status-dot ${status.level}" title="${status.label}"></span>
           </div>
           <div class="metric-value">${formatValue(indicator)}</div>
+          ${renderMiniSparkline(indicator.id)}
           <p>${indicator.thesis}</p>
         </article>
       `;
     })
     .join("");
+}
+
+function renderMiniSparkline(indicatorId) {
+  const records = getRecordsFor(indicatorId).slice(-8);
+  if (records.length < 2) return `<div class="mini-sparkline empty"></div>`;
+  const width = 140;
+  const height = 36;
+  const values = records.map((record) => Number(record.value));
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = max - min || 1;
+  const points = values
+    .map((value, index) => {
+      const x = (index * width) / (values.length - 1);
+      const y = height - 5 - ((value - min) / span) * (height - 10);
+      return `${x},${y}`;
+    })
+    .join(" ");
+  const tone = values[values.length - 1] >= values[0] ? "up" : "down";
+  return `
+    <svg class="mini-sparkline ${tone}" viewBox="0 0 ${width} ${height}" aria-hidden="true">
+      <polyline points="${points}" fill="none" stroke="currentColor" stroke-width="2.4" vector-effect="non-scaling-stroke"></polyline>
+    </svg>
+  `;
 }
 
 function renderTriggers() {
@@ -1511,24 +1758,24 @@ function renderTriggers() {
 
   const checks = [
     {
-      indicator: byId("spxPe"),
-      title: "科技估值",
-      body: "三季度前半段科技仍可顺势配置，但估值越高，越要用现金流和仓位纪律过滤。",
+      indicator: byId("aiCapexLiquidityDrain"),
+      title: "AI抽水",
+      body: "AI基建既支撑科技叙事，也把可交易现金变成长期固定资产；CapEx越高，越要看现金流覆盖。",
     },
     {
-      indicator: byId("usdJpy"),
-      title: "日元套息",
-      body: "USD/JPY在160上方说明暗流动性仍供氧，但也逼近干预和BOJ继续加息的压力区。",
+      indicator: byId("reserveDrainPhase"),
+      title: "美元水位",
+      body: "RRP耗尽后，缩表从消化闲钱进入抽取准备金；准备金跌破3万亿美元后要盯SOFR跳升。",
     },
     {
-      indicator: byId("vixAbove28Days"),
-      title: "危机确认",
-      body: "VIX持续站上28、融资利差走阔、SRF或互换额度跳升，才说明共振下跌开始确认。",
+      indicator: byId("sofrIorbStress"),
+      title: "回购确认",
+      body: "SOFR-IORB异常、SRF使用量跳升和基差交易压力共振，才说明风险从缺水进入抽血。",
     },
     {
-      indicator: byId("dxy"),
-      title: "放水后半场",
-      body: "流动性危机后若美元指数转弱并出现定向放水，恒生科技、大宗商品和黄金更容易接力反弹。",
+      indicator: byId("ashareIndependenceScore"),
+      title: "中国分化",
+      body: "A股若由国内流动性和国产替代驱动，能阶段性脱离美股；但人民币和北向资金仍是约束。",
     },
     {
       indicator: byId("privateCreditRedemptions"),
