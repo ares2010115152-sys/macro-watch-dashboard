@@ -674,6 +674,102 @@ const defaultIndicators = [
     rule: { mode: "higherRisk", green: 40, yellow: 60, amber: 75 },
   },
   {
+    id: "yenCarryReversalProb",
+    name: "日元套息反转概率",
+    category: "日元套息与美元流动性",
+    unit: "%",
+    value: 58,
+    asOf: "2026-07-13",
+    source: "USD/JPY / JGB / GPIF / 寿险 / SOFR综合评分",
+    frequency: "每日",
+    thesis: "综合价格反转、日债曲线、机构回流、财政压力和美元资金面。当前更像失控前夜，不是系统爆点。",
+    rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 70 },
+  },
+  {
+    id: "usdJpyReversalSpeed",
+    name: "USD/JPY反转速度",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 38,
+    asOf: "2026-07-13",
+    source: "WSJ / LSEG USDJPY 162.83高点后回落监控",
+    frequency: "每日",
+    thesis: "套息反转不是日元继续贬，而是从162上方快速回落到154、148、140。速度越快，强平压力越大。",
+    rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 75 },
+  },
+  {
+    id: "jgbCurveStress",
+    name: "日债曲线压力",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 72,
+    asOf: "2026-07-13",
+    source: "用户材料 / 10Y、15Y、30Y JGB综合评分",
+    frequency: "每日",
+    thesis: "10Y逼近3%、15Y逼近4.5%、30Y逼近5%时，寿险、地区银行和财政可持续性会一起承压。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
+  {
+    id: "jgbAuctionDemandStress",
+    name: "日债拍卖需求压力",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 54,
+    asOf: "2026-07-13",
+    source: "用户材料 / bid-to-cover、尾部利差、长债承接力手工评分",
+    frequency: "拍卖",
+    thesis: "日本真正的特拉斯时刻不只看收益率，还要看长债拍卖是否开始无人承接。若拍卖尾部扩大、投标倍数下滑，BOJ和财政会被同时逼到墙角。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
+  {
+    id: "lifeInsurerHedgeRatio",
+    name: "九大寿险外债对冲比",
+    category: "日元套息与美元流动性",
+    unit: "%",
+    value: 47,
+    asOf: "2026-07-13",
+    source: "用户材料 / 九大寿险对冲比估算",
+    frequency: "季度",
+    thesis: "对冲比越低，日元急升和海外债券重估越容易伤到寿险资产负债表；47%已接近2011年以来低位。",
+    rule: { mode: "lowerRisk", green: 63, yellow: 55, amber: 47 },
+  },
+  {
+    id: "gpifReflowGap",
+    name: "GPIF回流有效性缺口",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 68,
+    asOf: "2026-07-13",
+    source: "用户材料 / GPIF回流政策可执行性评分",
+    frequency: "事件",
+    thesis: "GPIF首要目标是受益人收益，不是汇率工具。若只是调增量、加对冲、不抛存量，回流更像延缓失控而非逆转趋势。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 },
+  },
+  {
+    id: "japanFiscalTrussRisk",
+    name: "日本财政特拉斯风险",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 64,
+    asOf: "2026-07-13",
+    source: "用户材料 / 债务GDP、预算、财政扩张综合评分",
+    frequency: "每月",
+    thesis: "财政扩张叠加央行紧缩，最怕长债收益率被市场定价为不可持续，结构类似英国2022年特拉斯时刻。",
+    rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 82 },
+  },
+  {
+    id: "bojActiveHikeWindow",
+    name: "BOJ主动触发窗口",
+    category: "日元套息与美元流动性",
+    unit: "分",
+    value: 42,
+    asOf: "2026-07-13",
+    source: "7/31 BOJ会议 / 2026Q4政策窗手工评分",
+    frequency: "会议",
+    thesis: "7/31更像诊断期；若只微调就是延续，若+25bp和强干预口径出现，则Q4主动反转窗口提前预热。",
+    rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 75 },
+  },
+  {
     id: "ashareNewAccounts",
     name: "个人投资者A股新增开户数",
     category: "A股散户情绪",
@@ -910,6 +1006,18 @@ const seedRecords = [
   ["yenCarryStress", "2026-06-30", 68, "日元暗流动性仍在供氧，但汇率干预和BOJ继续加息风险升温"],
   ["vixAbove28Days", "2026-06-30", 0, "VIX尚未持续站上28，强制降杠杆反馈未确认"],
   ["ctaConvexityNeed", "2026-06-30", 64, "套息暗流动性与季末波动共存，现金、CTA和长波动保护价值上升"],
+  ["yenCarryReversalProb", "2026-06-30", 48, "日元套息反转概率升温但尚未确认"],
+  ["yenCarryReversalProb", "2026-07-13", 58, "USD/JPY高位、日债曲线和GPIF回流讨论使反转概率升至黄灯"],
+  ["usdJpyReversalSpeed", "2026-07-09", 22, "USD/JPY仍在高位，尚未出现快速反转"],
+  ["usdJpyReversalSpeed", "2026-07-13", 38, "162上方后开始观察154、148、140三级反转速度"],
+  ["jgbCurveStress", "2026-06-30", 66, "10Y JGB高位，长端压力逐步显性化"],
+  ["jgbCurveStress", "2026-07-13", 72, "10Y、15Y、30Y曲线共同逼近寿险和财政压力线"],
+  ["jgbAuctionDemandStress", "2026-07-13", 54, "拍卖需求尚未塌陷，但长债承接力开始进入观察区"],
+  ["lifeInsurerHedgeRatio", "2020-12-31", 63, "九大寿险对冲比仍处较高水平"],
+  ["lifeInsurerHedgeRatio", "2026-07-13", 47, "寿险对冲比降至2011年以来低位附近"],
+  ["gpifReflowGap", "2026-07-11", 68, "片山表态更像安抚市场，回流剂量和制度约束仍是缺口"],
+  ["japanFiscalTrussRisk", "2026-07-13", 64, "财政扩张与日债收益率上行开始形成特拉斯式类比"],
+  ["bojActiveHikeWindow", "2026-07-13", 42, "7/31 BOJ前仍属诊断期，Q4才是主动触发窗口"],
   ["moveIndex", "2026-06-01", 73.33, "美债波动率回落到相对平静区间"],
   ["hySpread", "2026-05-28", 272, "高收益债OAS仍处低位，信用市场尚未承认压力"],
   ["cloAaaSpread", "2026-05-27", 126, "CLO AAA利差仍紧，证券化管道未明显失血"],
@@ -1169,6 +1277,150 @@ const ashareHistory = [
   },
 ];
 
+const carryReversalLayers = [
+  {
+    title: "01 价格反转确认",
+    body: "USD/JPY不是越高越危险，真正危险是从162上方快速跌向154、148、140，说明套息交易开始被动还日元。",
+    ids: ["usdJpy", "usdJpyReversalSpeed", "yenCarryReversalProb"],
+    weight: "25%",
+  },
+  {
+    title: "02 日债曲线咬住机构",
+    body: "10Y、15Y、30Y JGB上行会穿透寿险、地区银行和财政三层资产负债表，是日侧主动触发的核心。",
+    ids: ["jgb10y", "jgbCurveStress", "jgbAuctionDemandStress", "lifeInsurerHedgeRatio"],
+    weight: "25%",
+  },
+  {
+    title: "03 GPIF回流是否有效",
+    body: "GPIF回流只有在真减海外存量、提高对冲且规模足够时才会改变趋势；只调增量更像延缓失控。",
+    ids: ["gpifReflowGap", "foreignUstCustody", "usdJpy"],
+    weight: "20%",
+  },
+  {
+    title: "04 政策财政特拉斯化",
+    body: "BOJ继续加息、高市财政不退、长债拍卖需求走弱，会把日本推向类似英国2022年的长债-养老金反馈。",
+    ids: ["bojPolicyRate", "bojActiveHikeWindow", "japanFiscalTrussRisk", "jgbAuctionDemandStress"],
+    weight: "15%",
+  },
+  {
+    title: "05 全球联动放大",
+    body: "日侧强平若撞上美侧SOFR、基差交易和VIX跳升，就从日本问题变成全球风险资产共振。",
+    ids: ["sofrIorbStress", "basisTradeStress", "vixAbove28Days", "ctaConvexityNeed"],
+    weight: "15%",
+  },
+];
+
+const carryReversalRows = [
+  {
+    layer: "价格确认",
+    id: "usdJpy",
+    threshold: "162上方是政策失败叙事；154/148/140是反转确认阶梯",
+    logic: "套息交易反转不是日元继续贬，而是日元突然升值迫使空日元仓位回补。",
+  },
+  {
+    layer: "价格确认",
+    id: "usdJpyReversalSpeed",
+    threshold: ">55转黄；>75进入强平区",
+    logic: "看一周内从高位回落的速度。越快，越容易触发2024年8月式波动率反馈。",
+  },
+  {
+    layer: "日债曲线",
+    id: "jgbCurveStress",
+    threshold: "10Y>3%、15Y>4.5%、30Y>5%进入红灯组合",
+    logic: "日债收益率越高，寿险和地区银行持仓重估越痛，财政可持续性也会被市场重新定价。",
+  },
+  {
+    layer: "日债承接",
+    id: "jgbAuctionDemandStress",
+    threshold: ">65说明拍卖承压；>80说明长债承接塌陷",
+    logic: "收益率高只是第一步，拍卖需求走弱才说明市场开始拒绝日本财政扩张和央行紧缩的组合。",
+  },
+  {
+    layer: "机构资产负债表",
+    id: "lifeInsurerHedgeRatio",
+    threshold: "<55%转黄；<=47%转红",
+    logic: "对冲比低意味着机构暴露在汇率和海外债券双重波动下，日元急升会伤害资产端。",
+  },
+  {
+    layer: "机构回流",
+    id: "gpifReflowGap",
+    threshold: ">65说明治标；>80说明政策失效",
+    logic: "如果GPIF只调增量、不减存量、不愿牺牲收益，回流对USD/JPY更像短期口头干预。",
+  },
+  {
+    layer: "财政政策",
+    id: "japanFiscalTrussRisk",
+    threshold: ">65转黄；>82红灯",
+    logic: "财政扩张叠加央行紧缩会触发长债收益率飙升，类似英国特拉斯时刻。",
+  },
+  {
+    layer: "政策窗口",
+    id: "bojActiveHikeWindow",
+    threshold: "7/31微调=延续；+25bp=预热；Q4逼近1.5%=主动窗",
+    logic: "7/31是诊断期，Q4才是主动触发窗口。关键看BOJ是否把日元和日债问题一起纳入政策反应。",
+  },
+  {
+    layer: "全球联动",
+    id: "sofrIorbStress",
+    threshold: ">20bp转黄；>50bp红灯",
+    logic: "日侧反转如果撞上美侧回购市场缺钱，全球套息和基差交易会同时减杠杆。",
+  },
+  {
+    layer: "全球联动",
+    id: "basisTradeStress",
+    threshold: ">65转黄；>80红灯",
+    logic: "美债基差交易依赖低成本短融，日元强平会放大全球抵押品市场波动。",
+  },
+];
+
+const carryProbabilityBands = [
+  {
+    title: "低概率区",
+    range: "0-35",
+    level: "green",
+    body: "日元仍是融资货币，风险资产可以继续吃套息供氧；只做日常观察。",
+  },
+  {
+    title: "观察区",
+    range: "35-55",
+    level: "yellow",
+    body: "USD/JPY高位、BOJ口径和日债长端开始扰动，但还不是强平交易。",
+  },
+  {
+    title: "预热区",
+    range: "55-70",
+    level: "amber",
+    body: "日债曲线、寿险对冲、GPIF回流和美侧资金面开始共振，准备降风险。",
+  },
+  {
+    title: "强平确认区",
+    range: "70+",
+    level: "red",
+    body: "USD/JPY快速回落叠加SOFR/VIX/基差交易变色，套息平仓进入系统传导。",
+  },
+];
+
+const carryTimeAnchors = [
+  {
+    title: "第一档：已发生但可控",
+    period: "2024.3 - 2026.7",
+    signal: "加息5次、USD/JPY仍在162附近，寿险对冲比降至低位，日债长端上行。",
+    global: "日本中小企业、财政和日债收益率已经痛，但还未形成系统爆点。",
+  },
+  {
+    title: "第二档：加速窗",
+    period: "2026 Q4",
+    signal: "BOJ逼近1.5%、10Y JGB>3%、15Y>4.5%、GPIF回流乏力。",
+    global: "形态更像日侧主动版2024.8：USD/JPY 162→148→140，日股、寿险、银行先承压。",
+  },
+  {
+    title: "第三档：真失控尾部",
+    period: "2027",
+    signal: "日债10Y>3.5%、30Y>5%、USD/JPY破170或急转升，且美侧SOFR同步跳。",
+    global: "日美双爆：套息强平、基差交易踩踏、风险资产相关性趋近1。",
+  },
+];
+
 const bubbleStages = [
   {
     title: "01 导火索：估值神话开始承压",
@@ -1178,7 +1430,7 @@ const bubbleStages = [
   {
     title: "02 日元扳机：套息交易平仓",
     body: "当前的“流动性盛宴”更像是日元低息资金在给全球风险资产供氧。真正相变不是某一天，而是BOJ政策利率逼近1.5%、USD/JPY从高位转向140下方、波动率持续升温时，借日元买高Beta资产的链条开始降杠杆。",
-    ids: ["bojPolicyRate", "usdJpy", "jgb10y", "yenCarryStress", "foreignUstCustody"],
+    ids: ["yenCarryReversalProb", "bojPolicyRate", "usdJpy", "jgb10y", "jgbCurveStress", "yenCarryStress", "gpifReflowGap"],
   },
   {
     title: "03 美元流动性：缓冲被抽干",
@@ -1637,6 +1889,10 @@ function getCriticalIndicators() {
     "spacexValuation",
     "jgb10y",
     "yenCarryStress",
+    "yenCarryReversalProb",
+    "jgbCurveStress",
+    "jgbAuctionDemandStress",
+    "gpifReflowGap",
     "rrp",
     "rrpDrawdownPct",
     "bankReserves",
@@ -1688,6 +1944,7 @@ function renderAll() {
   renderIndicatorTable();
   renderAshare();
   renderBubble();
+  renderCarryReversal();
   renderEntryOptions();
   renderRecentRecords();
   renderRoadmap();
@@ -2150,6 +2407,98 @@ function renderBubble() {
         </tr>
       `;
     })
+    .join("");
+}
+
+function renderCarryReversal() {
+  const prob = byId("yenCarryReversalProb");
+  const score = Number(prob?.value || 0);
+  const status =
+    score >= 70
+      ? { level: "red", label: "高概率" }
+      : score >= 55
+        ? { level: "amber", label: "黄灯偏红" }
+        : score >= 35
+          ? { level: "yellow", label: "黄灯" }
+          : { level: "green", label: "低概率" };
+
+  document.getElementById("carryScore").textContent = `${Math.round(score)}`;
+  document.getElementById("carryStatus").textContent = status.label;
+  document.getElementById("carryReason").textContent =
+    score >= 70 ? "反转确认需降风险" : score >= 55 ? "高位预警，等待速度确认" : "仍属观察期";
+
+  document.getElementById("carryStageStrip").innerHTML = carryProbabilityBands
+    .map(
+      (band) => `
+        <article class="carry-stage-card ${band.level} ${status.level === band.level ? "active" : ""}">
+          <div>
+            <span class="status-dot ${band.level}"></span>
+            <strong>${band.title}</strong>
+          </div>
+          <em>${band.range}</em>
+          <p>${band.body}</p>
+        </article>
+      `,
+    )
+    .join("");
+
+  document.getElementById("carryLayerGrid").innerHTML = carryReversalLayers
+    .map((layer) => {
+      const indicators = layer.ids.map(byId).filter(Boolean);
+      const avg = indicators.length ? indicators.reduce((sum, indicator) => sum + getStatus(indicator).score, 0) / indicators.length : 0;
+      const level = avg >= 2.2 ? "red" : avg >= 1.4 ? "amber" : avg >= 0.7 ? "yellow" : "green";
+      return `
+        <article class="bubble-step ${level}">
+          <div class="bubble-step-head">
+            <strong>${layer.title}</strong>
+            <span class="layer-weight">${layer.weight}</span>
+            <span class="status-dot ${level}"></span>
+          </div>
+          <p>${layer.body}</p>
+          <div class="bubble-mini-list">
+            ${indicators
+              .map(
+                (indicator) => `
+                  <div>
+                    <span class="status-dot ${getStatus(indicator).level}"></span>
+                    <em>${indicator.name}</em>
+                    <strong>${formatValue(indicator)}</strong>
+                  </div>
+                `,
+              )
+              .join("")}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  document.getElementById("carryTable").innerHTML = carryReversalRows
+    .map((row) => ({ ...row, indicator: byId(row.id) }))
+    .filter((row) => row.indicator)
+    .map(({ layer, indicator, threshold, logic }) => `
+      <tr>
+        <td>${layer}</td>
+        <td class="indicator-name"><strong>${indicator.name}</strong><span>${indicator.source}</span></td>
+        <td>${formatValue(indicator)}<br><span class="muted">${indicator.asOf || "待录入"}</span></td>
+        <td>${createStatusBadge(indicator)}</td>
+        <td>${threshold}</td>
+        <td>${logic}</td>
+      </tr>
+    `)
+    .join("");
+
+  document.getElementById("carryAnchors").innerHTML = carryTimeAnchors
+    .map(
+      (item) => `
+        <article class="history-item">
+          <span>${item.period}</span>
+          <strong>${item.title}</strong>
+          <p><b>触发：</b>${item.signal}</p>
+          <p><b>传导：</b>${item.global}</p>
+        </article>
+      `,
+    )
     .join("");
 }
 

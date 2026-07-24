@@ -33,6 +33,10 @@
             <span class="nav-icon" aria-hidden="true">◈</span>
             泡沫预警
           </button>
+          <button class="nav-item" data-view="carry" type="button">
+            <span class="nav-icon" aria-hidden="true">⇄</span>
+            套息反转
+          </button>
           <button class="nav-item" data-view="entry" type="button">
             <span class="nav-icon" aria-hidden="true">＋</span>
             数据录入
@@ -400,6 +404,72 @@
           </section>
         </section>
 
+        <section id="carry" class="view" aria-labelledby="carryTitle">
+          <div class="section-head page-head">
+            <div>
+              <p class="eyebrow">Yen Carry Reversal</p>
+              <h2 id="carryTitle">日元套息交易反转概率监控</h2>
+            </div>
+            <span class="pill">价格 · 日债 · 机构 · 财政 · 全球联动</span>
+          </div>
+
+          <div class="ashare-hero carry-hero">
+            <div>
+              <p class="eyebrow">核心判断</p>
+              <h3>不要只看日元崩不崩，要看日债、GPIF回流和全球资金面是否咬到一起</h3>
+              <p>
+                当前更像“失控前夜”：USD/JPY在高位、日债曲线抬升、寿险对冲比低、GPIF回流被讨论，但尚未进入系统爆点。真正的反转确认，是日元从高位快速升值、日债长端继续上行、BOJ被迫加速、且美侧SOFR/基差交易同步变色。
+              </p>
+            </div>
+            <div class="heat-score">
+              <span>反转概率</span>
+              <strong id="carryScore">--</strong>
+              <em id="carryStatus">计算中</em>
+            </div>
+          </div>
+
+          <div class="carry-stage-strip" id="carryStageStrip"></div>
+
+          <div class="bubble-chain" id="carryLayerGrid"></div>
+
+          <div class="split-layout">
+            <section class="panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Trigger Matrix</p>
+                  <h3>触发器红绿灯</h3>
+                </div>
+                <span class="pill" id="carryReason">等待计算</span>
+              </div>
+              <div class="table-panel compact-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>层级</th>
+                      <th>指标</th>
+                      <th>当前值</th>
+                      <th>灯号</th>
+                      <th>触发阈值</th>
+                      <th>为什么看它</th>
+                    </tr>
+                  </thead>
+                  <tbody id="carryTable"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="section-head">
+                <div>
+                  <p class="eyebrow">Time Anchors</p>
+                  <h3>三档出问题时间锚</h3>
+                </div>
+              </div>
+              <div class="history-list" id="carryAnchors"></div>
+            </section>
+          </div>
+        </section>
+
         <section id="entry" class="view" aria-labelledby="entryTitle">
           <div class="section-head page-head">
             <div>
@@ -539,5 +609,6 @@
     </div>
 
     <script src="./app.js"></script>
+    <script src="./yen-carry-module.js"></script>
   </body>
 </html>

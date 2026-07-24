@@ -923,7 +923,92 @@ h3 {
 }
 
 .bubble-step-head strong {
+  flex: 1;
   line-height: 1.35;
+}
+
+.layer-weight {
+  border: 1px solid rgba(232, 226, 211, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 7px;
+  white-space: nowrap;
+}
+
+.carry-stage-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.carry-stage-card {
+  position: relative;
+  min-height: 154px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 92px),
+    var(--surface);
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  overflow: hidden;
+}
+
+.carry-stage-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--green);
+}
+
+.carry-stage-card.yellow::before {
+  background: var(--yellow);
+}
+
+.carry-stage-card.amber::before {
+  background: var(--amber);
+}
+
+.carry-stage-card.red::before {
+  background: var(--red);
+}
+
+.carry-stage-card.active {
+  border-color: rgba(215, 173, 83, 0.68);
+  box-shadow:
+    inset 0 0 0 1px rgba(215, 173, 83, 0.18),
+    0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.carry-stage-card div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carry-stage-card strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.carry-stage-card em {
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+  line-height: 1;
+}
+
+.carry-stage-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.62;
+  margin: 0;
 }
 
 .bubble-step p {
@@ -1515,13 +1600,14 @@ td:nth-child(2) {
   }
 
   .nav-list {
-    grid-template-columns: repeat(7, minmax(96px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   }
 
   .summary-grid,
   .roadmap,
   .event-grid,
   .ashare-grid,
+  .carry-stage-strip,
   .bubble-chain,
   .bubble-grid,
   .playbook-visual-grid {
@@ -1578,6 +1664,7 @@ td:nth-child(2) {
   .roadmap,
   .event-grid,
   .ashare-grid,
+  .carry-stage-strip,
   .bubble-chain,
   .bubble-grid,
   .causal-map,
