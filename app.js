@@ -1658,63 +1658,77 @@ const bubbleMonitorRows = [
 const roadmap = [
   {
     id: "stage1",
-    title: "第一阶段：三季度末前保留科技进攻",
-    trigger: "AI业绩叙事仍强、VIX未持续站上28、SOFR/CP利差未越过30bp，科技股高斜率行情仍可能惯性延续。",
-    risk: "不追无现金流小票；若科技股放量冲高但广度恶化，开始把盈利转入现金和资源观察仓。",
+    title: "第一阶段：科技急跌后分批筑底",
+    trigger: "半导体指数从高位快速回撤约20%，但AI订单、盈利预测与信用市场尚未同步恶化；用4-10周而非单日判断底部。",
+    risk: "不猜最低点，优先现金流清晰的AI芯片、PCB、国产算力龙头；若盈利预测连续下修，筑底期延长至3-6个月。",
     allocation: [
-      ["科技/AI龙头", 35, 50, "tech"],
-      ["恒生科技观察仓", 5, 12, "hkTech"],
-      ["现金/短债", 20, 30, "cash"],
-      ["大宗商品/能源", 5, 12, "commodity"],
-      ["黄金/贵金属", 8, 15, "gold"],
+      ["科技/AI龙头", 25, 35, "tech"],
+      ["国产算力链", 8, 15, "tech"],
+      ["现金/短债", 28, 38, "cash"],
+      ["黄金/贵金属", 12, 18, "gold"],
+      ["大宗商品/能源", 6, 12, "commodity"],
     ],
   },
   {
     id: "stage2",
-    title: "第二阶段：临近9月逐步减科技转资源贵金属",
-    trigger: "进入9月前后，财政发债、季末资金面、BOJ继续加息、日元高位反转风险开始叠加。",
-    risk: "转仓要分批，不在单日恐慌里一次性切换；若VIX仍低且信用利差不动，保留部分科技右侧仓位。",
+    title: "第二阶段：筑底完成后的科技最后一浪",
+    trigger: "SOX/科技龙头重新站上中期趋势、财报后预测恢复上修、市场广度改善，Q3-Q4业绩兑现推动最后一轮主升。",
+    risk: "最后一浪更重视兑现而非追涨；光模块与存储先看顶部确认，PCB、国产算力和设备可相对后移。",
     allocation: [
-      ["科技/AI龙头", 18, 30, "tech"],
-      ["大宗商品/能源", 18, 30, "commodity"],
-      ["黄金/贵金属", 18, 28, "gold"],
-      ["现金/短债", 25, 35, "cash"],
-      ["恒生科技观察仓", 5, 10, "hkTech"],
+      ["科技/AI龙头", 32, 42, "tech"],
+      ["国产算力链", 10, 18, "tech"],
+      ["现金/短债", 20, 30, "cash"],
+      ["黄金/贵金属", 10, 16, "gold"],
+      ["大宗商品/能源", 5, 10, "commodity"],
     ],
   },
   {
     id: "stage3",
-    title: "第三阶段：流动性危机触发后防共振下跌",
-    trigger: "VIX持续站上28、金融CP利差突破30-50bp、SRF或互换额度跳升，风险资产相关性趋近1。",
-    risk: "危机初段黄金和大宗也可能被卖出换现金；优先保现金、短久期、高流动性和长波动保护。",
+    title: "第三阶段：2027窗口前主动收缩风险",
+    trigger: "科技盈利斜率普遍回落、BOJ继续收紧、日债长端和USD/JPY反转速度升温，但美元融资压力尚未全面失控。",
+    risk: "把减仓前置到流动性危机之前；保留黄金核心仓，但避免把黄金当作危机第一天不会跌的现金替代品。",
     allocation: [
-      ["现金/短债", 45, 60, "cash"],
-      ["黄金/贵金属", 12, 22, "gold"],
-      ["CTA/长波动", 10, 18, "vol"],
+      ["现金/短债", 35, 48, "cash"],
+      ["黄金/贵金属", 20, 30, "gold"],
+      ["科技/AI龙头", 12, 22, "tech"],
+      ["CTA/长波动", 5, 12, "vol"],
       ["大宗商品/能源", 5, 12, "commodity"],
-      ["权益低配", 0, 8, "equity"],
     ],
   },
   {
     id: "stage4",
-    title: "第四阶段：定向放水后做反弹与黄金主升",
-    trigger: "美元指数转弱、政策通过SRF/互换/定向工具托底，市场从现金荒切回再通胀和弱美元交易。",
-    risk: "只在美元走弱、信用利差停止扩大、流动性工具生效后加风险；不要在第一根暴跌里急着抄底。",
+    title: "第四阶段：套息反转与现金荒",
+    trigger: "日元快速升值、VIX持续站上28、SOFR-IORB与信用利差跳升、SRF或互换使用上升，风险资产相关性趋近1。",
+    risk: "危机初段黄金也可能被卖出换现金；优先现金、短久期和凸性，不在第一轮强平里提前押注政策底。",
     allocation: [
-      ["恒生科技", 18, 30, "hkTech"],
-      ["大宗商品/能源", 22, 35, "commodity"],
-      ["黄金/贵金属", 25, 40, "gold"],
+      ["现金/短债", 48, 62, "cash"],
+      ["黄金/贵金属", 10, 20, "gold"],
+      ["CTA/长波动", 10, 18, "vol"],
+      ["大宗商品/能源", 4, 10, "commodity"],
+      ["权益低配", 0, 10, "equity"],
+    ],
+  },
+  {
+    id: "stage5",
+    title: "第五阶段：救市确认后黄金第二主升",
+    trigger: "央行流动性工具扩张、信用利差见顶、美元转弱且实际利率回落，市场从现金荒切回货币再扩张与再通胀交易。",
+    risk: "政策宣布不等于传导成功；需等待美元、实际利率和融资利差共同确认，黄金矿业股晚于金价本身。",
+    allocation: [
+      ["黄金/贵金属", 30, 45, "gold"],
+      ["大宗商品/能源", 15, 25, "commodity"],
+      ["科技/AI精选", 12, 22, "tech"],
+      ["恒生科技", 8, 18, "hkTech"],
       ["现金/短债", 15, 25, "cash"],
-      ["美股科技精选", 5, 12, "tech"],
     ],
   },
 ];
 
 const allocationTimeline = [
-  { label: "7-8月", title: "科技进攻", tech: 48, hkTech: 8, commodity: 8, gold: 12, cash: 24 },
-  { label: "9月前后", title: "降科技转资源", tech: 24, hkTech: 8, commodity: 26, gold: 24, cash: 18 },
-  { label: "危机触发", title: "现金与凸性", tech: 5, hkTech: 4, commodity: 8, gold: 18, cash: 50, vol: 15 },
-  { label: "定向放水后", title: "弱美元反弹", tech: 8, hkTech: 26, commodity: 30, gold: 28, cash: 8 },
+  { label: "2026 Q3", title: "科技筑底", tech: 34, hkTech: 6, commodity: 8, gold: 16, cash: 36 },
+  { label: "2026 Q4", title: "科技最后一浪", tech: 46, hkTech: 8, commodity: 7, gold: 14, cash: 25 },
+  { label: "跨年窗口", title: "主动收缩", tech: 20, hkTech: 5, commodity: 8, gold: 25, cash: 35, vol: 7 },
+  { label: "2027 H1", title: "套息反转", tech: 6, hkTech: 4, commodity: 7, gold: 16, cash: 52, vol: 15 },
+  { label: "救市确认后", title: "黄金主升", tech: 18, hkTech: 10, commodity: 18, gold: 38, cash: 16 },
 ];
 
 const crisisFlow = [
@@ -1746,11 +1760,11 @@ const crisisFlow = [
 ];
 
 const assetPathSeries = [
-  { name: "科技/AI", color: "#7da0d6", values: [70, 88, 42, 52] },
-  { name: "恒生科技", color: "#5bb7a4", values: [42, 48, 32, 78] },
-  { name: "大宗商品", color: "#b87945", values: [45, 58, 36, 74] },
-  { name: "黄金", color: "#d7ad53", values: [58, 66, 52, 88] },
-  { name: "美元指数", color: "#a8a296", values: [62, 68, 76, 38] },
+  { name: "科技/AI", color: "#7da0d6", values: [48, 86, 54, 28, 62] },
+  { name: "恒生科技", color: "#5bb7a4", values: [42, 56, 43, 27, 72] },
+  { name: "大宗商品", color: "#b87945", values: [44, 54, 50, 34, 78] },
+  { name: "黄金", color: "#d7ad53", values: [62, 68, 76, 54, 94] },
+  { name: "美元指数", color: "#a8a296", values: [64, 61, 71, 86, 38] },
 ];
 
 let state = loadState();
@@ -1943,8 +1957,10 @@ function currentStageId() {
   const vixDays = Number(byId("vixAbove28Days")?.value || 0);
   const ctaNeed = Number(byId("ctaConvexityNeed")?.value || 0);
   const month = new Date().getMonth() + 1;
-  if (dxy > 0 && dxy < 100 && gold >= 3800 && fundingSpread < 30) return "stage4";
-  if (vixDays >= 2 || fundingSpread >= 30 || ctaNeed >= 75) return "stage3";
+  const year = new Date().getFullYear();
+  if (dxy > 0 && dxy < 100 && gold >= 3800 && fundingSpread < 30) return "stage5";
+  if (vixDays >= 2 || fundingSpread >= 30 || ctaNeed >= 75) return "stage4";
+  if (year >= 2027) return "stage3";
   if (month >= 9) return "stage2";
   return "stage1";
 }
@@ -2614,9 +2630,9 @@ function renderAllocationTimeline() {
     ["vol", "凸性"],
   ];
   const width = 900;
-  const cardW = 198;
-  const gap = 24;
-  const startX = 38;
+  const cardW = 156;
+  const gap = 18;
+  const startX = 16;
   const barY = 132;
   svg.innerHTML = `
     <rect x="0" y="0" width="${width}" height="310" fill="#10110f"></rect>
@@ -2690,7 +2706,7 @@ function renderAssetPathChart() {
   const height = 330;
   const padX = 62;
   const padY = 42;
-  const labels = ["7-8月", "9月附近", "流动性冲击", "定向放水后"];
+  const labels = ["科技筑底", "最后一浪", "主动收缩", "套息反转", "救市后"];
   const xFor = (index) => padX + (index * (width - padX * 2)) / (labels.length - 1);
   const yFor = (value) => height - padY - ((value - 20) / 75) * (height - padY * 2);
   const grid = [20, 40, 60, 80].map((value) => {
