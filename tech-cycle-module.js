@@ -57,6 +57,20 @@
       confirm: ["CSP资本开支停止上修", "AI芯片交付周期缩短", "龙头指引首次低于市场上沿"],
     },
     {
+      id: "domestic-compute",
+      name: "国产算力链",
+      icon: "CN-AI",
+      phase: "订单兑现期",
+      phaseClass: "green",
+      earningsPeak: "2026 Q4-2027 Q1",
+      priceWindow: "2026 Q4-2027 Q1",
+      probability: 56,
+      confidence: "中低",
+      qoq: [9, 16, 25, 31, 19],
+      thesis: "国产AI芯片、服务器、液冷和高速连接的收入确认取决于芯片供给、运营商及政企招标和整机交付，政策驱动更强、季度波动也更大，整体较海外光模块与PCB晚一拍。",
+      confirm: ["招标金额增长但交付率下降", "国产芯片供给不再构成瓶颈", "服务器收入增长但回款明显变慢"],
+    },
+    {
       id: "equipment",
       name: "半导体设备",
       icon: "WFE",
@@ -151,7 +165,7 @@
           <p class="eyebrow">核心结论</p>
           <h3>光模块与存储进入顶部验证，PCB正在兑现，芯片与设备拐点更晚</h3>
           <p>这里的“见顶”不是预测某一天，而是估算盈利预测上修速度、环比增速与股价趋势发生共振反转的时间窗。股价顶部通常领先业绩绝对值顶部，但只有在预测停止上修后才确认。</p>
-          <div class="tech-hero-kpis"><span>最早风险：存储 / 光模块</span><span>秋季兑现：高阶PCB</span><span>延后观察：芯片 / 设备</span></div>
+          <div class="tech-hero-kpis"><span>最早风险：存储 / 光模块</span><span>秋季兑现：高阶PCB</span><span>延后观察：芯片 / 国产算力 / 设备</span></div>
         </div>
       </div>
       <div class="tech-grid">
