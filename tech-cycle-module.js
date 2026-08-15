@@ -4,19 +4,19 @@
       id: "optics",
       name: "光模块",
       icon: "OPT",
-      phase: "高位平台验证",
+      phase: "实际值再加速，前瞻高位放缓",
       phaseClass: "amber",
-      earningsPeak: "尚未确认，当前约20%平台",
+      earningsPeak: "FY27Q1E或接近平台峰值",
       priceWindow: "2026 Q2-Q4",
-      probability: 58,
+      probability: 52,
       confidence: "中",
       series: {
-        labels: ["FY26Q2", "FY26Q3", "FY26Q4E"],
-        values: [24.7, 21.5, 21.8],
-        actualCount: 2,
-        source: "Lumentum公司收入；Q4为指引中值",
+        labels: ["FY26Q2", "FY26Q3", "FY26Q4", "FY27Q1E"],
+        values: [24.7, 21.5, 24.9, 23.8],
+        actualCount: 3,
+        source: "Lumentum公司收入；FY27Q1E为指引中值",
       },
-      thesis: "代表公司收入环比仍维持约20%的高位平台，不能解释成斜率已经快速坍塌。真正的拐点要等下一季指引下修、1.6T放量不再带动毛利率，或强财报后股价失去反应。",
+      thesis: "最新实际收入环比从21.5%重新加速至约24.9%，说明光模块最快增长并没有在上一季确认结束；下一季指引中值隐含约23.8%，只是高位轻微放缓。真正拐点仍要等指引明显下修、1.6T放量不再带动毛利率，或强财报后股价失去反应。",
       confirm: ["强财报后不再创新高", "1.6T放量但毛利率下滑", "2027盈利预测停止上修"],
     },
     {
@@ -168,15 +168,15 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-07-29</span>
+        <span class="pill">数据更新：2026-08-15</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
         <div class="tech-hero-copy">
           <p class="eyebrow">核心结论</p>
-          <h3>存储的极端增速或已过峰，光模块仍在约20%的高位平台</h3>
+          <h3>存储的极端增速或已过峰，光模块最新实际值仍在加速</h3>
           <p>图表已把公司实际披露和后续指引/行业模型分开。斜率峰值过去只表示环比增速从极端水平回落，不等于收入下降或产业景气结束；顶部仍需盈利预测停止上修与价格行为共同确认。</p>
-          <div class="tech-hero-kpis"><span>存储：最快增速大概率已过</span><span>光模块：尚未确认明显减速</span><span>后续：PCB / 芯片 / 国产算力</span></div>
+          <div class="tech-hero-kpis"><span>存储：最快增速大概率已过</span><span>光模块：Q4实际环比约24.9%</span><span>光模块：Q1指引约23.8%</span></div>
         </div>
       </div>
       <div class="tech-grid">
