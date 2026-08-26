@@ -96,6 +96,27 @@
     },
   ];
 
+  const restartWindows = [
+    { window: "2026年9-10月", probability: 35, note: "英伟达财报后完成二次测试，半导体宽度和成交量先修复" },
+    { window: "2026年11-12月", probability: 40, note: "利率回落叠加Q4订单上修，形成更稳健的主升重启" },
+    { window: "2027年Q1", probability: 17, note: "高油价和长端利率延迟估值修复，等待下一轮财报确认" },
+    { window: "不重启 / 跌破前低", probability: 8, note: "盈利预测下修、AI资本开支转弱或信用压力扩散" },
+  ];
+
+  const peakWindows = [
+    { window: "2027年Q1", probability: 22, note: "快速V形修复后提前形成双顶" },
+    { window: "2027年Q2", probability: 43, note: "基准情景：股价领先盈利斜率一至两个季度见顶" },
+    { window: "2027年Q3", probability: 20, note: "Rubin、HBM4与1.6T兑现，把周期延长一个季度" },
+    { window: "2027年Q4以后", probability: 7, note: "需要资本开支、利润率和终端变现持续超预期" },
+    { window: "无法创新高", probability: 8, note: "二次探底演化为长期估值出清" },
+  ];
+
+  const analogs = [
+    { cycle: "2000互联网", first: "首轮急跌约35%", restart: "约2个月后反弹约41%-43%", top: "反弹未创新高，随后继续长期下行", lesson: "只有价格反弹、盈利预期继续下修时，是熊市陷阱" },
+    { cycle: "2021半导体", first: "首次见顶后回撤约23%", restart: "约3个月后由缺芯与业绩兑现推动", top: "约5个月后形成第二高点", lesson: "高景气延续可产生M顶，但第二浪宽度通常收窄" },
+    { cycle: "2021-22光伏", first: "首次见顶后最大回撤约26%", restart: "2022年4月重启", top: "2022年8月再创新高后见顶", lesson: "技术升级与需求上修能推新高，产能过剩决定最终顶部" },
+  ];
+
   function spark(series) {
     const { values, labels, actualCount, source } = series;
     const max = Math.max(...values);
@@ -133,7 +154,11 @@
       .tech-checks{display:grid;gap:7px}.tech-checks div{display:grid;grid-template-columns:12px 1fr;gap:8px;color:var(--muted);font-size:12px}.tech-checks i{width:8px;height:8px;border-radius:50%;background:var(--yellow);margin-top:4px}
       .tech-matrix{overflow:auto;border:1px solid var(--line);background:#11130f}.tech-matrix table{min-width:940px;width:100%;border-collapse:collapse}.tech-matrix th,.tech-matrix td{padding:13px;border-bottom:1px solid rgba(232,226,211,.08);text-align:left}.tech-matrix th{color:var(--muted);font-size:11px}.tech-matrix td{font-size:12px;color:var(--soft)}
       .tech-method{margin-top:14px;border:1px solid rgba(215,173,83,.3);background:rgba(215,173,83,.06);padding:15px;color:var(--soft);font-size:13px;line-height:1.72}
-      @media(max-width:900px){.tech-grid{grid-template-columns:1fr}.tech-hero-copy{padding:28px 22px}.tech-hero{min-height:430px}.tech-hero img{opacity:.35}.tech-hero-copy h3{font-size:25px}}
+      .cycle-callout{border:1px solid rgba(215,173,83,.34);background:linear-gradient(135deg,rgba(215,173,83,.1),rgba(108,168,182,.04));padding:20px;margin-bottom:16px;display:grid;gap:16px}.cycle-callout-head{display:flex;justify-content:space-between;gap:20px;align-items:start}.cycle-callout-head h3{font-size:23px;line-height:1.35}.cycle-callout-head p{color:var(--soft);line-height:1.7;max-width:760px}.cycle-score{min-width:112px;text-align:right;color:var(--gold);font-size:36px;font-weight:900}.cycle-score small{display:block;font-size:10px;color:var(--muted)}
+      .cycle-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cycle-fact{border:1px solid rgba(232,226,211,.1);background:#10120f;padding:12px}.cycle-fact b{display:block;color:var(--soft);margin-bottom:6px}.cycle-fact span{font-size:11px;line-height:1.55;color:var(--muted)}
+      .window-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}.window-panel{border:1px solid var(--line);background:var(--surface);padding:17px}.window-panel h4{margin-bottom:12px}.window-row{display:grid;grid-template-columns:105px 1fr 46px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(232,226,211,.08)}.window-row:last-child{border-bottom:0}.window-row b{font-size:12px}.window-row span{font-size:11px;color:var(--muted);line-height:1.45}.window-row strong{color:var(--gold);text-align:right}
+      .analog-table{overflow:auto;border:1px solid var(--line);margin-bottom:16px}.analog-table table{min-width:900px;width:100%;border-collapse:collapse;background:#10120f}.analog-table th,.analog-table td{padding:12px;border-bottom:1px solid rgba(232,226,211,.08);text-align:left;font-size:12px}.analog-table th{color:var(--muted)}.analog-table td{color:var(--soft)}
+      @media(max-width:900px){.tech-grid,.window-grid{grid-template-columns:1fr}.cycle-facts{grid-template-columns:1fr}.cycle-callout-head{display:grid}.cycle-score{text-align:left}.tech-hero-copy{padding:28px 22px}.tech-hero{min-height:430px}.tech-hero img{opacity:.35}.tech-hero-copy h3{font-size:25px}}
     `;
     document.head.appendChild(style);
   }
@@ -168,7 +193,7 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-08-15</span>
+        <span class="pill">数据更新：2026-08-26</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
@@ -179,6 +204,15 @@
           <div class="tech-hero-kpis"><span>存储：最快增速大概率已过</span><span>光模块：Q4实际环比约24.9%</span><span>光模块：Q1指引约23.8%</span></div>
         </div>
       </div>
+      <section class="cycle-callout">
+        <div class="cycle-callout-head"><div><p class="eyebrow">SECONDARY TEST</p><h3>全球AI硬件正在进行第二次底部测试，反转尚待英伟达财报与市场宽度确认</h3><p>8月中旬以来，存储、GPU、ASIC、光模块与亚洲半导体再次同步承压，符合“第一轮急跌—反弹—第二次测试”的价格结构；但代表公司订单与收入指引尚未同步坍塌。当前更接近高景气产业的估值和仓位二次出清，暂不等同于2000年式盈利失速后的长期熊市。</p></div><div class="cycle-score">68%<small>二次探底成立概率</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>价格广度</b><span>8月18日美光、英伟达、博通再度同步下跌；8月24日光模块与网络供应链集中回撤约6%-7%。</span></div><div class="cycle-fact"><b>基本面背离</b><span>Lumentum最新实际收入环比约24.9%，下一季指引仍隐含约23.8%，价格弱于订单斜率。</span></div><div class="cycle-fact"><b>确认条件</b><span>半导体宽度回升、强财报后股价上涨、10年美债回落且二次低点不再被跌破。</span></div></div>
+      </section>
+      <div class="window-grid">
+        <section class="window-panel"><p class="eyebrow">RESTART WINDOW</p><h4>下一浪重启时间概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
+        <section class="window-panel"><p class="eyebrow">FINAL PEAK WINDOW</p><h4>最终顶部时间概率</h4>${peakWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
+      </div>
+      <div class="analog-table"><table><thead><tr><th>历史样本</th><th>首次调整</th><th>下一浪</th><th>最终顶部</th><th>对本轮的含义</th></tr></thead><tbody>${analogs.map((item) => `<tr><td><strong>${item.cycle}</strong></td><td>${item.first}</td><td>${item.restart}</td><td>${item.top}</td><td>${item.lesson}</td></tr>`).join("")}</tbody></table></div>
       <div class="tech-grid">
         ${sectors.map((sector) => `
           <article class="tech-card">
@@ -198,7 +232,7 @@
         <div class="tech-matrix"><table><thead><tr><th>顺序</th><th>环节</th><th>当前阶段</th><th>斜率峰值</th><th>价格风险窗</th><th>需要证伪的核心变量</th></tr></thead><tbody>
           ${sectors.map((sector, index) => `<tr><td>${index + 1}</td><td><strong>${sector.name}</strong></td><td>${sector.phase}</td><td>${sector.earningsPeak}</td><td>${sector.priceWindow}</td><td>${sector.confirm[0]}</td></tr>`).join("")}
         </tbody></table></div>
-        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入；带E的季度为公司指引中值或行业模型，不与已披露财报混算。其余板块缺少统一行业口径，保留模型值并明确标注。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
+        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入；带E的季度为公司指引中值或行业模型，不与已披露财报混算。时间概率是基于当前价格结构、盈利斜率、利率和历史M顶样本的情景权重，不是确定日期。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
       </section>`;
     const entrySection = document.getElementById("entry");
     entrySection?.parentElement?.insertBefore(section, entrySection);
