@@ -56,14 +56,14 @@
       id: "chips",
       name: "AI芯片 / ASIC",
       icon: "GPU",
-      phase: "景气扩散",
+      phase: "财报确认再加速",
       phaseClass: "green",
-      earningsPeak: "2026 Q3-Q4",
-      priceWindow: "2026 Q4-2027 Q1",
-      probability: 58,
-      confidence: "中",
-      series: { labels: ["26Q1", "26Q2", "26Q3E", "26Q4E", "27Q1E"], values: [20, 12, 17, 11, 7], actualCount: 2, source: "行业模型，非单一公司财报" },
-      thesis: "博通Q3指引显示ASIC与网络芯片明显加速；英伟达收入创新高不等于环比斜率创新高，板块将先出现内部结构分化。",
+      earningsPeak: "2026 Q3-Q4仍未确认",
+      priceWindow: "2026 Q4-2027 Q2",
+      probability: 48,
+      confidence: "中高",
+      series: { labels: ["NV FY27Q1", "NV FY27Q2", "NV FY27Q3E", "AVGO FY26Q3", "AVGO FY26Q4E"], values: [20.0, 17.9, 12.2, 54.0, 29.9], actualCount: 4, source: "NVIDIA总收入；Broadcom AI半导体收入，E为公司指引中值" },
+      thesis: "英伟达Q2收入环比增长17.9%，Q3指引中值仍隐含约12.2%；博通Q3 AI半导体收入环比增长54%，Q4指引再隐含约29.9%。这组数据否定了“AI硬件景气已经坍塌”，但也显示GPU斜率温和放缓、ASIC仍在强加速，板块内部会继续分化。",
       confirm: ["CSP资本开支停止上修", "AI芯片交付周期缩短", "龙头指引首次低于市场上沿"],
     },
     {
@@ -97,16 +97,16 @@
   ];
 
   const restartWindows = [
-    { window: "2026年9-10月", probability: 35, note: "英伟达财报后完成二次测试，半导体宽度和成交量先修复" },
-    { window: "2026年11-12月", probability: 40, note: "利率回落叠加Q4订单上修，形成更稳健的主升重启" },
-    { window: "2027年Q1", probability: 17, note: "高油价和长端利率延迟估值修复，等待下一轮财报确认" },
+    { window: "2026年9-10月", probability: 25, note: "财报已经确认，但需油价与10年美债先脱离108美元/5%压力区" },
+    { window: "2026年11-12月", probability: 45, note: "基准情景：利率回落叠加Q4订单继续上修，形成更稳健的主升重启" },
+    { window: "2027年Q1", probability: 22, note: "宏观压力持续，估值修复延后到下一轮财报与政策窗口" },
     { window: "不重启 / 跌破前低", probability: 8, note: "盈利预测下修、AI资本开支转弱或信用压力扩散" },
   ];
 
   const peakWindows = [
-    { window: "2027年Q1", probability: 22, note: "快速V形修复后提前形成双顶" },
-    { window: "2027年Q2", probability: 43, note: "基准情景：股价领先盈利斜率一至两个季度见顶" },
-    { window: "2027年Q3", probability: 20, note: "Rubin、HBM4与1.6T兑现，把周期延长一个季度" },
+    { window: "2027年Q1", probability: 18, note: "快速V形修复后提前形成双顶" },
+    { window: "2027年Q2", probability: 42, note: "基准情景：股价领先盈利斜率一至两个季度见顶" },
+    { window: "2027年Q3", probability: 25, note: "Rubin、HBM4、ASIC与1.6T兑现，把周期延长一个季度" },
     { window: "2027年Q4以后", probability: 7, note: "需要资本开支、利润率和终端变现持续超预期" },
     { window: "无法创新高", probability: 8, note: "二次探底演化为长期估值出清" },
   ];
@@ -193,7 +193,7 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-08-26</span>
+        <span class="pill">数据更新：2026-09-16</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
@@ -205,8 +205,8 @@
         </div>
       </div>
       <section class="cycle-callout">
-        <div class="cycle-callout-head"><div><p class="eyebrow">SECONDARY TEST</p><h3>全球AI硬件正在进行第二次底部测试，反转尚待英伟达财报与市场宽度确认</h3><p>8月中旬以来，存储、GPU、ASIC、光模块与亚洲半导体再次同步承压，符合“第一轮急跌—反弹—第二次测试”的价格结构；但代表公司订单与收入指引尚未同步坍塌。当前更接近高景气产业的估值和仓位二次出清，暂不等同于2000年式盈利失速后的长期熊市。</p></div><div class="cycle-score">68%<small>二次探底成立概率</small></div></div>
-        <div class="cycle-facts"><div class="cycle-fact"><b>价格广度</b><span>8月18日美光、英伟达、博通再度同步下跌；8月24日光模块与网络供应链集中回撤约6%-7%。</span></div><div class="cycle-fact"><b>基本面背离</b><span>Lumentum最新实际收入环比约24.9%，下一季指引仍隐含约23.8%，价格弱于订单斜率。</span></div><div class="cycle-fact"><b>确认条件</b><span>半导体宽度回升、强财报后股价上涨、10年美债回落且二次低点不再被跌破。</span></div></div>
+        <div class="cycle-callout-head"><div><p class="eyebrow">SECONDARY TEST</p><h3>二次探底仍在进行，但财报已经排除景气坍塌；下一步取决于油价与利率</h3><p>9月14-15日全球AI硬件股再度承压，价格结构仍符合“第一轮急跌—反弹—第二次测试”；与此同时，英伟达和博通最新收入与指引继续强劲。当前更像高景气产业遭遇油价、长端利率和仓位的二次压缩，而不是2000年式盈利失速。只有跌破前低且盈利预测同步下修，才升级为长期估值出清。</p></div><div class="cycle-score">62%<small>二次探底成立概率</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>宏观压制</b><span>布伦特升至约108美元、10年美债触及5%，9月14日AI股同步下挫，价格确认被折现率推迟。</span></div><div class="cycle-fact"><b>基本面确认</b><span>英伟达Q2收入环比+18%、Q3指引仍隐含+12%；博通Q3 AI收入环比+54%，Q4指引隐含约+30%。</span></div><div class="cycle-fact"><b>重启条件</b><span>10年美债回落至4.8%以下、油价脱离105美元以上区间、半导体宽度回升且二次低点不破。</span></div></div>
       </section>
       <div class="window-grid">
         <section class="window-panel"><p class="eyebrow">RESTART WINDOW</p><h4>下一浪重启时间概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
