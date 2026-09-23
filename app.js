@@ -13,13 +13,51 @@ const defaultIndicators = [
     name: "布伦特原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 108.42,
-    asOf: "2026-09-15",
-    source: "Brent市场收盘",
+    value: 100.19,
+    asOf: "2026-09-22",
+    source: "AP / ICE Brent",
     frequency: "每日",
     summary: true,
-    thesis: "油价重新升至108美元附近，地缘风险与通胀压力同步回归；若高位维持，将继续推升长债利率并压缩成长股估值。",
+    thesis: "油价从冲击高位回到100美元附近，为科技估值提供喘息；若重新站上110美元并维持，顶部窗口会明显提前。",
     rule: { mode: "higherRisk", green: 90, yellow: 105, amber: 120 },
+  },
+  {
+    id: "nasdaqComposite",
+    name: "纳斯达克综合指数",
+    category: "AI与美股",
+    unit: "点",
+    value: 27244.28,
+    asOf: "2026-09-22",
+    source: "Nasdaq市场收盘",
+    frequency: "每日",
+    summary: true,
+    thesis: "指数已创历史新高，确认二次探底后的价格第二浪已经启动；创新高本身不是危机信号，需与广度、盈利修正和信用利差联判。",
+    rule: { mode: "higherRisk", green: 24000, yellow: 26000, amber: 28500 },
+  },
+  {
+    id: "aiExternalFunding",
+    name: "AI巨头外部融资",
+    category: "AI信用链",
+    unit: "十亿美元",
+    value: 302,
+    asOf: "2026-07-22",
+    source: "S&P Global Market Intelligence / Axios",
+    frequency: "事件",
+    summary: true,
+    thesis: "五家大型科技公司年内股债融资已接近3020亿美元，说明AI建设正从内部现金流转向外部融资；信用风险比单看CapEx更领先。",
+    rule: { mode: "higherRisk", green: 150, yellow: 250, amber: 400 },
+  },
+  {
+    id: "householdDelinquency",
+    name: "美国家庭债务逾期率",
+    category: "信用与违约",
+    unit: "%",
+    value: 4.7,
+    asOf: "2026-06-30",
+    source: "New York Fed Household Debt and Credit",
+    frequency: "季度",
+    thesis: "居民信用正在缓慢恶化，但抵押贷款结构明显好于2008年；它更可能压低消费和盈利，而不是单独触发雷曼时刻。",
+    rule: { mode: "higherRisk", green: 4.0, yellow: 5.0, amber: 6.0 },
   },
   {
     id: "distillate",
@@ -39,12 +77,12 @@ const defaultIndicators = [
     name: "美国10年期国债收益率",
     category: "利率与流动性",
     unit: "%",
-    value: 4.996,
-    asOf: "2026-09-15",
-    source: "AP / 美国国债市场收盘",
+    value: 4.93,
+    asOf: "2026-09-22",
+    source: "AP / 美国国债市场",
     frequency: "每日",
     summary: true,
-    thesis: "长端利率是AI估值与美股风险偏好的折现率核心；逼近5%会触发更强估值重定价。",
+    thesis: "长端仍接近5%，说明纳指创新高发生在高折现率环境；若升破5.3%且MOVE同步上行，风险才从估值压力升级为抵押品冲击。",
     rule: { mode: "higherRisk", green: 4.2, yellow: 4.6, amber: 4.9 },
   },
   {
@@ -65,12 +103,12 @@ const defaultIndicators = [
     name: "云厂商AI资本开支",
     category: "AI与美股",
     unit: "十亿美元",
-    value: 830,
-    asOf: "2026-05-06",
+    value: 886.7,
+    asOf: "2026-08-03",
     source: "TrendForce九大CSP资本支出预估",
     frequency: "季报",
     summary: true,
-    thesis: "AI FOMO的资金强度指标；CapEx越高，越需要利润率、现金流和能源供给兑现。",
+    thesis: "九大云服务商2026年资本开支预计超过8867亿美元、同比约增90%；顶部要等CapEx上修停止，而不是仅凭规模巨大。",
     rule: { mode: "higherRisk", green: 600, yellow: 750, amber: 900 },
   },
   {
@@ -78,9 +116,9 @@ const defaultIndicators = [
     name: "WTI原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 105.57,
-    asOf: "2026-09-15",
-    source: "WTI市场收盘",
+    value: 89.92,
+    asOf: "2026-09-22",
+    source: "NYMEX市场收盘",
     frequency: "每日",
     thesis: "美国本土供需与炼厂原料压力的高频指标。",
     rule: { mode: "higherRisk", green: 85, yellow: 100, amber: 115 },
@@ -270,11 +308,11 @@ const defaultIndicators = [
     name: "美国高收益债利差",
     category: "利率与流动性",
     unit: "bp",
-    value: 272,
-    asOf: "2026-05-28",
-    source: "StreetStats / ICE BofA口径",
+    value: 268,
+    asOf: "2026-09-18",
+    source: "FRED / ICE BofA US High Yield OAS",
     frequency: "每日",
-    thesis: "信用市场是否开始承认衰退与盈利风险。",
+    thesis: "信用利差仍处低位，说明市场尚未进入系统性违约阶段；快速升破400bp比股指单日大跌更值得警惕。",
     rule: { mode: "higherRisk", green: 330, yellow: 430, amber: 550 },
   },
   {
@@ -378,8 +416,8 @@ const defaultIndicators = [
     name: "VIX波动率",
     category: "AI与美股",
     unit: "点",
-    value: 17.20,
-    asOf: "2026-09-15",
+    value: 14.21,
+    asOf: "2026-09-22",
     source: "Cboe VIX收盘",
     frequency: "每日",
     thesis: "低波动叠加高宏观风险时，代表保护成本仍未充分定价。",
@@ -498,11 +536,11 @@ const defaultIndicators = [
     name: "AI基建年度抽水",
     category: "泡沫破裂前瞻",
     unit: "十亿美元/年",
-    value: 700,
-    asOf: "2026-06-30",
-    source: "用户材料 / 超大规模数据中心资本开支估算",
+    value: 886.7,
+    asOf: "2026-08-03",
+    source: "TrendForce九大CSP资本支出预估",
     frequency: "季报",
-    thesis: "AI数据中心把货币基金、回购和企业现金转化为GPU、服务器、电力和钢筋水泥；短期支撑叙事，长期消耗市场可交易流动性。",
+    thesis: "九大CSP年度资本开支预计达到8867亿美元；短期仍在强化硬件订单，只有上修停止且自由现金流恶化，才是顶部确认。",
     rule: { mode: "higherRisk", green: 300, yellow: 550, amber: 800 },
   },
   {
@@ -618,11 +656,11 @@ const defaultIndicators = [
     name: "USD/JPY",
     category: "日元套息与美元流动性",
     unit: "日元/美元",
-    value: 155.13,
-    asOf: "2026-09-15",
-    source: "外汇市场收盘区间",
+    value: 157.356,
+    asOf: "2026-09-22",
+    source: "OANDA日均汇率",
     frequency: "每日",
-    thesis: "高于160说明日元融资仍在供氧但干预压力急升；真正平仓相变通常要观察USD/JPY跌破140且BOJ利率继续上行。",
+    thesis: "较7月高点约回落4%，反转正在预热但远未达到强平速度；需观察一个月升值8%—10%并叠加日债冲击。",
     rule: { mode: "rangeRisk", lowRed: 135, lowAmber: 140, highAmber: 160, highRed: 170 },
   },
   {
@@ -642,11 +680,11 @@ const defaultIndicators = [
     name: "日元套息平仓压力",
     category: "日元套息与美元流动性",
     unit: "分",
-    value: 67,
-    asOf: "2026-09-15",
+    value: 61,
+    asOf: "2026-09-22",
     source: "USD/JPY / BOJ利率 / JGB / VIX / 美元缓冲综合评分",
     frequency: "每日",
-    thesis: "暗流动性仍在供氧，但日元跌至162上方后，干预和被迫加息的尾部风险上升；重点看BOJ 1.5%、USD/JPY跌破140、VIX>28能否共振。",
+    thesis: "日元已从极弱区反弹但VIX与美元信用仍平静；这是预热信号，不是平仓确认。",
     rule: { mode: "higherRisk", green: 45, yellow: 60, amber: 75 },
   },
   {
@@ -678,11 +716,11 @@ const defaultIndicators = [
     name: "日元套息反转概率",
     category: "日元套息与美元流动性",
     unit: "%",
-    value: 62,
-    asOf: "2026-09-15",
+    value: 58,
+    asOf: "2026-09-22",
     source: "USD/JPY / JGB / GPIF / 寿险 / SOFR综合评分",
     frequency: "每日",
-    thesis: "综合价格反转、日债曲线、机构回流、财政压力和美元资金面。当前更像失控前夜，不是系统爆点。",
+    thesis: "日债压力已高、日元开始反弹，但一个月升值幅度和美元资金面尚未达到强平阈值。",
     rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 70 },
   },
   {
@@ -691,10 +729,10 @@ const defaultIndicators = [
     category: "日元套息与美元流动性",
     unit: "分",
     value: 42,
-    asOf: "2026-09-15",
-    source: "USDJPY约163.86及近5日反转幅度监控",
+    asOf: "2026-09-22",
+    source: "USD/JPY自7月高点回落幅度监控",
     frequency: "每日",
-    thesis: "套息反转不是日元继续贬，而是从162上方快速回落到154、148、140。速度越快，强平压力越大。",
+    thesis: "日元较7月极弱区升值约4%，尚未达到一个月8%—10%的强平阈值。",
     rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 75 },
   },
   {
@@ -1129,6 +1167,19 @@ const seedRecords = [
   ["yenCarryReversalProb", "2026-09-15", 62, "日债突破3%且日元反弹，套息反转概率升至预热区"],
   ["yenCarryStress", "2026-09-15", 67, "日债与美债收益率同步上行，套息链条压力增强"],
   ["ctaConvexityNeed", "2026-09-15", 62, "高油价、5%美债与AI股二次测试提高凸性防守需求"],
+  ["nasdaqComposite", "2026-09-21", 27122.09, "AI与半导体带动纳指突破历史高位"],
+  ["nasdaqComposite", "2026-09-22", 27244.28, "纳指连续第二日刷新历史高位，第二浪价格确认"],
+  ["brent", "2026-09-22", 100.19, "油价回落为高久期科技股释放估值空间"],
+  ["wti", "2026-09-22", 89.92, "WTI跌破90美元，短期通胀冲击缓和"],
+  ["ust10y", "2026-09-22", 4.93, "10年美债回到5%下方，但仍处高折现率区间"],
+  ["vix", "2026-09-22", 14.21, "波动率处低位，系统性危机尚未获价格确认"],
+  ["hySpread", "2026-09-18", 268, "高收益债OAS仍紧，信用市场尚未进入失血阶段"],
+  ["usdJpy", "2026-09-22", 157.356, "日元较7月极弱区反弹约4%，尚未达到强平速度"],
+  ["usdJpyReversalSpeed", "2026-09-22", 42, "日元反转处于预热区，未达到一个月8%-10%的危机阈值"],
+  ["yenCarryReversalProb", "2026-09-22", 58, "日债压力高但美元资金面仍平静，维持预警而非危机确认"],
+  ["aiCapexLiquidityDrain", "2026-08-03", 886.7, "TrendForce预计九大CSP资本开支同比增长约90%"],
+  ["aiExternalFunding", "2026-07-22", 302, "五家大型科技公司年内股债融资接近3020亿美元"],
+  ["householdDelinquency", "2026-06-30", 4.7, "纽约联储：4.7%的家庭债务处于某种逾期状态"],
   ["moveIndex", "2026-06-01", 73.33, "美债波动率回落到相对平静区间"],
   ["hySpread", "2026-05-28", 272, "高收益债OAS仍处低位，信用市场尚未承认压力"],
   ["cloAaaSpread", "2026-05-27", 126, "CLO AAA利差仍紧，证券化管道未明显失血"],
@@ -1360,6 +1411,21 @@ const ashareSignalGroups = [
   },
 ];
 
+const coreBubbleMonitorRows = [
+  { layer: "价格顶部", id: "nasdaqComposite", threshold: "创新高但等权指数、半导体广度不确认", logic: "新高说明第二浪成立；只有价格与广度、盈利修正发生背离，才转为顶部预警。" },
+  { layer: "折现率", id: "ust10y", threshold: ">5.0%压估值；>5.3%且波动率跳升才是流动性风险", logic: "美债高收益率先压缩估值，只有无序上行并冲击抵押品市场时才会升级。" },
+  { layer: "资本开支", id: "aiCapexLiquidityDrain", threshold: "CapEx停止上修且自由现金流覆盖跌破60%", logic: "资本开支规模巨大不是顶部；上修停止、回报率下降和现金流恶化的组合才是。" },
+  { layer: "融资结构", id: "aiExternalFunding", threshold: "年内外部融资>2500亿美元进入黄灯；>4000亿美元红灯", logic: "从内部现金流切换到债券、租赁和项目融资，会把产业周期变成信用周期。" },
+  { layer: "信用确认", id: "hySpread", threshold: ">400bp转黄；>600bp为系统性失血", logic: "信用利差仍低，当前不是雷曼阶段；快速走阔比股指单日大跌更有确认力。" },
+  { layer: "私人信贷", id: "privateCreditRedemptions", threshold: "赎回超过闸门并出现基金限制提款", logic: "AI项目债务更可能藏在私募信贷、ABS和数据中心融资中，闸门事件是关键断点。" },
+  { layer: "居民信用", id: "householdDelinquency", threshold: ">5%削弱消费；>6%且抵押贷款恶化才可能系统化", logic: "居民逾期目前更像盈利和衰退放大器，并非最可能的第一张多米诺骨牌。" },
+  { layer: "日元扳机", id: "usdJpyReversalSpeed", threshold: "一个月日元升值8%—10%，同时JGB与VIX上行", logic: "套息反转看速度；只有强制回补与全球资产抛售共振，才构成外部点火器。" },
+  { layer: "日债压力", id: "jgb10y", threshold: ">3.25%继续预警；拍卖失灵和长端跳升才确认", logic: "日本资金回流会抬高全球无风险利率，但需与拍卖需求和日元速度联判。" },
+  { layer: "回购确认", id: "sofrIorbStress", threshold: ">20bp转黄；>50bp红灯", logic: "SOFR显著高于IORB代表融资市场开始缺现金，是雷曼时刻的必要条件之一。" },
+  { layer: "央行后门", id: "srfUsage", threshold: ">250亿美元需警惕；>750亿美元为红灯", logic: "SRF大额使用说明私人回购市场承接不足，交易商资产负债表正在失灵。" },
+  { layer: "全球美元荒", id: "swapLineUsage", threshold: ">100亿美元转黄；>500亿美元为红灯", logic: "美元互换从零附近跳升，才说明危机已由局部跨境传染。" },
+];
+
 const ashareHistory = [
   {
     period: "2006-2007",
@@ -1534,29 +1600,29 @@ const carryTimeAnchors = [
 
 const bubbleStages = [
   {
-    title: "01 导火索：估值神话开始承压",
-    body: "SpaceX 超大规模融资、AI 模型价格战、科技股高估值与AI基建抽水共同构成叙事层压力。市场还在狂欢，但资金承接力和债券市场购买力已经被持续消耗。",
-    ids: ["spacexValuation", "spacexIpoRaise", "deepseekPriceCut", "spxPe", "mag7Capex", "aiCapexLiquidityDrain"],
+    title: "01 股价顶部：创新高后看背离",
+    body: "纳指创新高只确认第二浪，不确认顶部。真正的顶部信号是指数新高而广度走弱、盈利预测停止上修，以及连续两次强财报都无法推动股价。",
+    ids: ["nasdaqComposite", "vix", "ust10y", "aiFcf"],
   },
   {
-    title: "02 日元扳机：套息交易平仓",
-    body: "当前的“流动性盛宴”更像是日元低息资金在给全球风险资产供氧。真正相变不是某一天，而是BOJ政策利率逼近1.5%、USD/JPY从高位转向140下方、波动率持续升温时，借日元买高Beta资产的链条开始降杠杆。",
-    ids: ["yenCarryReversalProb", "bojPolicyRate", "usdJpy", "jgb10y", "jgbCurveStress", "yenCarryStress", "gpifReflowGap"],
+    title: "02 资本开支：现金流转向外部融资",
+    body: "AI资本开支仍在上修，硬件订单尚未见顶；风险在于自由现金流覆盖下降、股债融资继续加速，项目回报率开始追不上融资成本。",
+    ids: ["mag7Capex", "aiCapexLiquidityDrain", "aiExternalFunding", "aiFcf"],
   },
   {
-    title: "03 美元流动性：缓冲被抽干",
-    body: "QT、TGA上升、RRP蓄水池耗尽、准备金下行会削薄缓冲。此时市场不是已经崩盘，而是从“消化闲钱”进入“抽取核心流动性”的脆弱阶段。",
-    ids: ["tga", "rrp", "rrpDrawdownPct", "rrpVs2019Buffer", "bankReserves", "reserveDrainPhase"],
+    title: "03 信用断点：AI外围先于龙头出问题",
+    body: "最可能的第一张牌是高杠杆AI云厂商、单一客户数据中心和项目融资，而不是英伟达或微软。高收益债利差与赎回闸门比居民逾期更领先。",
+    ids: ["hySpread", "privateCreditRedemptions", "loanDefaultRate", "householdDelinquency"],
   },
   {
-    title: "04 回购踩踏：从缺水到抽血",
-    body: "SOFR-IORB、CP利差、SRF、互换额度和美债基差交易是确认指标。只有这些一起跳，才说明风险从估值回调切到现金荒和平仓链。",
-    ids: ["sofrIorbStress", "sofrRate", "fundingSpreadProxy", "basisTradeStress", "srfUsage", "swapLineUsage"],
+    title: "04 外部点火：日元套息快速反转",
+    body: "风险来自速度而非点位：日元一个月升值8%—10%、日债继续跳升，并与美债和高Beta资产同步抛售，才可能把局部信用问题放大。",
+    ids: ["usdJpy", "usdJpyReversalSpeed", "jgb10y", "yenCarryReversalProb"],
   },
   {
-    title: "05 跨市场传染：信用、波动与中国分化",
-    body: "VIX、MOVE、信用利差和中国资产独立性共同决定冲击范围。A股若由国内流动性和产业自主驱动，可能先分化；但汇率和美元流动性仍是尾部约束。",
-    ids: ["vix", "moveIndex", "hySpread", "cloAaaSpread", "ashareIndependenceScore", "star50SemisBreadth", "usdcnhSensitivity"],
+    title: "05 雷曼确认：融资市场失灵",
+    body: "只有高收益债利差、SOFR-IORB、SRF和美元互换同时变色，才能从“泡沫顶部”升级为“雷曼时刻”；股指下跌20%本身不够。",
+    ids: ["hySpread", "sofrIorbStress", "srfUsage", "swapLineUsage", "vix"],
   },
 ];
 
@@ -2005,30 +2071,14 @@ function setTrafficLight(el, level) {
 
 function getCriticalIndicators() {
   return [
-    "brent",
-    "hormuzCrossings",
-    "ieaOilDeficit",
+    "nasdaqComposite",
     "ust10y",
-    "spxPe",
-    "buffettIndicator",
-    "spacexValuation",
-    "jgb10y",
-    "yenCarryStress",
-    "yenCarryReversalProb",
-    "jgbCurveStress",
-    "jgbAuctionDemandStress",
-    "gpifReflowGap",
-    "rrp",
-    "rrpDrawdownPct",
-    "bankReserves",
-    "reserveDrainPhase",
-    "sofrIorbStress",
-    "fundingSpreadProxy",
-    "basisTradeStress",
-    "privateCreditRedemptions",
-    "mag7Capex",
+    "vix",
+    "hySpread",
     "aiCapexLiquidityDrain",
-    "ashareIndependenceScore",
+    "aiExternalFunding",
+    "jgb10y",
+    "usdJpyReversalSpeed",
   ]
     .map(byId)
     .filter(Boolean);
@@ -2038,10 +2088,10 @@ function getOverallStatus() {
   const critical = getCriticalIndicators();
   const avg = critical.reduce((sum, item) => sum + getStatus(item).score, 0) / critical.length;
   const redCount = critical.filter((item) => getStatus(item).level === "red").length;
-  if (redCount >= 2 || avg >= 2.35) return { level: "red", label: "红灯", reason: "多个核心指标进入压力区，需优先控制回撤。" };
-  if (avg >= 1.45) return { level: "amber", label: "黄灯偏红", reason: "RRP耗尽、AI抽水和杠杆交易压力正在叠加。" };
-  if (avg >= 0.7) return { level: "yellow", label: "黄灯", reason: "风险升温但尚未形成共振。" };
-  return { level: "green", label: "绿灯", reason: "核心压力指标处于可控区间。" };
+  if (redCount >= 4 || avg >= 2.45) return { level: "red", label: "危机确认", reason: "信用、套息与融资市场同时失灵，需要按去杠杆阶段处理。" };
+  if (avg >= 1.55) return { level: "amber", label: "泡沫后段", reason: "价格与融资热度偏高，但信用和美元资金市场尚未确认雷曼时刻。" };
+  if (avg >= 0.7) return { level: "yellow", label: "第二浪运行", reason: "纳指已创新高，当前重点从追踪反弹切换为寻找顶部背离。" };
+  return { level: "green", label: "扩张阶段", reason: "盈利与信用仍支持行情，系统性风险信号有限。" };
 }
 
 function currentStageId() {
@@ -2142,34 +2192,34 @@ function renderTriggers() {
 
   const checks = [
     {
-      indicator: byId("aiCapexLiquidityDrain"),
-      title: "AI抽水",
-      body: "AI基建既支撑科技叙事，也把可交易现金变成长期固定资产；CapEx越高，越要看现金流覆盖。",
+      indicator: byId("nasdaqComposite"),
+      title: "第二浪确认",
+      body: "纳指连续创新高，二次探底后的价格重启已经发生；下一步观察广度与强财报后的价格反应。",
     },
     {
-      indicator: byId("reserveDrainPhase"),
-      title: "美元水位",
-      body: "RRP耗尽后，缩表从消化闲钱进入抽取准备金；准备金跌破3万亿美元后要盯SOFR跳升。",
+      indicator: byId("aiExternalFunding"),
+      title: "AI信用化",
+      body: "外部融资上升说明AI建设从现金流故事转成信用故事，最脆弱的是高杠杆云厂商和数据中心项目。",
     },
     {
-      indicator: byId("sofrIorbStress"),
-      title: "回购确认",
-      body: "SOFR-IORB异常、SRF使用量跳升和基差交易压力共振，才说明风险从缺水进入抽血。",
+      indicator: byId("hySpread"),
+      title: "信用温度",
+      body: "高收益债利差仍低，说明市场尚未进入系统性违约阶段；400bp是第一道重要分界线。",
     },
     {
-      indicator: byId("ashareIndependenceScore"),
-      title: "中国分化",
-      body: "A股若由国内流动性和国产替代驱动，能阶段性脱离美股；但人民币和北向资金仍是约束。",
+      indicator: byId("usdJpyReversalSpeed"),
+      title: "日元速度",
+      body: "日元已反弹但尚未达到一个月8%—10%的强平速度，当前是预热而非全球套息踩踏。",
     },
     {
-      indicator: byId("privateCreditRedemptions"),
-      title: "私人信贷赎回",
-      body: "赎回压力或闸门事件若扩散，风险会从估值回撤切到流动性抛售。",
+      indicator: byId("ust10y"),
+      title: "长债阈值",
+      body: "5%附近压估值但不等于危机；升破5.3%并伴随美债波动、回购压力才升级。",
     },
     {
-      indicator: byId("buffettIndicator"),
-      title: "估值缓冲垫",
-      body: "总市值/GDP处于极高区间时，市场还能反复，但每次利好都更依赖流动性支撑。",
+      indicator: byId("vix"),
+      title: "危机未确认",
+      body: "VIX仍处低位，当前更像泡沫扩张而非强制去杠杆；需与信用、回购指标同步上行才构成雷曼信号。",
     },
   ];
 
@@ -2191,17 +2241,17 @@ function renderTriggers() {
 
 function renderWatchPanels() {
   renderWatchGrid("fragilityGrid", [
-    "buffettIndicator",
-    "spxCrashProb",
-    "privateCreditRedemptions",
-    "loanDefaultRate",
+    "nasdaqComposite",
+    "aiCapexLiquidityDrain",
+    "aiExternalFunding",
+    "hySpread",
   ]);
   renderWatchGrid("oilPulseGrid", [
-    "brent",
-    "wti",
-    "hormuzCrossings",
-    "brentFrontSpread",
-    "ieaOilDeficit",
+    "usdJpyReversalSpeed",
+    "jgb10y",
+    "sofrIorbStress",
+    "srfUsage",
+    "swapLineUsage",
   ]);
 }
 
@@ -2436,7 +2486,7 @@ function renderAshare() {
 }
 
 function renderBubble() {
-  const rows = bubbleMonitorRows
+  const rows = coreBubbleMonitorRows
     .map((row) => ({ ...row, indicator: byId(row.id) }))
     .filter((row) => row.indicator);
 

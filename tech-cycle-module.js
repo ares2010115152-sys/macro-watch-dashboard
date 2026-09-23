@@ -97,18 +97,15 @@
   ];
 
   const restartWindows = [
-    { window: "2026年9-10月", probability: 25, note: "财报已经确认，但需油价与10年美债先脱离108美元/5%压力区" },
-    { window: "2026年11-12月", probability: 45, note: "基准情景：利率回落叠加Q4订单继续上修，形成更稳健的主升重启" },
-    { window: "2027年Q1", probability: 22, note: "宏观压力持续，估值修复延后到下一轮财报与政策窗口" },
-    { window: "不重启 / 跌破前低", probability: 8, note: "盈利预测下修、AI资本开支转弱或信用压力扩散" },
+    { window: "2026年Q4延续", probability: 55, note: "纳指已于9月21-22日连续创新高；若10Y守在5%下方、订单继续上修，第二浪延续" },
+    { window: "2027年Q1震荡", probability: 30, note: "高利率压制估值，但盈利仍增长，行情由普涨转为硬件龙头分化" },
+    { window: "假突破", probability: 15, note: "纳指跌回突破位且盈利预测、AI信用同时恶化，第二浪确认失败" },
   ];
 
   const peakWindows = [
-    { window: "2027年Q1", probability: 18, note: "快速V形修复后提前形成双顶" },
-    { window: "2027年Q2", probability: 42, note: "基准情景：股价领先盈利斜率一至两个季度见顶" },
-    { window: "2027年Q3", probability: 25, note: "Rubin、HBM4、ASIC与1.6T兑现，把周期延长一个季度" },
-    { window: "2027年Q4以后", probability: 7, note: "需要资本开支、利润率和终端变现持续超预期" },
-    { window: "无法创新高", probability: 8, note: "二次探底演化为长期估值出清" },
+    { window: "2026 Q4-2027 Q1", probability: 20, note: "油价重返110-120美元、美债升破5.3%或日元快速反转，顶部提前" },
+    { window: "2027年Q2-Q3", probability: 55, note: "基准情景：股价领先资本开支和盈利斜率一至两个季度见顶" },
+    { window: "2027年Q4以后", probability: 25, note: "油价低于95美元、10Y低于4.7%，AI收入和现金流追上资本开支" },
   ];
 
   const analogs = [
@@ -193,23 +190,23 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-09-16</span>
+        <span class="pill">数据更新：2026-09-22</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
         <div class="tech-hero-copy">
           <p class="eyebrow">核心结论</p>
-          <h3>存储的极端增速或已过峰，光模块最新实际值仍在加速</h3>
-          <p>图表已把公司实际披露和后续指引/行业模型分开。斜率峰值过去只表示环比增速从极端水平回落，不等于收入下降或产业景气结束；顶部仍需盈利预测停止上修与价格行为共同确认。</p>
-          <div class="tech-hero-kpis"><span>存储：最快增速大概率已过</span><span>光模块：Q4实际环比约24.9%</span><span>光模块：Q1指引约23.8%</span></div>
+          <h3>纳指创新高确认第二浪，产业斜率顶部与股票顶部仍需分开判断</h3>
+          <p>存储的极端环比增速大概率已经过去，但光模块、ASIC和AI服务器仍在增长。当前更接近基础设施泡沫的后半程扩张，而不是订单坍塌；股票顶部要等盈利上修停止、信用利差扩大和强财报不再推动股价。</p>
+          <div class="tech-hero-kpis"><span>价格：第二浪已确认</span><span>基准顶部：2027 Q2-Q3</span><span>雷曼风险：顶部后6-15个月</span></div>
         </div>
       </div>
       <section class="cycle-callout">
-        <div class="cycle-callout-head"><div><p class="eyebrow">SECONDARY TEST</p><h3>二次探底仍在进行，但财报已经排除景气坍塌；下一步取决于油价与利率</h3><p>9月14-15日全球AI硬件股再度承压，价格结构仍符合“第一轮急跌—反弹—第二次测试”；与此同时，英伟达和博通最新收入与指引继续强劲。当前更像高景气产业遭遇油价、长端利率和仓位的二次压缩，而不是2000年式盈利失速。只有跌破前低且盈利预测同步下修，才升级为长期估值出清。</p></div><div class="cycle-score">62%<small>二次探底成立概率</small></div></div>
-        <div class="cycle-facts"><div class="cycle-fact"><b>宏观压制</b><span>布伦特升至约108美元、10年美债触及5%，9月14日AI股同步下挫，价格确认被折现率推迟。</span></div><div class="cycle-fact"><b>基本面确认</b><span>英伟达Q2收入环比+18%、Q3指引仍隐含+12%；博通Q3 AI收入环比+54%，Q4指引隐含约+30%。</span></div><div class="cycle-fact"><b>重启条件</b><span>10年美债回落至4.8%以下、油价脱离105美元以上区间、半导体宽度回升且二次低点不破。</span></div></div>
+        <div class="cycle-callout-head"><div><p class="eyebrow">BREAKOUT CONFIRMED</p><h3>二次探底已经完成价格确认，当前进入“第二浪运行—寻找顶部背离”阶段</h3><p>9月21-22日纳指连续刷新历史高位，布油回到100美元附近、10年美债回到约4.93%，估值压制阶段性缓和。信用利差与VIX仍低，暂不支持雷曼判断；下一步要盯AI外部融资、自由现金流覆盖与强财报后的价格反应。</p></div><div class="cycle-score">55%<small>2027 Q2-Q3顶部权重</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>价格确认</b><span>纳指27,244点连续创新高，第二浪不再只是情景假设。</span></div><div class="cycle-fact"><b>基本面确认</b><span>英伟达与博通收入和指引仍强，AI硬件订单尚未出现行业性下修。</span></div><div class="cycle-fact"><b>风险确认</b><span>高收益债OAS约268bp、VIX约14，信用市场尚未进入系统性失血。</span></div></div>
       </section>
       <div class="window-grid">
-        <section class="window-panel"><p class="eyebrow">RESTART WINDOW</p><h4>下一浪重启时间概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
+        <section class="window-panel"><p class="eyebrow">SECOND-WAVE PATH</p><h4>第二浪后续路径概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
         <section class="window-panel"><p class="eyebrow">FINAL PEAK WINDOW</p><h4>最终顶部时间概率</h4>${peakWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
       </div>
       <div class="analog-table"><table><thead><tr><th>历史样本</th><th>首次调整</th><th>下一浪</th><th>最终顶部</th><th>对本轮的含义</th></tr></thead><tbody>${analogs.map((item) => `<tr><td><strong>${item.cycle}</strong></td><td>${item.first}</td><td>${item.restart}</td><td>${item.top}</td><td>${item.lesson}</td></tr>`).join("")}</tbody></table></div>

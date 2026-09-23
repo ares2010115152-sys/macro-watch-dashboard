@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>宏观风险数据收集台</title>
+    <title>AI泡沫周期与流动性断点监控</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -13,7 +13,7 @@
           <div class="brand-mark">M</div>
           <div>
             <strong>Macro Watch</strong>
-            <span>能源 · 通胀 · AI泡沫</span>
+            <span>AI周期 · 信用 · 流动性</span>
           </div>
         </div>
         <nav class="nav-list">
@@ -61,7 +61,7 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">Portfolio Risk Console</p>
-            <h1>未来半年资产再定价监控台</h1>
+            <h1>AI泡沫周期与流动性断点监控</h1>
           </div>
           <div class="actions">
             <button id="exportJsonBtn" class="icon-button" type="button" title="导出JSON">
@@ -84,20 +84,33 @@
           <div class="hero-band">
             <div class="hero-copy">
               <p class="eyebrow">核心判断</p>
-              <h2 id="dashboardTitle">流动性缓冲变薄，AI抽水与中国资产分化同时出现</h2>
+              <h2 id="dashboardTitle">第二浪已经启动，最可能的顶部窗口在2027年二至三季度</h2>
               <p>
-                监控重点从单一指数涨跌切换为五条压力链：RRP蓄水池耗尽、准备金抽水、AI基建消耗可交易流动性、回购/基差交易踩踏，以及中国资产能否走出独立行情。
+                纳斯达克连续创新高确认二次探底后的价格重启，但信用与美元资金市场仍平静。当前不是雷曼前夜：先寻找价格与盈利背离，再观察AI项目债务和日元套息，最后用回购市场失灵确认危机。
               </p>
             </div>
             <div class="status-panel">
               <div class="traffic-large" id="overallLight" aria-label="综合灯号"></div>
               <div>
-                <span>综合境遇</span>
-                <strong id="overallStatus">黄灯偏红</strong>
-                <p id="overallReason">油价、长债与AI估值压力同时存在。</p>
+                <span>当前节点</span>
+                <strong id="overallStatus">第二浪运行</strong>
+                <p id="overallReason">价格创新高，信用尚未失血。</p>
               </div>
             </div>
           </div>
+
+          <section class="cycle-clock" aria-label="三档周期推演">
+            <div class="cycle-clock-head">
+              <div><p class="eyebrow">THREE CLOCKS</p><h3>股价顶部、盈利顶部、流动性危机不是同一天</h3></div>
+              <span class="pill">更新至2026年9月22日</span>
+            </div>
+            <div class="clock-line" aria-hidden="true"><span class="clock-now">现在</span><i></i><i></i><i></i><i></i></div>
+            <div class="clock-grid">
+              <article><span>25% · 延长繁荣</span><strong>顶部：2027 Q4以后</strong><p>油价低于95美元、10Y回到4.7%以下，AI收入追上资本开支；2028年前仅局部违约。</p></article>
+              <article class="is-base"><span>55% · 基准情景</span><strong>顶部：2027 Q2—Q3</strong><p>CapEx仍高但增速放缓，股价先于盈利见顶；雷曼式信用事件更可能落在2027 Q4—2028 Q3。</p></article>
+              <article><span>20% · 加速破裂</span><strong>顶部：2026 Q4—2027 Q1</strong><p>油价重返110—120美元、美债升破5.3%，叠加日元快速升值，危机可能提前至2027年。</p></article>
+            </div>
+          </section>
 
           <div class="summary-grid" id="summaryGrid"></div>
 
@@ -106,73 +119,73 @@
               <div class="section-head">
                 <div>
                   <p class="eyebrow">Causal Chain</p>
-                  <h3>风险传导链</h3>
+                  <h3>从泡沫顶部到雷曼时刻</h3>
                 </div>
-                <span class="pill">从地缘到组合</span>
+                <span class="pill">四步确认</span>
               </div>
               <p class="panel-copy">
-                当前不是单一“油价或加息”逻辑，而是缩表、财政抽水、科技CapEx、杠杆交易和中国资产分化一起决定风险路径。
+                先区分价格见顶与融资断裂。互联网、新能源和地产周期都显示，股价顶部通常领先行业违约数月甚至数年。
               </p>
               <div class="causal-map">
                 <article class="causal-stage source">
                   <span class="stage-no">01</span>
-                  <small>触发源</small>
-                  <strong>RRP蓄水池见底</strong>
-                  <p>过去缩表主要消耗RRP闲钱，现在缓冲垫接近耗尽，下一步压力更容易落到银行准备金。</p>
+                  <small>第一只钟</small>
+                  <strong>价格出现顶部背离</strong>
+                  <p>指数新高，但广度、盈利修正和强财报后的价格反应开始走弱。</p>
                   <div class="stage-tags">
-                    <span>RRP Others</span>
-                    <span>TGA抽水</span>
+                    <span>等权广度</span>
+                    <span>财报反应</span>
                   </div>
                 </article>
 
                 <article class="causal-stage supply">
                   <span class="stage-no">02</span>
-                  <small>实体传导</small>
-                  <strong>AI基建抽走现金</strong>
-                  <p>科技巨头把货币基金和回购体系里的现金，转成GPU、服务器、电力和数据中心。</p>
+                  <small>第二只钟</small>
+                  <strong>CapEx与盈利斜率见顶</strong>
+                  <p>资本开支停止上修，自由现金流覆盖下降，订单与交付周期开始正常化。</p>
                   <div class="stage-tags">
-                    <span>CapEx</span>
-                    <span>公司债</span>
+                    <span>CapEx/OCF</span>
+                    <span>盈利修正</span>
                   </div>
                 </article>
 
                 <article class="causal-stage macro">
                   <span class="stage-no">03</span>
-                  <small>宏观放大器</small>
-                  <strong>回购利率触发踩踏</strong>
-                  <p>准备金分布不均时，SOFR-IORB、SRF和美债基差交易会率先暴露融资断点。</p>
+                  <small>信用断点</small>
+                  <strong>AI外围再融资失败</strong>
+                  <p>高杠杆云厂商、单一客户数据中心和私募信贷项目最可能先暴露。</p>
                   <div class="stage-tags">
-                    <span>SOFR</span>
-                    <span>SRF</span>
+                    <span>HY OAS</span>
+                    <span>基金闸门</span>
                   </div>
                 </article>
 
                 <article class="causal-stage assets">
                   <span class="stage-no">04</span>
-                  <small>资产结果</small>
-                  <strong>中国资产分化再定价</strong>
-                  <p>A股若由国内流动性和国产替代驱动，可能阶段性分化，但汇率仍是尾部约束。</p>
+                  <small>危机确认</small>
+                  <strong>美元融资市场失灵</strong>
+                  <p>日元强平若撞上SOFR-IORB、SRF和互换额度跳升，才进入雷曼式去杠杆。</p>
                   <div class="stage-tags">
-                    <span>科创半导体</span>
-                    <span>USD/CNH</span>
+                    <span>Repo</span>
+                    <span>Swap Lines</span>
                   </div>
                 </article>
               </div>
               <div class="causal-footer">
                 <div>
                   <span>先看</span>
-                  <strong>RRP与准备金</strong>
-                  <em>是否继续向稀缺区滑落</em>
+                  <strong>价格与盈利背离</strong>
+                  <em>判断股票顶部</em>
                 </div>
                 <div>
                   <span>再看</span>
-                  <strong>SOFR-IORB与SRF</strong>
-                  <em>是否从平静转为跳升</em>
+                  <strong>AI信用与日元速度</strong>
+                  <em>寻找第一张牌</em>
                 </div>
                 <div>
                   <span>确认</span>
-                  <strong>A股独立性与汇率</strong>
-                  <em>分化行情是否还能延续</em>
+                  <strong>SOFR、SRF与互换</strong>
+                  <em>确认雷曼时刻</em>
                 </div>
               </div>
             </section>
@@ -194,12 +207,12 @@
               <div class="section-head">
                 <div>
                   <p class="eyebrow">Market Fragility</p>
-                  <h3>市场反复与流动性预警</h3>
+                  <h3>顶部领先指标</h3>
                 </div>
-                <span class="pill">顶部是过程</span>
+                <span class="pill">价格 · 盈利 · 信用</span>
               </div>
               <p class="panel-copy">
-                观察估值拥挤、尾部保护和私人信贷赎回压力，判断“假摔-反弹”是否开始让位于流动性抛售。
+                保留能在顶部前后快速变化的指标：纳指价格、AI资本开支、外部融资和高收益债利差。
               </p>
               <div class="watch-grid" id="fragilityGrid"></div>
             </section>
@@ -207,13 +220,13 @@
             <section class="panel">
               <div class="section-head">
                 <div>
-                  <p class="eyebrow">Oil Pulse</p>
-                  <h3>油价短期压制与结构风险</h3>
+                  <p class="eyebrow">LEHMAN CONFIRMATION</p>
+                  <h3>危机确认指标</h3>
                 </div>
-                <span class="pill">消息市</span>
+                <span class="pill">套息 · 回购 · 美元</span>
               </div>
               <p class="panel-copy">
-                谈判消息能压低风险溢价，真正趋势取决于通航恢复、库存去化和全年供需缺口。
+                日元反转是点火器，回购市场和美元互换才是系统性确认；当前这些指标尚未共振。
               </p>
               <div class="watch-grid" id="oilPulseGrid"></div>
             </section>
@@ -348,15 +361,15 @@
               <p class="eyebrow">Bubble Break Monitor</p>
               <h2 id="bubbleTitle">泡沫破裂前瞻指标红绿灯</h2>
             </div>
-            <span class="pill">高频数据更新至9月15日</span>
+            <span class="pill">高频数据更新至9月22日</span>
           </div>
 
           <div class="ashare-hero bubble-hero">
             <div>
               <p class="eyebrow">核心判断</p>
-              <h3>市场还没有进入流动性危机，但泡沫资产正在寻找导火索</h3>
+              <h3>价格第二浪已经确认，但信用市场仍未确认雷曼时刻</h3>
               <p>
-                新增腾讯元宝材料中的“日元暗流动性”框架：BOJ政策利率、USD/JPY、10Y JGB、VIX高压持续天数、ON RRP、准备金和央行后门工具。当前市场仍靠日元套息供氧，但一旦BOJ向1.5%推进、USD/JPY高位反转、VIX持续站上28，风险会从估值回调切换成强制降杠杆。
+                基准情景把股价顶部放在2027年二至三季度，把信用与流动性事件放在其后6—15个月。最值得监控的是AI外部融资、高收益债利差、私募信贷赎回、日元反转速度，以及SOFR-IORB、SRF和美元互换是否同步异常。
               </p>
             </div>
             <div class="heat-score">
@@ -516,16 +529,16 @@
           <div class="section-head page-head">
             <div>
               <p class="eyebrow">Allocation Playbook</p>
-              <h2 id="playbookTitle">科技筑底、套息反转与黄金主升配置方案</h2>
+              <h2 id="playbookTitle">AI第二浪、顶部背离与信用断点配置方案</h2>
             </div>
-            <span class="pill">2026 Q3 → 2027 H1 → 救市后</span>
+            <span class="pill">2026 Q4 → 2027 Q2-Q3 → 2028风险窗</span>
           </div>
           <section class="playbook-hero">
             <div>
               <p class="eyebrow">Core Path</p>
-              <h3>先等待科技筑底与最后一浪，再防套息反转，救市确认后转向黄金主升</h3>
+              <h3>第二浪已启动，先持有盈利兑现，再用顶部背离逐步降风险</h3>
               <p>
-                当前半导体与高弹性科技已经经历快速去拥挤，基准情景是用4至10周筑底，并在2026年四季度随业绩兑现走出最后一浪。跨年后逐步收缩风险，重点防范2027年上半年日元套息反转与美元现金荒；只有政策救市、美元转弱、实际利率回落和信用利差见顶同时确认后，才切换到黄金与资源品的新主升阶段。
+                纳指创新高说明此前的二次探底已经完成价格确认。基准情景是AI硬件在2026年四季度至2027年上半年继续由业绩推动，2027年二至三季度进入最高风险窗口；若信用利差、日元速度和回购压力仍平静，不能把普通调整误判为雷曼时刻。
               </p>
             </div>
             <div class="playbook-score">
