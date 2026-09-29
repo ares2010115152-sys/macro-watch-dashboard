@@ -475,10 +475,39 @@ h3 {
   line-height: 1.65;
 }
 
+.liquidity-matrix {
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(108, 168, 182, 0.07), rgba(215, 173, 83, 0.04)), #10130f;
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.matrix-layout { display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
+.matrix-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.matrix-grid article { min-height: 126px; border: 1px solid rgba(232, 226, 211, .12); background: rgba(255,255,255,.02); padding: 15px; }
+.matrix-grid article.danger { border-color: rgba(198, 67, 55, .32); }
+.matrix-grid article.current { border-color: var(--gold); background: linear-gradient(150deg, rgba(215,173,83,.15), rgba(198,67,55,.06)); box-shadow: inset 0 0 0 1px rgba(215,173,83,.12); }
+.matrix-grid small { display:block; color:var(--gold); margin-bottom:7px; }
+.matrix-grid strong { display:block; font-size:16px; margin-bottom:7px; }
+.matrix-grid p { color:var(--soft); font-size:12px; line-height:1.62; }
+.matrix-axis { color:var(--muted); font-size:10px; }
+.y-axis { display:flex; writing-mode:vertical-rl; transform:rotate(180deg); justify-content:space-between; padding:4px 0; }
+.x-axis { grid-column:2; display:flex; justify-content:space-between; padding:0 4px; }
+.framework-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:17px; }
+.framework-strip div { border-left:2px solid var(--gold); background:rgba(255,255,255,.025); padding:12px 14px; }
+.framework-strip span { display:block; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; }
+.framework-strip strong { display:block; font-size:13px; margin-bottom:6px; }
+.framework-strip p { color:var(--soft); font-size:11px; line-height:1.55; }
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
+}
+
+@media (max-width: 760px) {
+  .matrix-grid, .framework-strip { grid-template-columns: 1fr; }
+  .matrix-grid article { min-height: 0; }
 }
 
 .metric-card,

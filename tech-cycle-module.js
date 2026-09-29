@@ -97,15 +97,15 @@
   ];
 
   const restartWindows = [
-    { window: "2026年Q4延续", probability: 55, note: "纳指已于9月21-22日连续创新高；若10Y守在5%下方、订单继续上修，第二浪延续" },
-    { window: "2027年Q1震荡", probability: 30, note: "高利率压制估值，但盈利仍增长，行情由普涨转为硬件龙头分化" },
-    { window: "假突破", probability: 15, note: "纳指跌回突破位且盈利预测、AI信用同时恶化，第二浪确认失败" },
+    { window: "盈利硬扛", probability: 50, note: "30Y已破5.5%，但回购管道平稳；订单与现金流继续上修可维持第二浪" },
+    { window: "长端压顶", probability: 30, note: "30Y维持5.5%以上、CCC利差继续扩大，行情收缩到现金流最强的硬件龙头" },
+    { window: "融资事故", probability: 20, note: "SOFR-IORB升破20bp或SRF显著使用，第二浪从估值调整升级为去杠杆" },
   ];
 
   const peakWindows = [
-    { window: "2026 Q4-2027 Q1", probability: 20, note: "油价重返110-120美元、美债升破5.3%或日元快速反转，顶部提前" },
-    { window: "2027年Q2-Q3", probability: 55, note: "基准情景：股价领先资本开支和盈利斜率一至两个季度见顶" },
-    { window: "2027年Q4以后", probability: 25, note: "油价低于95美元、10Y低于4.7%，AI收入和现金流追上资本开支" },
+    { window: "2026 Q4-2027 Q1", probability: 30, note: "30Y持续高于5.5%、CCC继续走阔或日元快速反转，顶部提前" },
+    { window: "2027年Q2-Q3", probability: 50, note: "基准情景：融资管道仍稳，股价领先资本开支和盈利斜率一至两个季度见顶" },
+    { window: "2027年Q4以后", probability: 20, note: "30Y回到5.2%下方，AI收入和现金流追上资本开支" },
   ];
 
   const analogs = [
@@ -190,20 +190,20 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-09-22</span>
+        <span class="pill">数据更新：2026-09-28</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
         <div class="tech-hero-copy">
           <p class="eyebrow">核心结论</p>
-          <h3>纳指创新高确认第二浪，产业斜率顶部与股票顶部仍需分开判断</h3>
-          <p>存储的极端环比增速大概率已经过去，但光模块、ASIC和AI服务器仍在增长。当前更接近基础设施泡沫的后半程扩张，而不是订单坍塌；股票顶部要等盈利上修停止、信用利差扩大和强财报不再推动股价。</p>
-          <div class="tech-hero-kpis"><span>价格：第二浪已确认</span><span>基准顶部：2027 Q2-Q3</span><span>雷曼风险：顶部后6-15个月</span></div>
+          <h3>第二浪仍在，但30年美债破5.5%后只能靠盈利、不能再靠估值</h3>
+          <p>存储的极端环比增速大概率已经过去，光模块、ASIC和AI服务器仍在增长。美联储维持充裕准备金让融资管道暂时平稳，但准备金管理不是QE，无法压住期限溢价；股票顶部要等盈利上修停止、CCC信用继续恶化和强财报不再推动股价。</p>
+          <div class="tech-hero-kpis"><span>长债：5.5%压力线已突破</span><span>管道：SOFR-IORB约0bp</span><span>基准顶部：2027 Q2-Q3</span></div>
         </div>
       </div>
       <section class="cycle-callout">
-        <div class="cycle-callout-head"><div><p class="eyebrow">BREAKOUT CONFIRMED</p><h3>二次探底已经完成价格确认，当前进入“第二浪运行—寻找顶部背离”阶段</h3><p>9月21-22日纳指连续刷新历史高位，布油回到100美元附近、10年美债回到约4.93%，估值压制阶段性缓和。信用利差与VIX仍低，暂不支持雷曼判断；下一步要盯AI外部融资、自由现金流覆盖与强财报后的价格反应。</p></div><div class="cycle-score">55%<small>2027 Q2-Q3顶部权重</small></div></div>
-        <div class="cycle-facts"><div class="cycle-fact"><b>价格确认</b><span>纳指27,244点连续创新高，第二浪不再只是情景假设。</span></div><div class="cycle-fact"><b>基本面确认</b><span>英伟达与博通收入和指引仍强，AI硬件订单尚未出现行业性下修。</span></div><div class="cycle-fact"><b>风险确认</b><span>高收益债OAS约268bp、VIX约14，信用市场尚未进入系统性失血。</span></div></div>
+        <div class="cycle-callout-head"><div><p class="eyebrow">REGIME SHIFT</p><h3>当前进入“长端破位、管道平稳”的估值压缩阶段</h3><p>9月28日30年美债收于约5.55%、10年期约5.23%，图片所称的长端上限已被突破；但SOFR与IORB同为3.90%、SRF和美元互换接近零，暂不支持雷曼判断。下一步要盯长端持续性、CCC信用、自由现金流覆盖与强财报后的价格反应。</p></div><div class="cycle-score">50%<small>2027 Q2-Q3顶部权重</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>价格层</b><span>纳指创高后回到26,820点，第二浪仍在但开始受长债压制。</span></div><div class="cycle-fact"><b>管道层</b><span>SOFR-IORB约0bp、SRF约100万美元，美元融资尚未失灵。</span></div><div class="cycle-fact"><b>信用层</b><span>整体HY约293bp仍稳，但CCC约1112bp已先行恶化。</span></div></div>
       </section>
       <div class="window-grid">
         <section class="window-panel"><p class="eyebrow">SECOND-WAVE PATH</p><h4>第二浪后续路径概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
