@@ -814,6 +814,10 @@ h3 {
   margin: -4px 0 14px;
 }
 
+.panel-copy a { color: var(--gold); text-underline-offset: 3px; }
+.panel-copy a:hover { color: var(--soft); }
+.metric-card small { color: var(--muted); font-size: 11px; line-height: 1.5; }
+
 .watch-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1775,6 +1779,9 @@ td:nth-child(2) {
 }
 
 @media (max-width: 720px) {
+  .app-shell, .workspace, .view, .view.active > *, .panel { min-width: 0; }
+  .pill, .panel-copy { overflow-wrap: anywhere; }
+  .pill { white-space: normal; max-width: 100%; }
   .workspace {
     padding: 16px;
   }

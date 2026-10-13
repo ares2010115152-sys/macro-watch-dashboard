@@ -1,20 +1,20 @@
 (function () {
   const indicators = [
-    { id: "yenCarryReversalProb", name: "日元套息反转概率", value: 62, unit: "%", asOf: "2026-09-15", source: "USD/JPY / JGB / GPIF / 寿险 / SOFR综合评分", rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 70 } },
-    { id: "usdJpy", name: "USD/JPY", value: 155.13, unit: "", asOf: "2026-09-15", source: "外汇市场收盘区间", rule: { mode: "rangeRisk", lowAmber: 148, lowRed: 140, highAmber: 160, highRed: 170 } },
+    { id: "yenCarryReversalProb", name: "日元套息反转情景权重", value: 52, unit: "%", asOf: "2026-10-13", source: "主观情景评分，非统计概率", rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 70 } },
+    { id: "usdJpy", name: "USD/JPY", value: 158.26, unit: "", asOf: "2026-10-13", source: "AP亚洲盘中报价", rule: { mode: "rangeRisk", lowAmber: 148, lowRed: 140, highAmber: 160, highRed: 170 } },
     { id: "usdJpyReversalSpeed", name: "USD/JPY反转速度", value: 42, unit: "分", asOf: "2026-09-15", source: "近5日高点后回落幅度与速度监控", rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 75 } },
-    { id: "jgb10y", name: "10Y日债收益率", value: 3.03, unit: "%", asOf: "2026-09-15", source: "日本国债市场", rule: { mode: "higherRisk", green: 2.4, yellow: 3.0, amber: 3.5 } },
+    { id: "jgb10y", name: "10Y日债收益率", value: 3.016, unit: "%", asOf: "2026-10-09", source: "日本国债市场历史报价", rule: { mode: "higherRisk", green: 2.4, yellow: 3.0, amber: 3.5 } },
     { id: "jgbCurveStress", name: "日债曲线压力", value: 81, unit: "分", asOf: "2026-09-15", source: "10Y、20Y、30Y JGB综合评分", rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 } },
     { id: "jgbAuctionDemandStress", name: "日债拍卖需求压力", value: 45, unit: "分", asOf: "2026-07-02", source: "日本财务省10Y JGB拍卖结果", rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 } },
     { id: "lifeInsurerHedgeRatio", name: "九大寿险外债对冲比", value: 47, unit: "%", asOf: "2026-07-13", source: "用户材料 / 九大寿险对冲比估算", rule: { mode: "lowerRisk", green: 63, yellow: 55, amber: 47 } },
     { id: "gpifReflowGap", name: "GPIF回流有效性缺口", value: 68, unit: "分", asOf: "2026-07-13", source: "GPIF回流政策可执行性评分", rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 } },
-    { id: "foreignUstCustody", name: "外国官方托管美债", value: 2.590095, unit: "万亿美元", asOf: "2026-09-09", source: "Federal Reserve H.4.1", rule: { mode: "lowerRisk", green: 3.0, yellow: 2.75, amber: 2.55 } },
-    { id: "bojPolicyRate", name: "BOJ政策利率", value: 1.0, unit: "%", asOf: "2026-07-31", source: "日本银行", rule: { mode: "higherRisk", green: 0.75, yellow: 1.25, amber: 1.5 } },
+    { id: "foreignUstCustody", name: "外国官方托管美债", value: 2.565477, unit: "万亿美元", asOf: "2026-10-07", source: "Federal Reserve H.4.1", rule: { mode: "lowerRisk", green: 3.0, yellow: 2.75, amber: 2.55 } },
+    { id: "bojPolicyRate", name: "BOJ政策利率", value: 1.25, unit: "%", asOf: "2026-09-24", source: "日本银行9月决议", rule: { mode: "higherRisk", green: 0.75, yellow: 1.25, amber: 1.5 } },
     { id: "bojActiveHikeWindow", name: "BOJ主动触发窗口", value: 56, unit: "分", asOf: "2026-07-31", source: "7/30-31 BOJ会议 / 2026Q4政策窗", rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 75 } },
     { id: "japanFiscalTrussRisk", name: "日本财政特拉斯风险", value: 64, unit: "分", asOf: "2026-07-13", source: "债务GDP、预算、财政扩张综合评分", rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 82 } },
-    { id: "sofrIorbStress", name: "SOFR-IORB异常压力", value: 0, unit: "bp", asOf: "2026-06-30", source: "SOFR / IORB手工监控项", rule: { mode: "higherRisk", green: 5, yellow: 20, amber: 50 } },
+    { id: "sofrIorbStress", name: "SOFR-IORB异常压力", value: -3, unit: "bp", asOf: "2026-10-08", source: "NY Fed SOFR / Fed IORB", rule: { mode: "higherRisk", green: 5, yellow: 20, amber: 50 } },
     { id: "basisTradeStress", name: "美债基差交易压力", value: 70, unit: "分", asOf: "2026-06-30", source: "国债期现基差与杠杆交易手工评分", rule: { mode: "higherRisk", green: 45, yellow: 65, amber: 80 } },
-    { id: "vixAbove28Days", name: "VIX高压持续天数", value: 0, unit: "天", asOf: "2026-06-30", source: "Cboe", rule: { mode: "higherRisk", green: 0, yellow: 2, amber: 5 } },
+    { id: "vixAbove28Days", name: "VIX高压持续天数", value: 0, unit: "天", asOf: "2026-10-12", source: "Cboe", rule: { mode: "higherRisk", green: 0, yellow: 2, amber: 5 } },
     { id: "ctaConvexityNeed", name: "CTA/长波动防守需求", value: 64, unit: "分", asOf: "2026-06-30", source: "VIX / SOFR / USDJPY / 相关性", rule: { mode: "higherRisk", green: 40, yellow: 60, amber: 75 } },
   ];
 
@@ -41,7 +41,7 @@
     ["机构资产负债表", "lifeInsurerHedgeRatio", "<55%转黄；<=47%转红", "对冲比低意味着机构暴露在汇率和海外债券双重波动下，日元急升会伤害资产端。"],
     ["机构回流", "gpifReflowGap", ">65说明治标；>80说明政策失效", "如果GPIF只调增量、不减存量、不愿牺牲收益，回流对USD/JPY更像短期口头干预。"],
     ["财政政策", "japanFiscalTrussRisk", ">65转黄；>82红灯", "财政扩张叠加央行紧缩会触发长债收益率飙升，类似英国特拉斯时刻。"],
-    ["政策窗口", "bojActiveHikeWindow", "7/31微调=延续；+25bp=预热；Q4逼近1.5%=主动窗", "7/31是诊断期，Q4才是主动触发窗口。关键看BOJ是否把日元和日债问题一起纳入政策反应。"],
+    ["政策窗口", "bojPolicyRate", "日银已至1.25%；下一步看是否接近1.5%", "9月加息已经发生，但日元仍在158附近；政策动作不等于套息强平，需看汇率速度及美元资金面。"],
     ["全球联动", "sofrIorbStress", ">20bp转黄；>50bp红灯", "日侧反转如果撞上美侧回购市场缺钱，全球套息和基差交易会同时减杠杆。"],
     ["全球联动", "basisTradeStress", ">65转黄；>80红灯", "美债基差交易依赖低成本短融，日元强平会放大全球抵押品市场波动。"],
   ];
@@ -61,6 +61,10 @@
   };
 
   function getStatus(item) {
+    const age = Math.floor((Date.now() - new Date(`${item.asOf}T00:00:00Z`).getTime()) / 86400000);
+    if (!Number.isFinite(age) || age > (item.id === "bojPolicyRate" ? 180 : item.id === "lifeInsurerHedgeRatio" ? 150 : item.id === "foreignUstCustody" ? 21 : 7)) {
+      return { level: "yellow", label: "旧观测", score: null };
+    }
     const value = Number(item.value);
     const rule = item.rule;
     let level = "green";
@@ -127,8 +131,8 @@
     section.className = "view";
     section.setAttribute("aria-labelledby", "carryTitle");
     section.innerHTML = `
-      <div class="section-head page-head"><div><p class="eyebrow">Yen Carry Reversal</p><h2 id="carryTitle">日元套息交易反转概率监控</h2></div><span class="pill">价格 · 日债 · 机构 · 财政 · 全球联动</span></div>
-      <div class="ashare-hero carry-hero"><div><p class="eyebrow">核心判断</p><h3>不要只看日元崩不崩，要看日债、GPIF回流和全球资金面是否咬到一起</h3><p>当前更像“失控前夜”：USD/JPY在高位、日债曲线抬升、寿险对冲比低、GPIF回流被讨论，但尚未进入系统爆点。真正的反转确认，是日元从高位快速升值、日债长端继续上行、BOJ被迫加速、且美侧SOFR/基差交易同步变色。</p></div><div class="heat-score"><span>反转概率</span><strong id="carryScore">--</strong><em id="carryStatus">计算中</em></div></div>
+      <div class="section-head page-head"><div><p class="eyebrow">Yen Carry Reversal</p><h2 id="carryTitle">日元套息反转条件监控</h2></div><span class="pill">2026-10-13核验 · 旧观测退出评分</span></div>
+      <div class="ashare-hero carry-hero"><div><p class="eyebrow">核心判断</p><h3>日银已加息，但套息强平仍未确认</h3><p>日银政策利率已至1.25%、10年日债约3.02%，但USD/JPY仍在158附近，SOFR-IORB为-3bp。要把日元快速升值、日债与美元融资异常同时看到，才可从“预警”升级为跨市场强平。旧的寿险、GPIF及主观评分仅保留历史参考。</p></div><div class="heat-score"><span>主观情景权重</span><strong id="carryScore">--</strong><em id="carryStatus">计算中</em></div></div>
       <div class="carry-stage-strip" id="carryStageStrip"></div><div class="bubble-chain" id="carryLayerGrid"></div>
       <div class="split-layout"><section class="panel"><div class="section-head"><div><p class="eyebrow">Trigger Matrix</p><h3>触发器红绿灯</h3></div><span class="pill" id="carryReason">等待计算</span></div><div class="table-panel compact-table"><table><thead><tr><th>层级</th><th>指标</th><th>当前值</th><th>灯号</th><th>触发阈值</th><th>为什么看它</th></tr></thead><tbody id="carryTable"></tbody></table></div></section><section class="panel"><div class="section-head"><div><p class="eyebrow">Time Anchors</p><h3>三档出问题时间锚</h3></div></div><div class="history-list" id="carryAnchors"></div></section></div>
     `;
@@ -148,7 +152,8 @@
     document.getElementById("carryStageStrip").innerHTML = bands.map((band) => `<article class="carry-stage-card ${band.level} ${status.level === band.level ? "active" : ""}"><div><span class="status-dot ${band.level}"></span><strong>${band.title}</strong></div><em>${band.range}</em><p>${band.body}</p></article>`).join("");
     document.getElementById("carryLayerGrid").innerHTML = layers.map((layer) => {
       const items = layer.ids.map(byId).filter(Boolean);
-      const avg = items.reduce((sum, item) => sum + getStatus(item).score, 0) / items.length;
+      const fresh = items.filter((item) => getStatus(item).score !== null);
+      const avg = fresh.length ? fresh.reduce((sum, item) => sum + getStatus(item).score, 0) / fresh.length : 0;
       const level = avg >= 2.2 ? "red" : avg >= 1.4 ? "amber" : avg >= 0.7 ? "yellow" : "green";
       return `<article class="bubble-step ${level}"><div class="bubble-step-head"><strong>${layer.title}</strong><span class="layer-weight">${layer.weight}</span><span class="status-dot ${level}"></span></div><p>${layer.body}</p><div class="bubble-mini-list">${items.map((item) => `<div><span class="status-dot ${getStatus(item).level}"></span><em>${item.name}</em><strong>${format(item)}</strong></div>`).join("")}</div></article>`;
     }).join("");

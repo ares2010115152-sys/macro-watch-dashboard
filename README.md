@@ -11,15 +11,15 @@ https://ares2010115152-sys.github.io/macro-watch-dashboard/
 
 ## 当前数据快照
 
-默认数据已按 2026-06-30 或临近公开信息校准。部分官方数据存在发布滞后：Fed H.15 最新到 6月26日，Fed H.4.1 最新到 6月24日。
+核心数据于2026-10-13核验，各指标显示自己的实际观测日。10月12日美国国债市场休市，因此官方美债曲线最近值为10月9日；9月CPI定于10月14日发布，不能提前填入。
 
-- 布伦特原油：73.20美元/桶，WTI：69.91美元/桶，市场正在交易美伊谈判和通航恢复的乐观预期。
-- 美国10年期国债收益率：4.37%；10年期实际利率：2.18%。
-- TGA：9187亿美元；ON RRP：约22.78亿美元；银行准备金：约2.951万亿美元。
-- 金融CP-EFFR利差：18bp，尚未突破30bp压力线，但较此前低位抬升。
-- SRF使用量和央行美元互换额度仍接近零，说明美元资金市场尚未进入确认型危机。
-- BOJ政策利率：1.00%；USD/JPY：162.40；日本10年期国债收益率：约2.57%。
-- 日元套息平仓压力综合评分：68分，属于“暗流动性仍在供氧，但干预/加息尾部风险升温”的阶段。
+- 10月9日：美国10年/30年国债收益率5.24%/5.60%，10年实际收益率2.91%。
+- 10月8日：整体HY / CCC及以下信用利差315bp / 1252bp，SOFR 3.87%、IORB 3.90%。
+- 10月7日H.4.1：准备金周三余额3.022万亿美元、TGA 8858亿美元、RRP others约23亿美元；repo agreements others约200万美元仅作SRF代理，不等于逐笔SRF。
+- 日银短端政策利率1.25%（9月24日生效）；10月13日亚洲盘USD/JPY约158.26。
+- 美光FY26 Q4实际收入542.3亿美元，环比增长30.8%，替代旧版20.6%的指引推算。
+
+超过有效窗口的历史观测标为“数据过期/待核”，不参与综合评分；情景权重是研究判断，并非统计概率。
 
 ## 泡沫预警
 
@@ -30,7 +30,7 @@ https://ares2010115152-sys.github.io/macro-watch-dashboard/
 3. 美元流动性：TGA、ON RRP、银行准备金、SOFR、金融CP-EFFR、SRF、央行美元互换。
 4. 跨市场传染：VIX、MOVE、高收益债OAS、CLO利差、私人信贷赎回、COMEX铜仓位、CTA/长波动防守需求。
 
-当前判断：市场还没有进入流动性危机，但风险已从“AI估值偏贵”扩展到“日元暗流动性供氧 + 美元流动性缓冲变薄”的组合。真正需要盯的是三件事是否共振：BOJ政策利率逼近1.5%、USD/JPY从高位反转跌破140、VIX持续站上28。
+当前判断：长债高压、弱信用明显恶化，但SOFR相对IORB未上冲，尚无雷曼式美元融资事故。AI硬件下一浪需要订单、自由现金流与强财报后的价格反应共同确认；股价顶部基准情景为2027 Q2-Q3，提前至2026 Q4—2027 Q1的主观权重上升至40%。
 
 全量快照文件：`data/snapshot-2026-06-30.json`
 
@@ -40,19 +40,19 @@ https://ares2010115152-sys.github.io/macro-watch-dashboard/
 
 `配置方案` 标签页已更新为四阶段路径：
 
-1. 三季度末前保留科技进攻：AI叙事仍强、VIX和融资利差尚未确认危机时，科技龙头仍可能延续高斜率行情。
-2. 临近9月逐步减科技转资源贵金属：季末流动性、财政发债、BOJ加息和估值承接压力更容易共振。
+1. 先区分盈利硬扛和估值扩张：30年国债持续高于5.5%时，不把指数反弹自动解读为新一轮宽松牛市。
+2. 弱信用与财报反应联判：CCC继续走阔、强财报股价不涨时主动收缩高杠杆和纯叙事持仓。
 3. 流动性危机触发后防共振下跌：相关性趋近1时，黄金和大宗也可能先被卖出换现金，优先现金、短债、CTA和长波动。
 4. 定向放水后做反弹与黄金主升：美元指数转弱、政策工具托底后，恒生科技、大宗商品和黄金重新进入弹性窗口。
 
 ## 主要来源
 
-- Federal Reserve H.15: https://www.federalreserve.gov/releases/h15/
-- Federal Reserve H.4.1: https://www.federalreserve.gov/releases/h41/current/default.htm
-- WSJ market updates: https://www.wsj.com/finance/investing
-- WSJ / FT / AP yen and BOJ reports, 2026-06-30
-- Tencent Yuanbao shared note: https://yb.tencent.com/s/CvHHZN3nZFC1
-- CFTC Commitment of Traders: https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm
+- 美国财政部国债收益率曲线：https://home.treasury.gov/resource-center/data-chart-center/interest-rates
+- Federal Reserve H.4.1：https://www.federalreserve.gov/releases/H41/Current/
+- 纽约联储SOFR：https://www.newyorkfed.org/markets/reference-rates/sofr
+- FRED / ICE HY与CCC OAS：https://fred.stlouisfed.org/series/BAMLH0A0HYM2 、https://fred.stlouisfed.org/series/BAMLH0A3HYC
+- 日本央行9月决议：https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260918a.pdf
+- 美光FY26 Q4财报：https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/
 
 ## 提醒
 

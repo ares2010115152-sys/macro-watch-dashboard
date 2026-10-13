@@ -1,4 +1,5 @@
 const STORE_KEY = "macro-watch-state-v1";
+const DATA_CUTOFF = "2026-10-13";
 
 const statusMeta = {
   green: { label: "绿灯", score: 0 },
@@ -9,13 +10,37 @@ const statusMeta = {
 
 const defaultIndicators = [
   {
+    id: "nfp",
+    name: "美国非农新增就业",
+    category: "通胀",
+    unit: "千人",
+    value: 29,
+    asOf: "2026-09-30",
+    source: "BLS 9月就业报告，10月2日发布",
+    frequency: "每月",
+    thesis: "9月非农仅增加2.9万人、失业率4.2%；就业转弱限制进一步紧缩空间，但不能单独抵消油价与长债压力。",
+    rule: { mode: "lowerRisk", green: 150, yellow: 80, amber: 0 },
+  },
+  {
+    id: "tsmcSalesYoy",
+    name: "台积电9月销售额同比",
+    category: "AI与美股",
+    unit: "%",
+    value: 54.6,
+    asOf: "2026-09-30",
+    source: "TSMC 9月营收公告，10月8日发布",
+    frequency: "每月",
+    thesis: "9月营收同比增长54.6%、环比下降0.6%；AI上游需求仍强，但需结合下季指引和财报后股价反应判断斜率。",
+    rule: { mode: "lowerRisk", green: 40, yellow: 25, amber: 0 },
+  },
+  {
     id: "brent",
     name: "布伦特原油",
     category: "能源与航运",
     unit: "美元/桶",
-    value: 106.18,
-    asOf: "2026-09-28",
-    source: "Brent市场收盘",
+    value: 106.65,
+    asOf: "2026-10-12",
+    source: "AP / Brent结算价",
     frequency: "每日",
     summary: true,
     thesis: "油价重回106美元附近，同时推升通胀与期限溢价；若站上110美元并维持，会加快长债与AI估值的负反馈。",
@@ -26,12 +51,12 @@ const defaultIndicators = [
     name: "纳斯达克综合指数",
     category: "AI与美股",
     unit: "点",
-    value: 26820.38,
-    asOf: "2026-09-28",
+    value: 27245.90,
+    asOf: "2026-10-12",
     source: "AP / Nasdaq市场收盘",
     frequency: "每日",
     summary: true,
-    thesis: "指数在创历史新高后回落，第二浪仍成立但开始承受长债冲击；后续要看强财报能否继续换来新高。",
+    thesis: "指数仍在历史高位附近，但10月12日回落；与亚洲AI硬件股下跌并看，下一步要验证广度及强财报后的价格反应。",
     rule: { mode: "higherRisk", green: 24000, yellow: 26000, amber: 28500 },
   },
   {
@@ -64,8 +89,8 @@ const defaultIndicators = [
     name: "美国馏分油库存",
     category: "能源与航运",
     unit: "百万桶",
-    value: 106.274,
-    asOf: "2026-09-04",
+    value: 105.1,
+    asOf: "2026-10-02",
     source: "EIA Weekly Petroleum Status Report",
     frequency: "每周",
     summary: true,
@@ -77,12 +102,12 @@ const defaultIndicators = [
     name: "美国10年期国债收益率",
     category: "利率与流动性",
     unit: "%",
-    value: 5.23,
-    asOf: "2026-09-28",
-    source: "AP / 美国国债市场收盘",
+    value: 5.24,
+    asOf: "2026-10-09",
+    source: "U.S. Treasury每日收益率曲线",
     frequency: "每日",
     summary: true,
-    thesis: "10年期已升至5.23%，估值压缩正在发生；5.3%是下一道抵押品与波动率联动观察线。",
+    thesis: "10月9日10年期为5.24%；5%不是已证实的政策硬防线，重点看5.3%上方的持续性及融资联动。",
     rule: { mode: "higherRisk", green: 4.3, yellow: 4.8, amber: 5.2 },
   },
   {
@@ -90,12 +115,12 @@ const defaultIndicators = [
     name: "美国30年期国债收益率",
     category: "利率与流动性",
     unit: "%",
-    value: 5.55,
-    asOf: "2026-09-28",
-    source: "AP / 美国国债市场收盘",
+    value: 5.60,
+    asOf: "2026-10-09",
+    source: "U.S. Treasury每日收益率曲线",
     frequency: "每日",
     summary: true,
-    thesis: "30年期已经突破图片所称的5.5%历史上限：5.5%应改作已触发的压力线，5.75%是下一档危险区。",
+    thesis: "30年期5.60%，已连续处于5.5%压力区；5.75%是情景阈值，不是官方上限。10月12日美债休市，最近官方观测为10月9日。",
     rule: { mode: "higherRisk", green: 4.8, yellow: 5.2, amber: 5.5 },
   },
   {
@@ -141,8 +166,8 @@ const defaultIndicators = [
     name: "美国商业原油库存",
     category: "能源与航运",
     unit: "百万桶",
-    value: 424.069,
-    asOf: "2026-09-04",
+    value: 424.1,
+    asOf: "2026-10-02",
     source: "EIA Weekly Petroleum Status Report",
     frequency: "每周",
     thesis: "库存是否仍在掩盖供需缺口；连续去库比单周绝对数更重要。",
@@ -153,8 +178,8 @@ const defaultIndicators = [
     name: "美国战略石油储备",
     category: "能源与航运",
     unit: "百万桶",
-    value: 285.360,
-    asOf: "2026-09-04",
+    value: 283.0,
+    asOf: "2026-10-02",
     source: "EIA SPR",
     frequency: "每周",
     thesis: "政策缓冲垫；库存越低，越难依赖SPR长期压油价。",
@@ -261,9 +286,9 @@ const defaultIndicators = [
     name: "10年期实际利率",
     category: "利率与流动性",
     unit: "%",
-    value: 2.18,
-    asOf: "2026-06-26",
-    source: "Federal Reserve H.15 TIPS",
+    value: 2.91,
+    asOf: "2026-10-09",
+    source: "U.S. Treasury每日实际收益率曲线",
     frequency: "每日",
     thesis: "黄金和成长股共同关注的折现率；实际利率高位会压制黄金，但危机阶段会被避险需求抵消。",
     rule: { mode: "higherRisk", green: 1.5, yellow: 2.0, amber: 2.4 },
@@ -285,9 +310,9 @@ const defaultIndicators = [
     name: "美国财政部TGA账户",
     category: "利率与流动性",
     unit: "十亿美元",
-    value: 977.084,
-    asOf: "2026-09-23",
-    source: "Federal Reserve H.4.1",
+    value: 885.783,
+    asOf: "2026-10-07",
+    source: "Federal Reserve H.4.1周三余额",
     frequency: "每日",
     thesis: "TGA上升通常抽走银行体系流动性；需要和RRP、准备金合看。",
     rule: { mode: "higherRisk", green: 500, yellow: 750, amber: 1000 },
@@ -297,8 +322,8 @@ const defaultIndicators = [
     name: "隔夜逆回购RRP",
     category: "利率与流动性",
     unit: "十亿美元",
-    value: 0.432,
-    asOf: "2026-09-09",
+    value: 2.338,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1 / RRP others口径",
     frequency: "每日",
     thesis: "RRP是可释放的流动性缓冲；越低，财政抽水对市场的冲击越直接。",
@@ -309,11 +334,11 @@ const defaultIndicators = [
     name: "银行准备金",
     category: "利率与流动性",
     unit: "万亿美元",
-    value: 2.930193,
-    asOf: "2026-09-23",
-    source: "Federal Reserve H.4.1",
+    value: 3.022066,
+    asOf: "2026-10-07",
+    source: "Federal Reserve H.4.1周三余额",
     frequency: "每周",
-    thesis: "准备金仍属充裕区，但周均值已回落到2.93万亿美元；“充裕”不等于每周都在放水。",
+    thesis: "周三余额约3.022万亿美元，较9月下旬回升；应结合TGA及SOFR判断可用流动性，不能将余额回升等同QE。",
     rule: { mode: "lowerRisk", green: 3.2, yellow: 3.0, amber: 2.8 },
   },
   {
@@ -321,11 +346,11 @@ const defaultIndicators = [
     name: "准备金周变化",
     category: "利率与流动性",
     unit: "十亿美元",
-    value: -83.601,
-    asOf: "2026-09-23",
+    value: 81.569,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1周均值",
     frequency: "每周",
-    thesis: "TGA周均增加约1000亿美元时，准备金周均减少约836亿美元，证明数量托底只能稳住底线，不能消除财政抽水。",
+    thesis: "10月7日当周准备金周均值增加约816亿美元；单周变化易受财政现金流扰动，不宜机械外推为持续宽松。",
     rule: { mode: "lowerRisk", green: 0, yellow: -50, amber: -100 },
   },
   {
@@ -333,11 +358,11 @@ const defaultIndicators = [
     name: "美国高收益债利差",
     category: "利率与流动性",
     unit: "bp",
-    value: 293,
-    asOf: "2026-09-25",
+    value: 315,
+    asOf: "2026-10-08",
     source: "FRED / ICE BofA US High Yield OAS",
     frequency: "每日",
-    thesis: "整体高收益债利差仍低于300bp附近，尚未确认系统性失血；但它已较一周前走阔，需要与CCC层联判。",
+    thesis: "整体HY OAS升至315bp，较9月22日约268bp扩大47bp；尚非系统性融资事故，但信用边际恶化。",
     rule: { mode: "higherRisk", green: 330, yellow: 430, amber: 550 },
   },
   {
@@ -345,11 +370,11 @@ const defaultIndicators = [
     name: "CCC级高收益债利差",
     category: "利率与流动性",
     unit: "bp",
-    value: 1112,
-    asOf: "2026-09-24",
+    value: 1252,
+    asOf: "2026-10-08",
     source: "FRED / ICE BofA CCC & Lower OAS",
     frequency: "每日",
-    thesis: "最弱信用已先于整体高收益债恶化；若CCC继续走阔而大盘利差仍低，是泡沫外围融资开始碎裂的领先背离。",
+    thesis: "CCC及以下OAS达1252bp，较9月下旬明显走阔；这是弱信用压力，而非已发生雷曼式美元融资崩裂。",
     rule: { mode: "higherRisk", green: 900, yellow: 1100, amber: 1400 },
   },
   {
@@ -453,8 +478,8 @@ const defaultIndicators = [
     name: "VIX波动率",
     category: "AI与美股",
     unit: "点",
-    value: 16.23,
-    asOf: "2026-09-28",
+    value: 15.21,
+    asOf: "2026-10-12",
     source: "Cboe VIX收盘",
     frequency: "每日",
     thesis: "低波动叠加高宏观风险时，代表保护成本仍未充分定价。",
@@ -465,8 +490,8 @@ const defaultIndicators = [
     name: "SOFR隔夜融资利率",
     category: "泡沫破裂前瞻",
     unit: "%",
-    value: 3.90,
-    asOf: "2026-09-25",
+    value: 3.87,
+    asOf: "2026-10-08",
     source: "Federal Reserve Bank of New York SOFR",
     frequency: "每日",
     thesis: "SOFR是最后确认型资金压力指标；若突然脱离政策利率走高，说明回购市场开始缺现金。",
@@ -489,11 +514,11 @@ const defaultIndicators = [
     name: "美联储SRF使用量",
     category: "泡沫破裂前瞻",
     unit: "十亿美元",
-    value: 0.001,
-    asOf: "2026-09-23",
-    source: "Federal Reserve H.4.1 repo agreements others",
+    value: 0.002,
+    asOf: "2026-10-07",
+    source: "Federal Reserve H.4.1 repo agreements others（代理口径）",
     frequency: "每日",
-    thesis: "SRF是私人回购市场失灵后的央行后门；频繁或大额使用代表交易商资产负债表被抵押品塞满。",
+    thesis: "H.4.1 repo agreements others仅约200万美元，可作央行回购用量代理，但不能与SRF逐笔成交完全等同。",
     rule: { mode: "higherRisk", green: 5, yellow: 25, amber: 75 },
   },
   {
@@ -501,8 +526,8 @@ const defaultIndicators = [
     name: "央行美元互换使用量",
     category: "泡沫破裂前瞻",
     unit: "十亿美元",
-    value: 0.072,
-    asOf: "2026-09-23",
+    value: 0.207,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1",
     frequency: "每周",
     thesis: "美元互换额度是离岸美元荒的全球化确认信号；从零附近跳升通常意味着危机开始跨境传染。",
@@ -513,8 +538,8 @@ const defaultIndicators = [
     name: "RRP蓄水池耗尽幅度",
     category: "泡沫破裂前瞻",
     unit: "%",
-    value: 99.98,
-    asOf: "2026-09-09",
+    value: 99.91,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1 / 2022年底2.55万亿美元峰值计算",
     frequency: "每周",
     thesis: "RRP从2.55万亿美元级别缩到零附近，说明缩表已从消化闲钱进入抽取银行体系血液的阶段。",
@@ -525,8 +550,8 @@ const defaultIndicators = [
     name: "RRP相对2019缓冲垫",
     category: "泡沫破裂前瞻",
     unit: "%",
-    value: 0.033,
-    asOf: "2026-09-09",
+    value: 0.18,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1 / 2019约1.3万亿美元缓冲对比",
     frequency: "每周",
     thesis: "2019年回购危机时RRP仍有约1.3万亿美元级缓冲；当前others口径只剩零头，意味着同等冲击下政策反应窗口更窄。",
@@ -537,11 +562,11 @@ const defaultIndicators = [
     name: "准备金抽水阶段",
     category: "泡沫破裂前瞻",
     unit: "分",
-    value: 66,
-    asOf: "2026-09-09",
+    value: 62,
+    asOf: "2026-10-07",
     source: "RRP / TGA / 银行准备金综合评分",
     frequency: "每周",
-    thesis: "把RRP接近零、TGA高位和准备金跌破3万亿美元合成一张水位表；高于70说明系统从消化闲钱进入消耗核心流动性。",
+    thesis: "RRP others仍很低，但准备金回到3万亿美元上方、TGA回落；该分数为主观综合评分，不是可交易市场报价。",
     rule: { mode: "higherRisk", green: 45, yellow: 60, amber: 75 },
   },
   {
@@ -549,11 +574,11 @@ const defaultIndicators = [
     name: "SOFR-IORB异常压力",
     category: "泡沫破裂前瞻",
     unit: "bp",
-    value: 0,
-    asOf: "2026-09-25",
-    source: "SOFR / IORB手工监控项",
+    value: -3,
+    asOf: "2026-10-08",
+    source: "NY Fed SOFR / Federal Reserve IORB计算",
     frequency: "每日",
-    thesis: "SOFR 3.90%与IORB 3.90%基本一致，融资管道仍是绿灯；真正警报是持续偏离20bp以上。",
+    thesis: "SOFR 3.87%减IORB 3.90%为-3bp；价格管道未显示现金荒，警报应看持续正偏离20bp以上。",
     rule: { mode: "higherRisk", green: 5, yellow: 20, amber: 50 },
   },
   {
@@ -669,9 +694,9 @@ const defaultIndicators = [
     name: "日本10年期国债收益率",
     category: "日元套息与美元流动性",
     unit: "%",
-    value: 3.075,
-    asOf: "2026-09-24",
-    source: "Japan Bond Trading Co.",
+    value: 3.016,
+    asOf: "2026-10-09",
+    source: "Japan 10Y JGB市场历史报价",
     frequency: "每日",
     thesis: "日元融资不再便宜的本征信号；10Y JGB稳在2%以上会提高日本资金回流和套息平仓概率。",
     rule: { mode: "higherRisk", green: 1.5, yellow: 2.0, amber: 2.6 },
@@ -681,11 +706,11 @@ const defaultIndicators = [
     name: "日本央行政策利率",
     category: "日元套息与美元流动性",
     unit: "%",
-    value: 1.00,
-    asOf: "2026-07-31",
+    value: 1.25,
+    asOf: "2026-09-24",
     source: "Bank of Japan",
     frequency: "会议",
-    thesis: "腾讯元宝链接强调的核心阈值：当BOJ政策利率逼近1.5%，日元融资从近似免费变成有成本，套息交易收益结构会改变。",
+    thesis: "日银9月决议将短端政策利率提高至1.25%，9月24日生效；融资成本已抬升，但套息强平仍需日元快速升值与资金压力共振。",
     rule: { mode: "higherRisk", green: 0.75, yellow: 1.25, amber: 1.5 },
   },
   {
@@ -693,11 +718,11 @@ const defaultIndicators = [
     name: "USD/JPY",
     category: "日元套息与美元流动性",
     unit: "日元/美元",
-    value: 157.19,
-    asOf: "2026-09-28",
-    source: "OANDA日均汇率",
+    value: 158.26,
+    asOf: "2026-10-13",
+    source: "AP亚洲盘中报价，非收盘",
     frequency: "每日",
-    thesis: "较7月高点约回落4%，反转正在预热但远未达到强平速度；需观察一个月升值8%—10%并叠加日债冲击。",
+    thesis: "日银已加息但日元仍在158附近；尚无一个月快速升值8%—10%的套息强平价格信号。",
     rule: { mode: "rangeRisk", lowRed: 135, lowAmber: 140, highAmber: 160, highRed: 170 },
   },
   {
@@ -705,8 +730,8 @@ const defaultIndicators = [
     name: "外国官方托管美债",
     category: "日元套息与美元流动性",
     unit: "万亿美元",
-    value: 2.590095,
-    asOf: "2026-09-09",
+    value: 2.565477,
+    asOf: "2026-10-07",
     source: "Federal Reserve H.4.1 custody data",
     frequency: "每周",
     thesis: "观察外国官方买盘是否慢慢退潮；若托管美债持续下降，美债融资需要更高收益率吸引边际买家。",
@@ -730,7 +755,7 @@ const defaultIndicators = [
     category: "日元套息与美元流动性",
     unit: "天",
     value: 0,
-    asOf: "2026-06-30",
+    asOf: "2026-10-12",
     source: "Cboe / MarketWatch volatility notes",
     frequency: "每日",
     thesis: "链接中给出的第三个相变条件：VIX上穿28并持续，才说明从估值波动进入强制降杠杆反馈。",
@@ -753,11 +778,11 @@ const defaultIndicators = [
     name: "日元套息反转概率",
     category: "日元套息与美元流动性",
     unit: "%",
-    value: 58,
-    asOf: "2026-09-22",
-    source: "USD/JPY / JGB / GPIF / 寿险 / SOFR综合评分",
+    value: 52,
+    asOf: "2026-10-13",
+    source: "情景评分：USD/JPY / BOJ / JGB / SOFR（非统计概率）",
     frequency: "每日",
-    thesis: "日债压力已高、日元开始反弹，但一个月升值幅度和美元资金面尚未达到强平阈值。",
+    thesis: "BOJ已至1.25%且日债高位，但日元未快速升值、SOFR未跳升；52%仅为观察框架中的主观权重，非真实事件概率。",
     rule: { mode: "higherRisk", green: 35, yellow: 55, amber: 70 },
   },
   {
@@ -1290,6 +1315,36 @@ const seedRecords = [
   ["hySpread", "2026-09-25", 293, "整体高收益债OAS仍低但较前期走阔"],
   ["cccSpread", "2026-09-24", 1112, "CCC及以下OAS升至1112bp，弱信用先行恶化"],
   ["vix", "2026-09-28", 16.23, "波动率仍未进入危机区"],
+  ["brent", "2026-10-12", 106.65, "AP：布伦特结算价，能源通胀压力仍高"],
+  ["nasdaqComposite", "2026-10-12", 27245.90, "AP：纳指收盘，历史高位附近回落"],
+  ["ust10y", "2026-10-09", 5.24, "美国财政部：10月12日美债休市前最近官方收益率"],
+  ["ust30y", "2026-10-09", 5.60, "美国财政部：长期贴现率压力继续高于5.5%"],
+  ["realYield", "2026-10-09", 2.91, "美国财政部：10年期TIPS实际收益率"],
+  ["usCrudeInv", "2026-10-02", 424.1, "EIA周报：美国商业原油库存"],
+  ["distillate", "2026-10-02", 105.1, "EIA周报：馏分油库存"],
+  ["spr", "2026-10-02", 283.0, "EIA周报：战略石油储备"],
+  ["tga", "2026-10-07", 885.783, "H.4.1周三余额"],
+  ["rrp", "2026-10-07", 2.338, "H.4.1 RRP others，不含外国官方逆回购"],
+  ["bankReserves", "2026-10-07", 3.022066, "H.4.1周三余额"],
+  ["reserveWeeklyChange", "2026-10-07", 81.569, "H.4.1银行准备金周均值变化"],
+  ["sofrRate", "2026-10-08", 3.87, "纽约联储SOFR"],
+  ["sofrIorbStress", "2026-10-08", -3, "SOFR 3.87%减IORB 3.90%"],
+  ["srfUsage", "2026-10-07", 0.002, "H.4.1回购协议others代理口径"],
+  ["swapLineUsage", "2026-10-07", 0.207, "H.4.1央行美元互换"],
+  ["hySpread", "2026-10-08", 315, "ICE BofA HY OAS，较9月22日扩大约47bp"],
+  ["cccSpread", "2026-10-08", 1252, "ICE BofA CCC及以下OAS，弱信用明显恶化"],
+  ["jgb10y", "2026-10-09", 3.016, "日本10年期国债市场历史报价"],
+  ["bojPolicyRate", "2026-09-24", 1.25, "日本央行9月决议生效"],
+  ["usdJpy", "2026-10-13", 158.26, "AP亚洲盘中报价，非收盘"],
+  ["foreignUstCustody", "2026-10-07", 2.565477, "H.4.1外国官方托管美国国债"],
+  ["vix", "2026-10-12", 15.21, "Cboe：尚未确认波动率危机"],
+  ["vixAbove28Days", "2026-10-12", 0, "VIX未持续高于28"],
+  ["rrpDrawdownPct", "2026-10-07", 99.91, "RRP others相对2022年2.55万亿峰值"],
+  ["rrpVs2019Buffer", "2026-10-07", 0.18, "RRP others相对约1.3万亿美元参考值"],
+  ["reserveDrainPhase", "2026-10-07", 62, "主观评分：准备金回升、TGA回落但RRP others仍低"],
+  ["yenCarryReversalProb", "2026-10-13", 52, "主观情景权重：日银加息但日元未快速升值"],
+  ["nfp", "2026-09-30", 29, "BLS 10月2日发布9月非农，仅新增2.9万人"],
+  ["tsmcSalesYoy", "2026-09-30", 54.6, "台积电10月8日披露9月销售额同比增长54.6%"],
 ];
 
 const categories = ["全部类别", ...new Set(defaultIndicators.map((item) => item.category))];
@@ -1897,8 +1952,8 @@ const roadmap = [
   },
   {
     id: "stage3",
-    title: "第三阶段：2027窗口前主动收缩风险",
-    trigger: "科技盈利斜率普遍回落、BOJ继续收紧、日债长端和USD/JPY反转速度升温，但美元融资压力尚未全面失控。",
+    title: "第三阶段：长债高压与弱信用恶化",
+    trigger: "30Y持续高于5.5%、CCC利差升破1200bp，弱信用先恶化；若强财报后股价不再创新高，应主动收缩风险。",
     risk: "把减仓前置到流动性危机之前；保留黄金核心仓，但避免把黄金当作危机第一天不会跌的现金替代品。",
     allocation: [
       ["现金/短债", 35, 48, "cash"],
@@ -2074,7 +2129,16 @@ function formatValue(indicator) {
   return `${value.toFixed(decimals)} ${indicator.unit}`;
 }
 
+function isFresh(indicator) {
+  if (!indicator?.asOf || indicator.value === null || indicator.value === undefined || indicator.value === "") return false;
+  const ageDays = Math.floor((Math.max(Date.now(), Date.parse(`${DATA_CUTOFF}T00:00:00Z`)) - new Date(`${indicator.asOf}T00:00:00Z`).getTime()) / 86400000);
+  const cadence = indicator.frequency || "每日";
+  const limit = cadence.includes("季") ? 150 : cadence.includes("月") ? 60 : cadence.includes("周") ? 21 : cadence.includes("会议") || cadence.includes("事件") || cadence.includes("拍卖") ? 180 : 7;
+  return Number.isFinite(ageDays) && ageDays <= limit;
+}
+
 function getStatus(indicator) {
+  if (!isFresh(indicator)) return { level: "yellow", label: "数据过期/待核", score: null };
   if (indicator.value === null || indicator.value === undefined || indicator.value === "") {
     return { level: "yellow", label: "待录入", score: 1 };
   }
@@ -2138,6 +2202,7 @@ function getCriticalIndicators() {
 }
 
 function getOverallStatus() {
+  if (getCriticalIndicators().some((item) => !isFresh(item))) return { level: "yellow", label: "关键数据待更新", reason: "有核心指标已超出更新窗口；暂停使用综合灯号推断行情。" };
   const longEnd = Number(byId("ust30y")?.value || 0);
   const repoGap = Number(byId("sofrIorbStress")?.value || 0);
   const srf = Number(byId("srfUsage")?.value || 0);
@@ -2145,11 +2210,12 @@ function getOverallStatus() {
   const ccc = Number(byId("cccSpread")?.value || 0);
   if (repoGap >= 50 || srf >= 75 || hy >= 600) return { level: "red", label: "融资事故确认", reason: "回购或信用市场已经失灵，框架切换到去杠杆与现金优先。" };
   if (repoGap >= 20 || srf >= 25 || hy >= 450) return { level: "amber", label: "信用与融资承压", reason: "压力已从长债传导到融资管道，需要显著降低杠杆。" };
-  if (longEnd >= 5.5 && repoGap < 20 && srf < 25) return { level: "amber", label: "长债破位 / 管道平稳", reason: `30Y ${longEnd.toFixed(2)}%已压估值，但SOFR偏离与SRF使用仍接近零；CCC ${Math.round(ccc)}bp提示弱信用先行恶化。` };
+  if (longEnd >= 5.5 && repoGap < 20 && srf < 25) return { level: "amber", label: "长债高压 / 弱信用恶化", reason: `30Y ${longEnd.toFixed(2)}%压制估值，CCC ${Math.round(ccc)}bp已明显走阔；SOFR-IORB ${repoGap}bp、回购代理用量仍低，尚非系统性融资事故。` };
   return { level: "yellow", label: "高利率下的盈利行情", reason: "融资管道仍顺畅，AI资产能否上行主要取决于盈利与现金流兑现。" };
 }
 
 function currentStageId() {
+  if (getCriticalIndicators().some((item) => !isFresh(item))) return "stage3";
   const longEnd = Number(byId("ust30y")?.value || 0);
   const ccc = Number(byId("cccSpread")?.value || 0);
   const repoGap = Number(byId("sofrIorbStress")?.value || 0);
@@ -2208,6 +2274,7 @@ function renderSummary() {
           <div class="metric-value">${formatValue(indicator)}</div>
           ${renderMiniSparkline(indicator.id)}
           <p>${indicator.thesis}</p>
+          <small>${indicator.asOf} · ${indicator.source}</small>
         </article>
       `;
     })
@@ -2253,17 +2320,17 @@ function renderTriggers() {
     {
       indicator: byId("sofrIorbStress"),
       title: "融资管道仍稳",
-      body: "SOFR与IORB基本一致，价格紧缩尚未演化成回购市场现金短缺。",
+      body: "SOFR较IORB低3bp，当前尚未显示回购市场现金短缺；要看持续正偏离。",
     },
     {
       indicator: byId("hySpread"),
       title: "信用温度",
-      body: "高收益债利差仍低，说明市场尚未进入系统性违约阶段；400bp是第一道重要分界线。",
+      body: "整体HY利差已升至315bp、边际走阔；若突破450bp且融资同步变贵，才升级为广泛信用压力。",
     },
     {
       indicator: byId("cccSpread"),
       title: "弱信用先行",
-      body: "CCC利差已升破1100bp，而整体HY仍低于300bp，外围借款人正在先于指数承压。",
+      body: "CCC利差已达1252bp，远快于整体HY恶化；先检查弱信用再融资，而非据此宣称系统危机已发生。",
     },
     {
       indicator: byId("ust10y"),
@@ -2446,7 +2513,7 @@ function renderAshare() {
   const rows = ashareMonitorRows
     .map((row) => ({ ...row, indicator: byId(row.id) }))
     .filter((row) => row.indicator);
-  const scored = rows.filter((row) => row.indicator.value !== null && row.indicator.value !== undefined && row.indicator.value !== "");
+  const scored = rows.filter((row) => isFresh(row.indicator));
   const heatScore = scored.length
     ? Math.round((scored.reduce((sum, row) => sum + getStatus(row.indicator).score, 0) / (scored.length * 3)) * 100)
     : 0;
@@ -2462,8 +2529,8 @@ function renderAshare() {
           : "散户情绪尚未进入高温区。";
 
   document.getElementById("ashareScore").textContent = `${heatScore}`;
-  document.getElementById("ashareStatus").textContent = status;
-  document.getElementById("ashareReason").textContent = reason;
+  document.getElementById("ashareStatus").textContent = scored.length < 3 ? "数据不足" : status;
+  document.getElementById("ashareReason").textContent = scored.length < 3 ? `仅${scored.length}项指标仍在有效期，旧A股数据已退出评分；请勿将0分视为市场冷静。` : `${reason}（有效${scored.length}/${rows.length}项）`;
 
   document.getElementById("ashareHeatGrid").innerHTML = ashareSignalGroups
     .map((group) => {
@@ -2544,16 +2611,17 @@ function renderBubble() {
     .map((row) => ({ ...row, indicator: byId(row.id) }))
     .filter((row) => row.indicator);
 
-  const score = Math.round((rows.reduce((sum, row) => sum + getStatus(row.indicator).score, 0) / rows.length) * 33.3);
-  const redCount = rows.filter((row) => getStatus(row.indicator).level === "red").length;
-  const amberCount = rows.filter((row) => getStatus(row.indicator).level === "amber").length;
+  const freshRows = rows.filter((row) => isFresh(row.indicator));
+  const score = freshRows.length ? Math.round((freshRows.reduce((sum, row) => sum + getStatus(row.indicator).score, 0) / freshRows.length) * 33.3) : 0;
+  const redCount = freshRows.filter((row) => getStatus(row.indicator).level === "red").length;
+  const amberCount = freshRows.filter((row) => getStatus(row.indicator).level === "amber").length;
   const fundingStress = ["fundingSpreadProxy", "sofrRate", "srfUsage", "swapLineUsage", "hySpread", "cloAaaSpread"].some((id) => {
     const indicator = byId(id);
-    return indicator && ["amber", "red"].includes(getStatus(indicator).level);
+    return indicator && isFresh(indicator) && ["amber", "red"].includes(getStatus(indicator).level);
   });
 
-  let status = "叙事过热，危机未确认";
-  let reason = "红灯主要集中在估值、融资规模和AI价格战，SOFR、SRF、互换额度和信用利差仍偏绿。";
+  let status = "长债与弱信用承压";
+  let reason = "CCC与整体HY利差同步走阔，但SOFR、回购代理和央行美元互换未显示资金市场断裂。";
   if (fundingStress && redCount >= 3) {
     status = "流动性危机确认";
     reason = "估值端红灯已经传导到融资、信用或央行后门指标，需要把它视为去杠杆阶段。";
@@ -2566,14 +2634,15 @@ function renderBubble() {
   }
 
   document.getElementById("bubbleScore").textContent = score;
-  document.getElementById("bubbleStatus").textContent = status;
-  document.getElementById("bubbleReason").textContent = reason;
+  document.getElementById("bubbleStatus").textContent = freshRows.length < 5 ? "数据不足" : status;
+  document.getElementById("bubbleReason").textContent = `${reason} 当前仅${freshRows.length}/${rows.length}项有效；过期值不计入综合分。`;
 
   document.getElementById("bubbleChain").innerHTML = bubbleStages
     .map((stage) => {
       const indicators = stage.ids.map(byId).filter(Boolean);
-      const avg = indicators.length
-        ? indicators.reduce((sum, indicator) => sum + getStatus(indicator).score, 0) / indicators.length
+      const freshIndicators = indicators.filter(isFresh);
+      const avg = freshIndicators.length
+        ? freshIndicators.reduce((sum, indicator) => sum + getStatus(indicator).score, 0) / freshIndicators.length
         : 0;
       const level = avg >= 2.2 ? "red" : avg >= 1.4 ? "amber" : avg >= 0.7 ? "yellow" : "green";
       return `

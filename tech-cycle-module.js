@@ -23,19 +23,19 @@
       id: "memory",
       name: "存储 / HBM",
       icon: "HBM",
-      phase: "极端加速后正常化",
+      phase: "高位增速回落，景气未结束",
       phaseClass: "amber",
-      earningsPeak: "FY26 Q2-Q3大概率已过",
+      earningsPeak: "最快环比增速暂在FY26 Q2-Q3",
       priceWindow: "2026 Q3-Q4",
-      probability: 76,
+      probability: 68,
       confidence: "中高",
       series: {
-        labels: ["FY26Q2", "FY26Q3", "FY26Q4E"],
-        values: [74.9, 73.8, 20.6],
-        actualCount: 2,
-        source: "Micron公司收入；Q4为500亿美元指引中值",
+        labels: ["FY26Q2", "FY26Q3", "FY26Q4"],
+        values: [74.9, 73.8, 30.8],
+        actualCount: 3,
+        source: "Micron 2026-09-30财报；Q4收入542.3亿美元，较Q3的414.6亿美元增长30.8%",
       },
-      thesis: "美光收入环比在FY26 Q2-Q3连续接近74%，Q4指引仍增长约21%。因此更准确的表述是“最快增速大概率已过，但收入和盈利仍处高增长”，不等于存储景气已经结束。",
+      thesis: "美光FY26 Q4实际收入环比增长约30.8%，高于旧版按指引推算的20.6%。最快环比增速暂在Q2-Q3，但Q4仍极强；HBM供应紧张及2027年产品结构升级使景气终点尚不能由一季斜率判定。",
       confirm: ["HBM交付周期缩短", "DRAM涨价速度放缓", "新增产能指引明显上调"],
     },
     {
@@ -97,15 +97,15 @@
   ];
 
   const restartWindows = [
-    { window: "盈利硬扛", probability: 50, note: "30Y已破5.5%，但回购管道平稳；订单与现金流继续上修可维持第二浪" },
-    { window: "长端压顶", probability: 30, note: "30Y维持5.5%以上、CCC利差继续扩大，行情收缩到现金流最强的硬件龙头" },
-    { window: "融资事故", probability: 20, note: "SOFR-IORB升破20bp或SRF显著使用，第二浪从估值调整升级为去杠杆" },
+    { window: "盈利硬扛", probability: 35, note: "订单与现金流继续上修、强财报获得买盘，仍可维持选择性第二浪" },
+    { window: "长端压顶", probability: 50, note: "30Y维持5.5%以上、CCC利差扩大，行情收缩到现金流最强的硬件龙头" },
+    { window: "融资事故", probability: 15, note: "SOFR-IORB持续升破20bp或央行回购显著使用，才从估值调整升级为去杠杆" },
   ];
 
   const peakWindows = [
-    { window: "2026 Q4-2027 Q1", probability: 30, note: "30Y持续高于5.5%、CCC继续走阔或日元快速反转，顶部提前" },
-    { window: "2027年Q2-Q3", probability: 50, note: "基准情景：融资管道仍稳，股价领先资本开支和盈利斜率一至两个季度见顶" },
-    { window: "2027年Q4以后", probability: 20, note: "30Y回到5.2%下方，AI收入和现金流追上资本开支" },
+    { window: "2026 Q4-2027 Q1", probability: 40, note: "30Y持续高于5.5%、CCC继续走阔，强财报后股价不再创新高" },
+    { window: "2027年Q2-Q3", probability: 45, note: "基准情景：融资管道仍稳，股价领先资本开支和盈利斜率一至两个季度见顶" },
+    { window: "2027年Q4以后", probability: 15, note: "30Y回到5.2%下方，AI收入和现金流追上资本开支" },
   ];
 
   const analogs = [
@@ -190,7 +190,7 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据更新：2026-09-28</span>
+        <span class="pill">数据核验：2026-10-13 · 权重为主观情景</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
@@ -202,8 +202,8 @@
         </div>
       </div>
       <section class="cycle-callout">
-        <div class="cycle-callout-head"><div><p class="eyebrow">REGIME SHIFT</p><h3>当前进入“长端破位、管道平稳”的估值压缩阶段</h3><p>9月28日30年美债收于约5.55%、10年期约5.23%，图片所称的长端上限已被突破；但SOFR与IORB同为3.90%、SRF和美元互换接近零，暂不支持雷曼判断。下一步要盯长端持续性、CCC信用、自由现金流覆盖与强财报后的价格反应。</p></div><div class="cycle-score">50%<small>2027 Q2-Q3顶部权重</small></div></div>
-        <div class="cycle-facts"><div class="cycle-fact"><b>价格层</b><span>纳指创高后回到26,820点，第二浪仍在但开始受长债压制。</span></div><div class="cycle-fact"><b>管道层</b><span>SOFR-IORB约0bp、SRF约100万美元，美元融资尚未失灵。</span></div><div class="cycle-fact"><b>信用层</b><span>整体HY约293bp仍稳，但CCC约1112bp已先行恶化。</span></div></div>
+        <div class="cycle-callout-head"><div><p class="eyebrow">REGIME SHIFT</p><h3>长端高压、弱信用恶化，硬件进入盈利验证阶段</h3><p>10月9日30年美债5.60%、10年期5.24%；10月8日CCC利差1252bp，融资外围承压。但SOFR 3.87%仍低于IORB 3.90%，央行回购代理用量极低，暂不支持雷曼判断。下一步看盈利预测、现金流覆盖和强财报后的价格反应。</p></div><div class="cycle-score">45%<small>2027 Q2-Q3顶部情景权重</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>价格层</b><span>纳指10月12日收于27,245.90点，仍近历史高位，但AI硬件波动加剧。</span></div><div class="cycle-fact"><b>管道层</b><span>SOFR-IORB -3bp，H.4.1回购代理约200万美元，尚未确认美元融资失灵。</span></div><div class="cycle-fact"><b>信用层</b><span>HY利差315bp、CCC利差1252bp；弱信用恶化比股指更值得跟踪。</span></div></div>
       </section>
       <div class="window-grid">
         <section class="window-panel"><p class="eyebrow">SECOND-WAVE PATH</p><h4>第二浪后续路径概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
