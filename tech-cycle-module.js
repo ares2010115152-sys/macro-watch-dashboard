@@ -42,11 +42,11 @@
       id: "pcb",
       name: "高阶 PCB",
       icon: "PCB",
-      phase: "业绩加速、股价先见顶",
-      phaseClass: "amber",
-      earningsPeak: "2026 Q3未确认见顶，Q4待验证",
-      priceWindow: "已提前反应：2026年7月高点",
-      probability: 78,
+      phase: "中期高增延续、短期估值压缩",
+      phaseClass: "yellow",
+      earningsPeak: "2027-2028仍高增，峰值未确认",
+      priceWindow: "2026年7月估值压缩；2027H2供需为下一窗口",
+      probability: 45,
       confidence: "中高",
       series: {
         labels: ["25Q4", "26Q1", "26Q2", "26Q3"],
@@ -54,8 +54,18 @@
         actualCount: 4,
         source: "沪电股份(002463)单季营收环比，2026三季报10月27日披露；四个季度均为已披露值，无模型估算",
       },
-      thesis: "改用可核验财报口径后，结论与旧版相反：斜率不是Q3见顶，而是逐季加速。沪电股份单季营收环比8.2%→14.4%→20.3%→27.6%，Q3营收95.36亿元（同比+90.02%）、归母净利26.99亿元（同比+160.77%）均创单季新高。行业口径同样印证：国金证券统计PCB板块26Q3营收1463.39亿元（同比+85.40%、环比+41.27%），归母净利240.94亿元（同比+196.00%、环比+75.56%）；TPCA台股PCB 10月营收同比+52.48%、环比+5.16%，景气尚未出现拐点。但7月1日至11月11日板块区间跌幅48.57%，龙头自高点回撤40%-60%，强财报已无法推动股价——股价顶部明显领先业绩顶部。旧的行业模型与三季度预估值已删除，Q4未披露因此不填预测柱。",
-      confirm: ["Q4营收环比明显低于Q3或转负", "毛利率见顶回落、上游材料继续涨价", "强财报后股价仍不收复7月高点"],
+      outlook: {
+        title: "中期展望 · 外资券商口径（2026-08 至 2026-11）",
+        rows: [
+          { label: "AI服务器PCB 2027E（仅AI服务器）", value: "+177%", note: "375亿美元；高盛2026-08-05上调38%，11-09纪要重申至380亿" },
+          { label: "AI服务器PCB 2028E（仅AI服务器）", value: "+124%", note: "840亿美元，2026-2028 CAGR 148%；AI CCL同期CAGR 161%" },
+          { label: "全球PCB 2027E / 2028E（全行业）", value: "+27% / +31%", note: "840亿 / 1100亿美元；摩根士丹利，2025-2030 CAGR 18%" },
+          { label: "AI PCB 2027E / 2028E（含交换机/光模块）", value: "+108% / +64%", note: "250亿 / 410亿美元；Jefferies 2026-09" },
+        ],
+        caveat: "以上为卖方预测、非一手来源，需核实原文。注意两个840亿美元分属不同口径：高盛指2028年仅AI服务器PCB，大摩指2027年全球PCB全行业，不可混用。Prismark全行业2027/2028为+11.8%/+9.0%，高增集中在AI高阶细分（18层以上多层板2025-2030 CAGR 30.3%）。分歧不在2027年需求，而在2027H2起有效供给释放、2028年利润率与云厂商capex二阶导。",
+      },
+      thesis: "校正后的结论是：股价回调属于估值与筹码消化，不是景气见顶。已披露端，沪电股份单季营收环比8.2%→14.4%→20.3%→27.6%，26Q3营收95.36亿元（同比+90.02%）、归母净利26.99亿元（同比+160.77%）均创单季新高；国金证券口径PCB板块26Q3营收环比+41.27%、归母净利环比+75.56%。中期端，外资对2027/2028仍给三位数或高双位数增长（见上表），高盛报告标题即为“三位数增长延续至2028E”。7月1日至11月11日板块跌48.57%、龙头回撤40%-60%，但10-11月花旗、美银、瑞银、大摩普遍维持盈利预测、只下调目标PE倍数（大摩11月11日上修金像电2027年EPS却下调目标价），性质是压缩估值而非改判产业趋势。真正的顶部验证应后移到2027H2供需拐点与季度毛利率，而非用2026年股价倒推业绩顶。",
+      confirm: ["2027H2织机/电子布交付落地、供需缺口转为宽松", "云厂商2028资本开支增速继续下修", "季度毛利率先于营收见顶，或外资首次下修TAM"],
     },
     {
       id: "chips",
@@ -132,6 +142,14 @@
     </div><div class="tech-series-source">${source}</div>`;
   }
 
+  function outlookBlock(sector) {
+    if (!sector.outlook) return "";
+    const { title, rows, caveat } = sector.outlook;
+    return `<div class="tech-outlook"><strong>${title}</strong>${rows.map((row) => `
+      <div class="tech-outlook-row"><span>${row.label}</span><b>${row.value}</b><small>${row.note}</small></div>`).join("")}
+      <p>${caveat}</p></div>`;
+  }
+
   function addStyles() {
     if (document.getElementById("techCycleStyles")) return;
     const style = document.createElement("style");
@@ -154,6 +172,12 @@
       .tech-spark-col{flex:1;height:112px;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:3px}.tech-spark-col span{width:min(34px,72%);background:linear-gradient(180deg,var(--gold),rgba(108,168,182,.56));border:1px solid rgba(255,255,255,.08)}.tech-spark-col b{font-size:10px}.tech-spark-col em{font-size:10px;color:var(--muted);font-style:normal}
       .tech-spark-col.is-estimate span{background:transparent;border:1px dashed var(--gold)}.tech-series-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:10px}.tech-series-source{margin-top:-10px;color:var(--muted);font-size:10px}
       .tech-checks{display:grid;gap:7px}.tech-checks div{display:grid;grid-template-columns:12px 1fr;gap:8px;color:var(--muted);font-size:12px}.tech-checks i{width:8px;height:8px;border-radius:50%;background:var(--yellow);margin-top:4px}
+      .tech-outlook{border:1px solid rgba(108,168,182,.3);background:rgba(108,168,182,.05);padding:12px;display:grid;gap:8px}
+      .tech-outlook>strong{font-size:11px;color:var(--blue);letter-spacing:.02em}
+      .tech-outlook-row{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:11px;color:var(--soft);line-height:1.45}
+      .tech-outlook-row b{color:var(--gold);white-space:nowrap}
+      .tech-outlook-row small{grid-column:1/-1;color:var(--muted);font-size:10px;line-height:1.5}
+      .tech-outlook p{font-size:10px;color:var(--muted);line-height:1.6;margin:2px 0 0;padding-top:8px;border-top:1px solid rgba(232,226,211,.09)}
       .tech-matrix{overflow:auto;border:1px solid var(--line);background:#11130f}.tech-matrix table{min-width:940px;width:100%;border-collapse:collapse}.tech-matrix th,.tech-matrix td{padding:13px;border-bottom:1px solid rgba(232,226,211,.08);text-align:left}.tech-matrix th{color:var(--muted);font-size:11px}.tech-matrix td{font-size:12px;color:var(--soft)}
       .tech-method{margin-top:14px;border:1px solid rgba(215,173,83,.3);background:rgba(215,173,83,.06);padding:15px;color:var(--soft);font-size:13px;line-height:1.72}
       .cycle-callout{border:1px solid rgba(215,173,83,.34);background:linear-gradient(135deg,rgba(215,173,83,.1),rgba(108,168,182,.04));padding:20px;margin-bottom:16px;display:grid;gap:16px}.cycle-callout-head{display:flex;justify-content:space-between;gap:20px;align-items:start}.cycle-callout-head h3{font-size:23px;line-height:1.35}.cycle-callout-head p{color:var(--soft);line-height:1.7;max-width:760px}.cycle-score{min-width:112px;text-align:right;color:var(--gold);font-size:36px;font-weight:900}.cycle-score small{display:block;font-size:10px;color:var(--muted)}
@@ -225,6 +249,7 @@
             </div>
             <div class="tech-window"><div><span>业绩斜率峰值</span><b>${sector.earningsPeak}</b></div><div><span>股价高风险窗口</span><b>${sector.priceWindow}</b></div></div>
             ${spark(sector.series)}
+            ${outlookBlock(sector)}
             <p>${sector.thesis}</p>
             <div class="tech-checks">${sector.confirm.map((item) => `<div><i></i><span>${item}</span></div>`).join("")}</div>
           </article>`).join("")}
@@ -234,7 +259,7 @@
         <div class="tech-matrix"><table><thead><tr><th>顺序</th><th>环节</th><th>当前阶段</th><th>斜率峰值</th><th>价格风险窗</th><th>需要证伪的核心变量</th></tr></thead><tbody>
           ${sectors.map((sector, index) => `<tr><td>${index + 1}</td><td><strong>${sector.name}</strong></td><td>${sector.phase}</td><td>${sector.earningsPeak}</td><td>${sector.priceWindow}</td><td>${sector.confirm[0]}</td></tr>`).join("")}
         </tbody></table></div>
-        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入，高阶PCB采用沪电股份(002463)单季营收环比（2026三季报，10月27日披露，行业数据交叉核验来自国金证券研报与TPCA，非一手来源、需核实原文）；带E的季度为公司指引中值或行业模型，不与已披露财报混算。PCB板块已全部改用已披露值，Q4尚未结束故不填预测柱。时间概率是基于当前价格结构、盈利斜率、利率和历史M顶样本的情景权重，不是确定日期。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
+        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入，高阶PCB已披露季度采用沪电股份(002463)单季营收环比（2026三季报，10月27日披露；行业交叉核验来自国金证券研报与TPCA，非一手来源、需核实原文）。卡片内「中期展望」另列高盛（2026-08-05，11-09重申）、摩根士丹利、Jefferies（2026-09）与Prismark的2027/2028预测，均为卖方或第三方预测、非一手来源、需核实原文，与已披露财报分列、不混算。带E的季度为公司指引中值或行业模型。PCB已披露端不再填预测柱（Q4尚未结束）；见顶风险衡量的是盈利斜率与供需拐点，不是2026年股价回撤幅度。时间概率是基于当前价格结构、盈利斜率、利率和历史M顶样本的情景权重，不是确定日期。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
       </section>`;
     const entrySection = document.getElementById("entry");
     entrySection?.parentElement?.insertBefore(section, entrySection);
