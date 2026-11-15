@@ -42,15 +42,20 @@
       id: "pcb",
       name: "高阶 PCB",
       icon: "PCB",
-      phase: "加速兑现",
-      phaseClass: "yellow",
-      earningsPeak: "2026 Q3-Q4",
-      priceWindow: "2026年9-12月",
-      probability: 65,
-      confidence: "中",
-      series: { labels: ["26Q1", "26Q2", "26Q3E", "26Q4E", "27Q1E"], values: [18, 35, 29, 16, 8], actualCount: 2, source: "行业模型，非单一公司财报" },
-      thesis: "Rubin服务器和交换机定型后，订单排产、良率爬坡再进入收入确认，业绩传导晚于光模块，秋季是主要预期兑现区。",
-      confirm: ["高阶产能利用率见顶", "扩产快于订单增量", "收入增长但应收与存货更快"],
+      phase: "业绩加速、股价先见顶",
+      phaseClass: "amber",
+      earningsPeak: "2026 Q3未确认见顶，Q4待验证",
+      priceWindow: "已提前反应：2026年7月高点",
+      probability: 78,
+      confidence: "中高",
+      series: {
+        labels: ["25Q4", "26Q1", "26Q2", "26Q3"],
+        values: [8.2, 14.4, 20.3, 27.6],
+        actualCount: 4,
+        source: "沪电股份(002463)单季营收环比，2026三季报10月27日披露；四个季度均为已披露值，无模型估算",
+      },
+      thesis: "改用可核验财报口径后，结论与旧版相反：斜率不是Q3见顶，而是逐季加速。沪电股份单季营收环比8.2%→14.4%→20.3%→27.6%，Q3营收95.36亿元（同比+90.02%）、归母净利26.99亿元（同比+160.77%）均创单季新高。行业口径同样印证：国金证券统计PCB板块26Q3营收1463.39亿元（同比+85.40%、环比+41.27%），归母净利240.94亿元（同比+196.00%、环比+75.56%）；TPCA台股PCB 10月营收同比+52.48%、环比+5.16%，景气尚未出现拐点。但7月1日至11月11日板块区间跌幅48.57%，龙头自高点回撤40%-60%，强财报已无法推动股价——股价顶部明显领先业绩顶部。旧的行业模型与三季度预估值已删除，Q4未披露因此不填预测柱。",
+      confirm: ["Q4营收环比明显低于Q3或转负", "毛利率见顶回落、上游材料继续涨价", "强财报后股价仍不收复7月高点"],
     },
     {
       id: "chips",
@@ -229,7 +234,7 @@
         <div class="tech-matrix"><table><thead><tr><th>顺序</th><th>环节</th><th>当前阶段</th><th>斜率峰值</th><th>价格风险窗</th><th>需要证伪的核心变量</th></tr></thead><tbody>
           ${sectors.map((sector, index) => `<tr><td>${index + 1}</td><td><strong>${sector.name}</strong></td><td>${sector.phase}</td><td>${sector.earningsPeak}</td><td>${sector.priceWindow}</td><td>${sector.confirm[0]}</td></tr>`).join("")}
         </tbody></table></div>
-        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入；带E的季度为公司指引中值或行业模型，不与已披露财报混算。时间概率是基于当前价格结构、盈利斜率、利率和历史M顶样本的情景权重，不是确定日期。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
+        <div class="tech-method"><strong>口径说明：</strong>光模块采用Lumentum代表性公司收入，存储采用Micron公司收入，高阶PCB采用沪电股份(002463)单季营收环比（2026三季报，10月27日披露，行业数据交叉核验来自国金证券研报与TPCA，非一手来源、需核实原文）；带E的季度为公司指引中值或行业模型，不与已披露财报混算。PCB板块已全部改用已披露值，Q4尚未结束故不填预测柱。时间概率是基于当前价格结构、盈利斜率、利率和历史M顶样本的情景权重，不是确定日期。只有“财报强但股价不涨、下一季预测停止上修、存货或应收快于收入”三类信号至少出现两类，才从预测窗口升级为顶部确认。</div>
       </section>`;
     const entrySection = document.getElementById("entry");
     entrySection?.parentElement?.insertBefore(section, entrySection);
