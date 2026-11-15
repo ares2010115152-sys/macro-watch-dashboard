@@ -190,20 +190,20 @@
     section.innerHTML = `
       <div class="section-head page-head">
         <div><p class="eyebrow">AI Earnings Slope Monitor</p><h2 id="techCycleTitle">科技环比业绩增速与见顶预测</h2></div>
-        <span class="pill">数据核验：2026-10-13 · 权重为主观情景</span>
+        <span class="pill">数据核验：2026-11-14 · 权重为主观情景</span>
       </div>
       <div class="tech-hero">
         <img src="./tech-earnings-cycle.png" alt="AI硬件产业链业绩周期传导视觉图" />
         <div class="tech-hero-copy">
           <p class="eyebrow">核心结论</p>
-          <h3>第二浪仍在，但30年美债破5.5%后只能靠盈利、不能再靠估值</h3>
+          <h3>第二浪仍在，但高实际利率与加息预期下只能靠盈利、不能再靠估值</h3>
           <p>存储的极端环比增速大概率已经过去，光模块、ASIC和AI服务器仍在增长。美联储维持充裕准备金让融资管道暂时平稳，但准备金管理不是QE，无法压住期限溢价；股票顶部要等盈利上修停止、CCC信用继续恶化和强财报不再推动股价。</p>
-          <div class="tech-hero-kpis"><span>长债：5.5%压力线已突破</span><span>管道：SOFR-IORB约0bp</span><span>基准顶部：2027 Q2-Q3</span></div>
+          <div class="tech-hero-kpis"><span>长债：30Y 5.47%，仍在压力区</span><span>管道：SOFR-IORB 0bp</span><span>基准顶部：2027 Q2-Q3</span></div>
         </div>
       </div>
       <section class="cycle-callout">
-        <div class="cycle-callout-head"><div><p class="eyebrow">REGIME SHIFT</p><h3>长端高压、弱信用恶化，硬件进入盈利验证阶段</h3><p>10月9日30年美债5.60%、10年期5.24%；10月8日CCC利差1252bp，融资外围承压。但SOFR 3.87%仍低于IORB 3.90%，央行回购代理用量极低，暂不支持雷曼判断。下一步看盈利预测、现金流覆盖和强财报后的价格反应。</p></div><div class="cycle-score">45%<small>2027 Q2-Q3顶部情景权重</small></div></div>
-        <div class="cycle-facts"><div class="cycle-fact"><b>价格层</b><span>纳指10月12日收于27,245.90点，仍近历史高位，但AI硬件波动加剧。</span></div><div class="cycle-fact"><b>管道层</b><span>SOFR-IORB -3bp，H.4.1回购代理约200万美元，尚未确认美元融资失灵。</span></div><div class="cycle-fact"><b>信用层</b><span>HY利差315bp、CCC利差1252bp；弱信用恶化比股指更值得跟踪。</span></div></div>
+        <div class="cycle-callout-head"><div><p class="eyebrow">REGIME SHIFT</p><h3>长端高压、弱信用恶化，硬件进入盈利验证阶段</h3><p>11月13日30年美债5.47%、10年期5.15%，较10月9日回落但长端仍高压；11月12日CCC利差1314bp继续走阔，10月CPI超预期又推升12月加息预期。但SOFR 3.90%与IORB 3.90%持平、央行回购代理用量极低，暂不支持雷曼判断。下一步看盈利预测、现金流覆盖和强财报后的价格反应。</p></div><div class="cycle-score">45%<small>2027 Q2-Q3顶部情景权重</small></div></div>
+        <div class="cycle-facts"><div class="cycle-fact"><b>价格层</b><span>纳指11月13日收于25,136.27点，较10月12日回落约7.7%；台积电10月营收同比59.7%创新高，股价与基本面出现背离。</span></div><div class="cycle-fact"><b>管道层</b><span>SOFR-IORB 0bp，H.4.1回购代理约500万美元，尚未确认美元融资失灵。</span></div><div class="cycle-fact"><b>信用层</b><span>HY利差320bp、CCC利差1314bp；弱信用恶化比股指更值得跟踪。</span></div></div>
       </section>
       <div class="window-grid">
         <section class="window-panel"><p class="eyebrow">SECOND-WAVE PATH</p><h4>第二浪后续路径概率</h4>${restartWindows.map((item) => `<div class="window-row"><b>${item.window}</b><span>${item.note}</span><strong>${item.probability}%</strong></div>`).join("")}</section>
